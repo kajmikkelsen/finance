@@ -1,0 +1,114 @@
+object FImport: TFImport
+  Left = 2016
+  Height = 434
+  Top = 1293
+  Width = 745
+  Caption = 'Importer'
+  ClientHeight = 434
+  ClientWidth = 745
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 384
+    Width = 745
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 745
+    TabOrder = 1
+    object Button1: TButton
+      Left = 648
+      Height = 25
+      Top = 16
+      Width = 75
+      Anchors = [akRight, akBottom]
+      Caption = 'Button1'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 560
+      Height = 25
+      Top = 16
+      Width = 75
+      Anchors = [akRight, akBottom]
+      Cancel = True
+      Caption = 'Button2'
+      ModalResult = 2
+      TabOrder = 1
+    end
+  end
+  object lb1: TListBox
+    Left = 384
+    Height = 336
+    Top = 32
+    Width = 156
+    Anchors = [akTop, akRight, akBottom]
+    ItemHeight = 0
+    OnClick = lb1Click
+    TabOrder = 2
+    TopIndex = -1
+  end
+  object lb2: TListBox
+    Left = 560
+    Height = 336
+    Top = 32
+    Width = 156
+    Anchors = [akTop, akRight, akBottom]
+    ItemHeight = 0
+    TabOrder = 3
+    TopIndex = -1
+  end
+  object Label1: TLabel
+    Left = 560
+    Height = 16
+    Top = 11
+    Width = 35
+    Anchors = [akTop, akRight, akBottom]
+    Caption = 'Felter'
+  end
+  object Label2: TLabel
+    Left = 384
+    Height = 16
+    Top = 11
+    Width = 49
+    Anchors = [akTop, akRight, akBottom]
+    Caption = 'Tabeller'
+  end
+  object Edit1: TEdit
+    Left = 32
+    Height = 24
+    Top = 32
+    Width = 328
+    Anchors = [akTop, akLeft, akRight]
+    OnClick = Edit1Click
+    ReadOnly = True
+    TabOrder = 0
+  end
+  object Label3: TLabel
+    Left = 32
+    Height = 16
+    Top = 12
+    Width = 72
+    Caption = 'Fil til import'
+  end
+  object Memo1: TMemo
+    Left = 32
+    Height = 304
+    Top = 64
+    Width = 328
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Lines.Strings = (
+      ''
+    )
+    ReadOnly = True
+    TabOrder = 4
+  end
+  object OD1: TOpenDialog
+    Filter = 'csv|*.csv|txt|*.txt|Alle|*.*'
+    Left = 419
+    Top = 73
+  end
+end

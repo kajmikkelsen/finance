@@ -1,0 +1,17 @@
+{"version":1,"strings":[
+{"hash":4929534,"name":"tfmain.caption","sourcebytes":[70,77,97,105,110],"value":"FMain"},
+{"hash":164345425,"name":"tfmain.button1.caption","sourcebytes":[66,117,116,116,111,110,49],"value":"Button1"},
+{"hash":191871314,"name":"tfmain.menuitem1.caption","sourcebytes":[75,97,114,116,111,116,101,107,101,114],"value":"Kartoteker"},
+{"hash":21206405,"name":"tfmain.aimportzip.caption","sourcebytes":[114,115,73,109,112,111,114,116,90,105,112,67,111,100,101],"value":"rsImportZipCode"},
+{"hash":108440338,"name":"tfmain.apostnr.caption","sourcebytes":[65,80,111,115,116,110,114],"value":"APostnr"},
+{"hash":111874345,"name":"tfmain.apostnrny.caption","sourcebytes":[65,80,111,115,116,110,114,78,121],"value":"APostnrNy"},
+{"hash":75342788,"name":"tfmain.aafslut.caption","sourcebytes":[65,102,115,108,117,116],"value":"Afslut"},
+{"hash":369348,"name":"tfmain.apostnrdel.caption","sourcebytes":[83,108,101,116],"value":"Slet"},
+{"hash":73206065,"name":"tfmain.afirma.caption","sourcebytes":[65,70,105,114,109,97],"value":"AFirma"},
+{"hash":73557423,"name":"tfmain.akonto.caption","sourcebytes":[65,75,111,110,116,111],"value":"AKonto"},
+{"hash":40220729,"name":"tfmain.akontony.caption","sourcebytes":[65,75,111,110,116,111,78,121],"value":"AKontoNy"},
+{"hash":74883010,"name":"tfmain.aimport.caption","sourcebytes":[73,109,112,111,114,116,101,114],"value":"Importer"},
+{"hash":95500644,"name":"tfmain.akontoedit.caption","sourcebytes":[65,107,111,110,116,111,101,100,105,116],"value":"Akontoedit"},
+{"hash":106658972,"name":"tfmain.akontodel.caption","sourcebytes":[65,75,111,110,116,111,68,101,108],"value":"AKontoDel"},
+{"hash":113596485,"name":"tfmain.od1.title","sourcebytes":[114,115,79,112,101,110,70,105,108,101],"value":"rsOpenFile"}
+]}

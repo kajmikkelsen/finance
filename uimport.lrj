@@ -1,0 +1,8 @@
+{"version":1,"strings":[
+{"hash":74883010,"name":"tfimport.caption","sourcebytes":[73,109,112,111,114,116,101,114],"value":"Importer"},
+{"hash":164345425,"name":"tfimport.button1.caption","sourcebytes":[66,117,116,116,111,110,49],"value":"Button1"},
+{"hash":164345426,"name":"tfimport.button2.caption","sourcebytes":[66,117,116,116,111,110,50],"value":"Button2"},
+{"hash":80493250,"name":"tfimport.label1.caption","sourcebytes":[70,101,108,116,101,114],"value":"Felter"},
+{"hash":126629730,"name":"tfimport.label2.caption","sourcebytes":[84,97,98,101,108,108,101,114],"value":"Tabeller"},
+{"hash":153345460,"name":"tfimport.label3.caption","sourcebytes":[70,105,108,32,116,105,108,32,105,109,112,111,114,116],"value":"Fil til import"}
+]}

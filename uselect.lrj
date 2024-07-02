@@ -1,0 +1,12 @@
+{"version":1,"strings":[
+{"hash":194784228,"name":"tfselect.caption","sourcebytes":[70,83,101,108,101,99,116],"value":"FSelect"},
+{"hash":86477809,"name":"tfselect.label1.caption","sourcebytes":[76,97,98,101,108,49],"value":"Label1"},
+{"hash":37495296,"name":"tfselect.label2.caption","sourcebytes":[32,32,58,32,32,32,32],"value":"  :    "},
+{"hash":1369,"name":"tfselect.button1.caption","sourcebytes":[78,121],"value":"Ny"},
+{"hash":22724,"name":"tfselect.button2.caption","sourcebytes":[82,101,116],"value":"Ret"},
+{"hash":369348,"name":"tfselect.button3.caption","sourcebytes":[83,108,101,116],"value":"Slet"},
+{"hash":75342788,"name":"tfselect.button4.caption","sourcebytes":[65,102,115,108,117,116],"value":"Afslut"},
+{"hash":97482452,"name":"tfselect.menuitem3.caption","sourcebytes":[65,69,120,112,111,114,116],"value":"AExport"},
+{"hash":15198290,"name":"tfselect.aselectfields.caption","sourcebytes":[86,195,166,108,103,32,102,101,108,116,101,114],"value":"V\u00E6lg felter"},
+{"hash":5738580,"name":"tfselect.aprint.caption","sourcebytes":[80,114,105,110,116],"value":"Print"}
+]}

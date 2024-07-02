@@ -1,0 +1,318 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da_DK\n"
+"X-Generator: Poedit 2.3\n"
+
+#: global.rsdatabase
+msgid "Database"
+msgstr ""
+
+#: global.rsdatadicvedl
+msgctxt "global.rsdatadicvedl"
+msgid "Vedligehold DataDic"
+msgstr ""
+
+#: global.rsexit
+msgid "&Afslut"
+msgstr ""
+
+#: global.rshelp
+msgctxt "global.rshelp"
+msgid "&Hjælp"
+msgstr ""
+
+#: global.rshostip
+msgid "HostIP"
+msgstr ""
+
+#: global.rskartotek
+msgctxt "global.rskartotek"
+msgid "&Kartotek"
+msgstr ""
+
+#: global.rslanguage
+msgid "Sprog"
+msgstr ""
+
+#: global.rslogin
+msgctxt "global.rslogin"
+msgid "Login"
+msgstr ""
+
+#: global.rsoptions
+msgid "&Indstillinger"
+msgstr "&Indstillinger"
+
+#: global.rspass
+msgctxt "global.rspass"
+msgid "Password"
+msgstr ""
+
+#: global.rsport
+msgid "Port"
+msgstr ""
+
+#: global.rsuser
+msgctxt "global.rsuser"
+msgid "Bruger"
+msgstr ""
+
+#: global.rswronguserpw
+msgctxt "global.rswronguserpw"
+msgid "Fejl i bruger og/eller databaseoplysninger"
+msgstr ""
+
+#: mylib.rscaptionconfirmation
+msgid "Bekræft"
+msgstr ""
+
+#: mylib.rscaptionerror
+msgid "Fejl"
+msgstr ""
+
+#: mylib.rscaptioninformation
+msgid "Information"
+msgstr ""
+
+#: mylib.rscaptionwarning
+msgid "Advarsel"
+msgstr ""
+
+#: mylib.rsmsgabort
+msgctxt "mylib.rsmsgabort"
+msgid "&Afbryd"
+msgstr ""
+
+#: mylib.rsmsgcancel
+msgctxt "mylib.rsmsgcancel"
+msgid "&Fortryd"
+msgstr ""
+
+#: mylib.rsmsghelp
+msgctxt "mylib.rsmsghelp"
+msgid "&Hjælp"
+msgstr ""
+
+#: mylib.rsmsgignore
+msgid "&Ignorer"
+msgstr ""
+
+#: mylib.rsmsgno
+msgid "&Nej"
+msgstr ""
+
+#: mylib.rsmsgnotoall
+msgid "Nej til alt"
+msgstr ""
+
+#: mylib.rsmsgok
+msgid "&Ok"
+msgstr ""
+
+#: mylib.rsmsgretry
+msgid "&Prøv igen"
+msgstr ""
+
+#: mylib.rsmsgyes
+msgid "&Ja"
+msgstr ""
+
+#: mylib.rsmsgyestoall
+msgid "Ja til &alt"
+msgstr ""
+
+#: mylib.scouldnotcreate
+msgid " Kunne ikke danne "
+msgstr ""
+
+#: tfdatadic.button1.caption
+msgctxt "tfdatadic.button1.caption"
+msgid "Afslut"
+msgstr ""
+
+#: tfdatadic.button2.caption
+msgid "Gem"
+msgstr ""
+
+#: tfdatadic.caption
+msgid "FDataDic"
+msgstr ""
+
+#: tfoptions.cancelbtn.caption
+msgid "CancelBTN"
+msgstr ""
+
+#: tfoptions.caption
+msgid "Options"
+msgstr ""
+
+#: tfoptions.edatabase.text
+msgctxt "tfoptions.edatabase.text"
+msgid "EDataBase"
+msgstr ""
+
+#: tfoptions.edit1.text
+msgctxt "tfoptions.edit1.text"
+msgid "Edit1"
+msgstr ""
+
+#: tfoptions.ehostip.text
+msgctxt "tfoptions.ehostip.text"
+msgid "EHostIP"
+msgstr ""
+
+#: tfoptions.eport.text
+msgctxt "tfoptions.eport.text"
+msgid "EPort"
+msgstr ""
+
+#: tfoptions.groupbox1.caption
+msgctxt "tfoptions.groupbox1.caption"
+msgid "GroupBox1"
+msgstr ""
+
+#: tfoptions.label1.caption
+msgid "Label1"
+msgstr ""
+
+#: tfoptions.label2.caption
+msgctxt "tfoptions.label2.caption"
+msgid "Label2"
+msgstr ""
+
+#: tfoptions.label3.caption
+msgctxt "tfoptions.label3.caption"
+msgid "Label3"
+msgstr ""
+
+#: tfoptions.label4.caption
+msgctxt "tfoptions.label4.caption"
+msgid "Label4"
+msgstr ""
+
+#: tfoptions.langcb1.text
+msgid "LangCB1"
+msgstr ""
+
+#: tfoptions.okbtn.caption
+msgid "OKbtn"
+msgstr ""
+
+#: tlogin.button1.caption
+msgctxt "tlogin.button1.caption"
+msgid "ok"
+msgstr ""
+
+#: tlogin.button2.caption
+msgid "Fortryd"
+msgstr ""
+
+#: tlogin.caption
+msgctxt "tlogin.caption"
+msgid "Login"
+msgstr ""
+
+#: tlogin.edatabase.text
+msgctxt "tlogin.edatabase.text"
+msgid "EDataBase"
+msgstr ""
+
+#: tlogin.ehostip.text
+msgctxt "tlogin.ehostip.text"
+msgid "EHostIP"
+msgstr ""
+
+#: tlogin.eport.text
+msgctxt "tlogin.eport.text"
+msgid "EPort"
+msgstr ""
+
+#: tlogin.epw.text
+msgid "55HappyFeet!"
+msgstr ""
+
+#: tlogin.euser.text
+msgid "adm"
+msgstr ""
+
+#: tlogin.groupbox1.caption
+msgctxt "tlogin.groupbox1.caption"
+msgid "GroupBox1"
+msgstr ""
+
+#: tlogin.helpbtn.caption
+msgid "help"
+msgstr ""
+
+#: tlogin.label1.caption
+msgctxt "tlogin.label1.caption"
+msgid "Bruger"
+msgstr ""
+
+#: tlogin.label2.caption
+msgctxt "tlogin.label2.caption"
+msgid "Password"
+msgstr ""
+
+#: tlogin.label3.caption
+msgctxt "tlogin.label3.caption"
+msgid "Label2"
+msgstr ""
+
+#: tlogin.label4.caption
+msgctxt "tlogin.label4.caption"
+msgid "Label3"
+msgstr ""
+
+#: tlogin.label5.caption
+msgctxt "tlogin.label5.caption"
+msgid "Label4"
+msgstr ""
+
+#: tmainform.action1.caption
+msgctxt "tmainform.action1.caption"
+msgid "rsExit"
+msgstr ""
+
+#: tmainform.afslut.caption
+msgctxt "tmainform.afslut.caption"
+msgid "Afslut"
+msgstr ""
+
+#: tmainform.aoptions.caption
+msgid "AOptions"
+msgstr ""
+
+#: tmainform.button1.caption
+msgctxt "tmainform.button1.caption"
+msgid "Afslut"
+msgstr ""
+
+#: tmainform.caption
+msgid "MainForm"
+msgstr ""
+
+#: tmainform.datadic_maint.caption
+msgctxt "tmainform.datadic_maint.caption"
+msgid "Vedligehold DataDic"
+msgstr ""
+
+#: tmainform.edit1.text
+msgctxt "tmainform.edit1.text"
+msgid "Edit1"
+msgstr ""
+
+#: tmainform.menuitem1.caption
+msgctxt "tmainform.menuitem1.caption"
+msgid "Kartotek"
+msgstr ""
+

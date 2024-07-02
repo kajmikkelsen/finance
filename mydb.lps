@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="mydb.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MyDb"/>
+        <EditorIndex Value="4"/>
+        <CursorPos Y="18"/>
+        <UsageCount Value="171"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="mydbmain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MyDbMain"/>
+        <TopLine Value="81"/>
+        <CursorPos X="3" Y="105"/>
+        <UsageCount Value="171"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="udm1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="346"/>
+        <CursorPos Y="368"/>
+        <UsageCount Value="171"/>
+        <Bookmarks Count="3">
+          <Item0 Y="343" ID="2"/>
+          <Item1 X="3" Y="380" ID="3"/>
+          <Item2 X="72" Y="361" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="mylib.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MyLib"/>
+        <UsageCount Value="171"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uselect.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FSelect"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="161"/>
+        <CursorPos X="3" Y="167"/>
+        <UsageCount Value="171"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uselfields.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FSelFields"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="7"/>
+        <CursorPos X="16" Y="12"/>
+        <UsageCount Value="168"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="upostnr.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FPostnrEdit"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="25"/>
+        <CursorPos Y="52"/>
+        <UsageCount Value="107"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ufirma.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FFirma"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="131"/>
+        <CursorPos Y="151"/>
+        <UsageCount Value="94"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ukontoplan.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FKontoplan"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Ukontoplan"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="141"/>
+        <CursorPos Y="161"/>
+        <UsageCount Value="82"/>
+        <Bookmarks Count="1">
+          <Item0 X="3" Y="84" ID="4"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uimport.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FImport"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="129"/>
+        <CursorPos X="9" Y="209"/>
+        <UsageCount Value="50"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../lib/mylib.pas"/>
+        <UnitName Value="MyLib"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="255"/>
+        <CursorPos Y="266"/>
+        <UsageCount Value="86"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="global.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="11"/>
+        <CursorPos X="20" Y="73"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/3.0.0/lcl/extctrls.pp"/>
+        <UnitName Value="ExtCtrls"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="757"/>
+        <UsageCount Value="15"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/packages/fcl-db/src/base/db.pas"/>
+        <UnitName Value="DB"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="1900"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/packages/fcl-db/src/sqldb/sqldb.pp"/>
+        <UnitName Value="SQLDB"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="642"/>
+        <CursorPos X="3" Y="656"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/3.0.0/lcl/lcltype.pp"/>
+        <UnitName Value="LCLType"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="387"/>
+        <CursorPos X="8" Y="411"/>
+        <UsageCount Value="26"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="669"/>
+        <CursorPos X="14" Y="682"/>
+        <UsageCount Value="19"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/stringl.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="219"/>
+        <CursorPos X="3" Y="222"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/3.0.0/lcl/lclmessageglue.pas"/>
+        <UnitName Value="LCLMessageGlue"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="104"/>
+        <CursorPos X="39" Y="110"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/3.0.0/lcl/include/customform.inc"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="2975"/>
+        <CursorPos Y="2981"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/3.0.0/lcl/include/control.inc"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="3587"/>
+        <CursorPos Y="3602"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="367" TopLine="349"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="368" TopLine="349"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="282" Column="77" TopLine="275"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="290" Column="30" TopLine="275"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="57" Column="25" TopLine="44"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="114" Column="3" TopLine="87"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="186" Column="14" TopLine="159"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="107" Column="3" TopLine="80"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="31" Column="12" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="27" Column="93" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="362" Column="66" TopLine="349"/>
+      </Position>
+      <Position>
+        <Filename Value="mydbmain.pas"/>
+        <Caret Line="105" Column="3" TopLine="81"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="314" Column="3" TopLine="309"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="32" Column="15" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="196" Column="3" TopLine="244"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="126" Column="50" TopLine="106"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="369" Column="21" TopLine="347"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="343" TopLine="323"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="117" Column="7" TopLine="103"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="369" Column="22" TopLine="356"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="354" TopLine="340"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="355" TopLine="340"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="356" TopLine="340"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="357" TopLine="340"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="358" TopLine="340"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="366" TopLine="343"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="365" TopLine="343"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="366" TopLine="343"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="365" TopLine="343"/>
+      </Position>
+      <Position>
+        <Filename Value="udm1.pas"/>
+        <Caret Line="368" TopLine="345"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="udm1.pas"/>
+        <Line Value="354"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="mydbmain.pas"/>
+        <Line Value="288"/>
+      </Item>
+    </BreakPoints>
+    <Watches>
+      <Item>
+        <Expression Value="dbname"/>
+      </Item>
+    </Watches>
+  </Debugging>
+</CONFIG>

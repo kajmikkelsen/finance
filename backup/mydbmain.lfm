@@ -1,0 +1,137 @@
+object FMain: TFMain
+  Left = 1919
+  Height = 483
+  Top = 689
+  Width = 1123
+  Caption = 'FMain'
+  ClientHeight = 483
+  ClientWidth = 1123
+  Menu = MM1
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 224
+    Top = 248
+    Width = 1072
+    Color = clWindow
+    Columns = <>
+    DataSource = DM1.DS1
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 50
+    Height = 25
+    Top = 30
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Memo1: TMemo
+    Left = 16
+    Height = 186
+    Top = 56
+    Width = 448
+    Lines.Strings = (
+      'Memo1'
+    )
+    ScrollBars = ssBoth
+    TabOrder = 2
+  end
+  object Memo2: TMemo
+    Left = 472
+    Height = 170
+    Top = 56
+    Width = 608
+    Lines.Strings = (
+      'Memo2'
+    )
+    ScrollBars = ssAutoBoth
+    TabOrder = 3
+  end
+  object MM1: TMainMenu
+    Left = 656
+    Top = 8
+    object MenuItem1: TMenuItem
+      Caption = 'Kartoteker'
+      object MenuItem6: TMenuItem
+        Action = AFirma
+      end
+      object MenuItem5: TMenuItem
+        Action = AKonto
+      end
+      object MenuItem3: TMenuItem
+        Action = APostnr
+      end
+      object Separator2: TMenuItem
+        Action = AImport
+      end
+      object MenuItem2: TMenuItem
+        Action = AImportZip
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem4: TMenuItem
+        Action = AAfslut
+      end
+    end
+  end
+  object AL1: TActionList
+    Left = 736
+    object AImportZip: TAction
+      Caption = 'rsImportZipCode'
+      OnExecute = AImportZipExecute
+    end
+    object APostnr: TAction
+      Caption = 'APostnr'
+      OnExecute = APostnrExecute
+    end
+    object APostnrEdit: TAction
+      OnExecute = APostnrEditExecute
+    end
+    object APostnrNy: TAction
+      Caption = 'APostnrNy'
+      OnExecute = APostnrNyExecute
+    end
+    object AAfslut: TAction
+      Caption = 'Afslut'
+      OnExecute = AAfslutExecute
+    end
+    object APostnrDel: TAction
+      Caption = 'Slet'
+      OnExecute = APostnrDelExecute
+    end
+    object AFirma: TAction
+      Caption = 'AFirma'
+      OnExecute = AFirmaExecute
+    end
+    object AKonto: TAction
+      Caption = 'AKonto'
+      OnExecute = AKontoExecute
+    end
+    object AKontoNy: TAction
+      Caption = 'AKontoNy'
+      OnExecute = AKontoNyExecute
+    end
+    object AImport: TAction
+      Caption = 'Importer'
+      OnExecute = AImportExecute
+      ShortCut = 49225
+    end
+    object Akontoedit: TAction
+      Caption = 'Akontoedit'
+      OnExecute = AkontoeditExecute
+    end
+    object AKontoDel: TAction
+      Caption = 'AKontoDel'
+      OnExecute = AKontoDelExecute
+    end
+  end
+  object OD1: TOpenDialog
+    Title = 'rsOpenFile'
+    Left = 253
+    Top = 15
+  end
+end

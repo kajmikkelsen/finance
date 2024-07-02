@@ -1,0 +1,117 @@
+object DM1: TDM1
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  OldCreateOrder = False
+  Height = 476
+  HorizontalOffset = 1062
+  VerticalOffset = 16
+  Width = 808
+  object lt1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = SQLT1
+    AlwaysUseBigint = False
+    Left = 104
+    Top = 16
+  end
+  object SQLQ1: TSQLQuery
+    FieldDefs = <>
+    Database = lt1
+    Transaction = SQLT1
+    SQL.Strings = (
+      'CREATE TABLE Customer ('
+      'customerId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,'
+      'lastName TEXT,'
+      'firstName TEXT,'
+      'dob DATE,'
+      'mobile TEXT,'
+      'countryCode TEXT'
+      ');'
+      ''
+    )
+    Params = <>
+    Macros = <>
+    Left = 24
+    Top = 16
+  end
+  object SQLT1: TSQLTransaction
+    Active = False
+    Database = lt1
+    Left = 144
+    Top = 16
+  end
+  object DS1: TDataSource
+    DataSet = SQLQ1
+    Left = 64
+    Top = 16
+  end
+  object sqlq2: TSQLQuery
+    FieldDefs = <>
+    Database = lt1
+    Transaction = SQLT1
+    Params = <>
+    Macros = <>
+    Left = 24
+    Top = 88
+  end
+  object DS2: TDataSource
+    DataSet = sqlq2
+    Left = 72
+    Top = 88
+  end
+  object SQLQ3: TSQLQuery
+    FieldDefs = <>
+    Database = lt1
+    Transaction = SQLT1
+    Params = <>
+    Macros = <>
+    Left = 40
+    Top = 154
+  end
+  object DS3: TDataSource
+    DataSet = SQLQ3
+    Left = 88
+    Top = 160
+  end
+  object DSx: TDataSource
+    DataSet = SQLQx
+    Left = 488
+    Top = 232
+  end
+  object SQLQx: TSQLQuery
+    FieldDefs = <>
+    Database = ltx
+    Transaction = SQLTx
+    SQL.Strings = (
+      'CREATE TABLE Customer ('
+      'customerId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,'
+      'lastName TEXT,'
+      'firstName TEXT,'
+      'dob DATE,'
+      'mobile TEXT,'
+      'countryCode TEXT'
+      ');'
+      ''
+    )
+    Params = <>
+    Macros = <>
+    Left = 448
+    Top = 232
+  end
+  object ltx: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = SQLTx
+    AlwaysUseBigint = False
+    Left = 528
+    Top = 232
+  end
+  object SQLTx: TSQLTransaction
+    Active = False
+    Database = ltx
+    Left = 568
+    Top = 232
+  end
+end

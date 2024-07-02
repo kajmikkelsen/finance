@@ -1,0 +1,46 @@
+object FSelFields: TFSelFields
+  Left = 2021
+  Height = 440
+  Top = 37
+  Width = 351
+  Caption = 'FSelFields'
+  ClientHeight = 440
+  ClientWidth = 351
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '3.0.0.3'
+  object CLB1: TCheckListBox
+    Left = 8
+    Height = 416
+    Top = 8
+    Width = 236
+    Items.Strings = (
+      'test1'
+      'test2'
+    )
+    ItemHeight = 22
+    TabOrder = 0
+    OnDblClick = CLB1DblClick
+    Data = {
+      020000000000
+    }
+  end
+  object Button1: TButton
+    Left = 272
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Button1'
+    ModalResult = 1
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 272
+    Height = 25
+    Top = 48
+    Width = 75
+    Caption = 'Button2'
+    ModalResult = 2
+    TabOrder = 2
+  end
+end

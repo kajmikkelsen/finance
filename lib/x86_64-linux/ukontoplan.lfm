@@ -1,0 +1,174 @@
+object FKontoplan: TFKontoplan
+  Left = 343
+  Height = 461
+  Top = 250
+  Width = 658
+  Caption = 'FKontoplan'
+  ClientHeight = 461
+  ClientWidth = 658
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object ENummer: TEdit
+    Left = 176
+    Height = 24
+    Top = 16
+    Width = 80
+    NumbersOnly = True
+    OnExit = ENummerExit
+    OnKeyPress = ENummerKeyPress
+    TabOrder = 0
+  end
+  object Enavn: TEdit
+    Left = 176
+    Height = 24
+    Top = 50
+    Width = 440
+    Anchors = [akTop, akLeft, akRight]
+    TabOrder = 1
+    Text = 'Enavn'
+  end
+  object Etyp: TRadioGroup
+    Left = 176
+    Height = 105
+    Top = 80
+    Width = 305
+    AutoFill = True
+    Caption = 'Kontotype'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 87
+    ClientWidth = 301
+    ItemIndex = 0
+    Items.Strings = (
+      'Bogførring'
+      'Overskrift'
+      'Sammentælling'
+    )
+    OnClick = EtypClick
+    TabOrder = 2
+  end
+  object Emomstyp: TRadioGroup
+    Left = 176
+    Height = 105
+    Top = 192
+    Width = 305
+    AutoFill = True
+    Caption = 'Moms'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 87
+    ClientWidth = 301
+    ItemIndex = 0
+    Items.Strings = (
+      'Ingen moms'
+      'Indgående moms (købsmoms)'
+      'Udgående moms (salgsmoms)'
+    )
+    OnClick = EmomstypClick
+    TabOrder = 3
+  end
+  object Emomssats: TComboBox
+    Left = 176
+    Height = 26
+    Top = 304
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 4
+    Text = 'Emomssats'
+  end
+  object EFra: TEdit
+    Left = 176
+    Height = 24
+    Top = 340
+    Width = 80
+    NumbersOnly = True
+    OnKeyPress = ENummerKeyPress
+    TabOrder = 5
+  end
+  object ETil: TEdit
+    Left = 176
+    Height = 24
+    Top = 371
+    Width = 80
+    NumbersOnly = True
+    OnKeyPress = ENummerKeyPress
+    TabOrder = 6
+  end
+  object Label1: TLabel
+    Left = 64
+    Height = 16
+    Top = 24
+    Width = 87
+    Caption = 'Kontonummer'
+  end
+  object Label2: TLabel
+    Left = 64
+    Height = 16
+    Top = 58
+    Width = 67
+    Caption = 'Kontotekst'
+  end
+  object Label3: TLabel
+    Left = 64
+    Height = 16
+    Top = 314
+    Width = 61
+    Caption = 'Momssats'
+  end
+  object Label4: TLabel
+    Left = 64
+    Height = 16
+    Top = 348
+    Width = 58
+    Caption = 'Fra konto'
+  end
+  object Label5: TLabel
+    Left = 64
+    Height = 16
+    Top = 379
+    Width = 57
+    Caption = 'Til komto'
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 411
+    Width = 658
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 658
+    TabOrder = 7
+    object Button1: TButton
+      Left = 568
+      Height = 25
+      Top = 15
+      Width = 75
+      Anchors = [akRight, akBottom]
+      Caption = 'Button1'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 472
+      Height = 25
+      Top = 15
+      Width = 75
+      Anchors = [akRight, akBottom]
+      Cancel = True
+      Caption = 'Button2'
+      ModalResult = 2
+      TabOrder = 1
+    end
+  end
+end

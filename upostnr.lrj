@@ -1,0 +1,8 @@
+{"version":1,"strings":[
+{"hash":77134514,"name":"tfpostnredit.caption","sourcebytes":[82,101,100,105,103,101,114,32,112,111,115,116,110,117,109,109,101,114],"value":"Rediger postnummer"},
+{"hash":86477809,"name":"tfpostnredit.label1.caption","sourcebytes":[76,97,98,101,108,49],"value":"Label1"},
+{"hash":86477810,"name":"tfpostnredit.label2.caption","sourcebytes":[76,97,98,101,108,50],"value":"Label2"},
+{"hash":86477811,"name":"tfpostnredit.label3.caption","sourcebytes":[76,97,98,101,108,51],"value":"Label3"},
+{"hash":164345425,"name":"tfpostnredit.button1.caption","sourcebytes":[66,117,116,116,111,110,49],"value":"Button1"},
+{"hash":164345426,"name":"tfpostnredit.button2.caption","sourcebytes":[66,117,116,116,111,110,50],"value":"Button2"}
+]}

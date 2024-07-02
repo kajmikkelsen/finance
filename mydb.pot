@@ -1,0 +1,449 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: mylib.rscaptionconfirmation
+msgid "Bekræft"
+msgstr ""
+
+#: mylib.rscaptionerror
+msgid "Fejl"
+msgstr ""
+
+#: mylib.rscaptioninformation
+msgid "Information"
+msgstr ""
+
+#: mylib.rscaptionwarning
+msgid "Advarsel"
+msgstr ""
+
+#: mylib.rsmsgabort
+msgid "&Afbryd"
+msgstr ""
+
+#: mylib.rsmsgcancel
+msgid "&Fortryd"
+msgstr ""
+
+#: mylib.rsmsghelp
+msgid "&Hjælp"
+msgstr ""
+
+#: mylib.rsmsgignore
+msgid "&Ignorer"
+msgstr ""
+
+#: mylib.rsmsgno
+msgid "&Nej"
+msgstr ""
+
+#: mylib.rsmsgnotoall
+msgid "Nej til alt"
+msgstr ""
+
+#: mylib.rsmsgok
+msgid "&Ok"
+msgstr ""
+
+#: mylib.rsmsgretry
+msgid "&Prøv igen"
+msgstr ""
+
+#: mylib.rsmsgyes
+msgid "&Ja"
+msgstr ""
+
+#: mylib.rsmsgyestoall
+msgid "Ja til &alt"
+msgstr ""
+
+#: mylib.rsnumbersonly
+msgid "Kun tal"
+msgstr ""
+
+#: mylib.scouldnotcreate
+msgid " Kunne ikke danne "
+msgstr ""
+
+#: tffirma.button1.caption
+msgctxt "tffirma.button1.caption"
+msgid "Button1"
+msgstr ""
+
+#: tffirma.button2.caption
+msgctxt "tffirma.button2.caption"
+msgid "Button2"
+msgstr ""
+
+#: tffirma.caption
+msgid "Virksomhedsoplysninger"
+msgstr ""
+
+#: tffirma.efirmaadresse.text
+msgid "EFirmaAdresse"
+msgstr ""
+
+#: tffirma.efirmaadresse2.text
+msgid "EFirmaAdresse2"
+msgstr ""
+
+#: tffirma.efirmabanknavn.text
+msgid "EFirmaBankNavn"
+msgstr ""
+
+#: tffirma.efirmabankreg.text
+msgid "EFirmaBankReg"
+msgstr ""
+
+#: tffirma.efirmaby.text
+msgid "EFirmaBy"
+msgstr ""
+
+#: tffirma.efirmacvr.text
+msgid "EFirmaCVR"
+msgstr ""
+
+#: tffirma.efirmakonto.text
+msgid "EFirmaKonto"
+msgstr ""
+
+#: tffirma.efirmaland.text
+msgid "EFirmaLand"
+msgstr ""
+
+#: tffirma.efirmamail.text
+msgid "EFirmaMail"
+msgstr ""
+
+#: tffirma.efirmanavn.text
+msgctxt "tffirma.efirmanavn.text"
+msgid "Dyt"
+msgstr ""
+
+#: tffirma.efirmapostnr.text
+msgid "EFirmaPostnr"
+msgstr ""
+
+#: tffirma.efirmatlf.text
+msgid "EFirmaTlf"
+msgstr ""
+
+#: tffirma.label1.caption
+msgid "Navn"
+msgstr ""
+
+#: tffirma.label10.caption
+msgid "Label10"
+msgstr ""
+
+#: tffirma.label11.caption
+msgid "Label11"
+msgstr ""
+
+#: tffirma.label12.caption
+msgid "Label12"
+msgstr ""
+
+#: tffirma.label13.caption
+msgid "Label13"
+msgstr ""
+
+#: tffirma.label14.caption
+msgid "Label14"
+msgstr ""
+
+#: tffirma.label15.caption
+msgid "Label15"
+msgstr ""
+
+#: tffirma.label16.caption
+msgid "Label16"
+msgstr ""
+
+#: tffirma.label17.caption
+msgid ""
+"Ugående\n"
+"Finanskonto"
+msgstr ""
+
+#: tffirma.label18.caption
+msgid ""
+"Indgående\n"
+"Finanskonto"
+msgstr ""
+
+#: tffirma.label2.caption
+msgctxt "tffirma.label2.caption"
+msgid "Label2"
+msgstr ""
+
+#: tffirma.label3.caption
+msgctxt "tffirma.label3.caption"
+msgid "Label3"
+msgstr ""
+
+#: tffirma.label4.caption
+msgid "Label4"
+msgstr ""
+
+#: tffirma.label5.caption
+msgid "Label5"
+msgstr ""
+
+#: tffirma.label6.caption
+msgid "Label6"
+msgstr ""
+
+#: tffirma.label7.caption
+msgid "Label7"
+msgstr ""
+
+#: tffirma.label8.caption
+msgid "Label8"
+msgstr ""
+
+#: tffirma.label9.caption
+msgid "Label9"
+msgstr ""
+
+#: tffirma.momssats.caption
+msgctxt "tffirma.momssats.caption"
+msgid "Momssats"
+msgstr ""
+
+#: tffirma.ts1.caption
+msgid "Firmanavn"
+msgstr ""
+
+#: tfimport.button1.caption
+msgctxt "tfimport.button1.caption"
+msgid "Button1"
+msgstr ""
+
+#: tfimport.button2.caption
+msgctxt "tfimport.button2.caption"
+msgid "Button2"
+msgstr ""
+
+#: tfimport.caption
+msgctxt "tfimport.caption"
+msgid "Importer"
+msgstr ""
+
+#: tfimport.label1.caption
+msgid "Felter"
+msgstr ""
+
+#: tfimport.label2.caption
+msgid "Tabeller"
+msgstr ""
+
+#: tfimport.label3.caption
+msgid "Fil til import"
+msgstr ""
+
+#: tfkontoplan.button1.caption
+msgctxt "tfkontoplan.button1.caption"
+msgid "Button1"
+msgstr ""
+
+#: tfkontoplan.button2.caption
+msgctxt "tfkontoplan.button2.caption"
+msgid "Button2"
+msgstr ""
+
+#: tfkontoplan.caption
+msgid "FKontoplan"
+msgstr ""
+
+#: tfkontoplan.emomssats.text
+msgid "Emomssats"
+msgstr ""
+
+#: tfkontoplan.emomstyp.caption
+msgctxt "tfkontoplan.emomstyp.caption"
+msgid "Moms"
+msgstr ""
+
+#: tfkontoplan.enavn.text
+msgid "Enavn"
+msgstr ""
+
+#: tfkontoplan.etyp.caption
+msgctxt "tfkontoplan.etyp.caption"
+msgid "Kontotype"
+msgstr ""
+
+#: tfkontoplan.label1.caption
+msgid "Kontonummer"
+msgstr ""
+
+#: tfkontoplan.label2.caption
+msgid "Kontotekst"
+msgstr ""
+
+#: tfkontoplan.label3.caption
+msgctxt "tfkontoplan.label3.caption"
+msgid "Momssats"
+msgstr ""
+
+#: tfkontoplan.label4.caption
+msgid "Fra konto"
+msgstr ""
+
+#: tfkontoplan.label5.caption
+msgid "Til komto"
+msgstr ""
+
+#: tfmain.aafslut.caption
+msgctxt "tfmain.aafslut.caption"
+msgid "Afslut"
+msgstr ""
+
+#: tfmain.afirma.caption
+msgid "AFirma"
+msgstr ""
+
+#: tfmain.aimport.caption
+msgctxt "tfmain.aimport.caption"
+msgid "Importer"
+msgstr ""
+
+#: tfmain.aimportzip.caption
+msgid "rsImportZipCode"
+msgstr ""
+
+#: tfmain.akonto.caption
+msgctxt "tfmain.akonto.caption"
+msgid "AKonto"
+msgstr ""
+
+#: tfmain.akontodel.caption
+msgid "AKontoDel"
+msgstr ""
+
+#: tfmain.akontoedit.caption
+msgid "Akontoedit"
+msgstr ""
+
+#: tfmain.akontony.caption
+msgid "AKontoNy"
+msgstr ""
+
+#: tfmain.apostnr.caption
+msgid "APostnr"
+msgstr ""
+
+#: tfmain.apostnrdel.caption
+msgctxt "tfmain.apostnrdel.caption"
+msgid "Slet"
+msgstr ""
+
+#: tfmain.apostnrny.caption
+msgid "APostnrNy"
+msgstr ""
+
+#: tfmain.button1.caption
+msgctxt "tfmain.button1.caption"
+msgid "Button1"
+msgstr ""
+
+#: tfmain.caption
+msgid "FMain"
+msgstr ""
+
+#: tfmain.menuitem1.caption
+msgctxt "tfmain.menuitem1.caption"
+msgid "Kartoteker"
+msgstr ""
+
+#: tfmain.od1.title
+msgid "rsOpenFile"
+msgstr ""
+
+#: tfpostnredit.button1.caption
+msgctxt "tfpostnredit.button1.caption"
+msgid "Button1"
+msgstr ""
+
+#: tfpostnredit.button2.caption
+msgctxt "tfpostnredit.button2.caption"
+msgid "Button2"
+msgstr ""
+
+#: tfpostnredit.caption
+msgid "Rediger postnummer"
+msgstr ""
+
+#: tfpostnredit.label1.caption
+msgctxt "tfpostnredit.label1.caption"
+msgid "Label1"
+msgstr ""
+
+#: tfpostnredit.label2.caption
+msgctxt "tfpostnredit.label2.caption"
+msgid "Label2"
+msgstr ""
+
+#: tfpostnredit.label3.caption
+msgctxt "tfpostnredit.label3.caption"
+msgid "Label3"
+msgstr ""
+
+#: tfselect.aprint.caption
+msgid "Print"
+msgstr ""
+
+#: tfselect.aselectfields.caption
+msgid "Vælg felter"
+msgstr ""
+
+#: tfselect.button1.caption
+msgid "Ny"
+msgstr ""
+
+#: tfselect.button2.caption
+msgid "Ret"
+msgstr ""
+
+#: tfselect.button3.caption
+msgctxt "tfselect.button3.caption"
+msgid "Slet"
+msgstr ""
+
+#: tfselect.button4.caption
+msgctxt "tfselect.button4.caption"
+msgid "Afslut"
+msgstr ""
+
+#: tfselect.caption
+msgid "FSelect"
+msgstr ""
+
+#: tfselect.label1.caption
+msgctxt "tfselect.label1.caption"
+msgid "Label1"
+msgstr ""
+
+#: tfselect.label2.caption
+msgid "  :    "
+msgstr ""
+
+#: tfselect.menuitem3.caption
+msgid "AExport"
+msgstr ""
+
+#: tfselfields.button1.caption
+msgctxt "tfselfields.button1.caption"
+msgid "Button1"
+msgstr ""
+
+#: tfselfields.button2.caption
+msgctxt "tfselfields.button2.caption"
+msgid "Button2"
+msgstr ""
+
+#: tfselfields.caption
+msgid "FSelFields"
+msgstr ""
+
