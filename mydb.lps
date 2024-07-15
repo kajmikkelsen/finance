@@ -20,11 +20,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MyDbMain"/>
-        <TopLine Value="298"/>
-        <CursorPos X="62" Y="265"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos Y="3"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
-          <Item0 X="3" Y="131" ID="2"/>
+          <Item0 X="3" Y="132" ID="2"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -140,7 +140,6 @@
         <ComponentName Value="Fbilag"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="12"/>
         <TopLine Value="152"/>
         <CursorPos X="3" Y="156"/>

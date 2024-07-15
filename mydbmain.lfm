@@ -9,6 +9,7 @@ object FMain: TFMain
   Menu = MM1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  LCLVersion = '3.0.0.1'
   object DBGrid1: TDBGrid
     Left = 8
     Height = 224
