@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ComCtrls, StdCtrls,
-  ExtCtrls, MaskEdit, Spin, JvValidateEdit, AnchorDockPanel, SpinEx;
+  ExtCtrls, MaskEdit, SpinEx;
 
 type
 
@@ -15,17 +15,8 @@ type
   TFFirma = class(TForm)
     Button1: TButton;
     Button2: TButton;
-    EMoms1: TEdit;
-    EMomsuk5: TEdit;
-    Emomsik1: TEdit;
-    Emomsik2: TEdit;
-    Emomsik3: TEdit;
-    Emomsik4: TEdit;
-    Emomsik5: TEdit;
-    EMoms2: TEdit;
-    EMoms3: TEdit;
-    EMoms4: TEdit;
-    EMoms5: TEdit;
+    EBilagNr: TEdit;
+    EBilagCifre: TEdit;
     EFirmaCVR: TEdit;
     EFirmaBankNavn: TEdit;
     EFirmaKonto: TEdit;
@@ -38,10 +29,24 @@ type
     EFirmaAdresse2: TEdit;
     EFirmaAdresse: TEdit;
     EFirmaNavn: TEdit;
+    EMoms1: TEdit;
+    EMoms2: TEdit;
+    EMoms3: TEdit;
+    EMoms4: TEdit;
+    EMoms5: TEdit;
+    Emomsik1: TEdit;
+    Emomsik2: TEdit;
+    Emomsik3: TEdit;
+    Emomsik4: TEdit;
+    Emomsik5: TEdit;
     Emomsuk1: TEdit;
     Emomsuk2: TEdit;
     Emomsuk3: TEdit;
     EMomsuk4: TEdit;
+    EMomsuk5: TEdit;
+    EAarStart: TEdit;
+    GB1: TGroupBox;
+    GB2: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -52,7 +57,10 @@ type
     Label16: TLabel;
     Label17: TLabel;
     Label18: TLabel;
+    Label19: TLabel;
     Label2: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
@@ -61,10 +69,12 @@ type
     Label8: TLabel;
     Label9: TLabel;
     PageControl1: TPageControl;
-    Momssats: TTabSheet;
+    Finans: TTabSheet;
     Panel1: TPanel;
+    TabAarPer: TTabSheet;
     TS1: TTabSheet;
     procedure Button1Click(Sender: TObject);
+    procedure EAarStartExit(Sender: TObject);
     procedure EFirmaPostnrChange(Sender: TObject);
     procedure EMoms1KeyPress(Sender: TObject; var Key: char);
     procedure Emomsuk1KeyPress(Sender: TObject; var Key: char);
@@ -92,31 +102,35 @@ uses
 
 procedure TFFirma.FormCreate(Sender: TObject);
 begin
+  FFirma.Caption:= rsVirksomhedsoplysninger;
   Button1.Caption := rsOK;
   Button2.Caption := rsAfbryd;
-  with TS1 do
-  begin
-    Caption := rsFirmanavn;
-    Label1.Caption := rsNavn;
-    Label2.Caption := rsAdresse;
-    Label3.Caption := rsAdresse2;
-    Label4.Caption := rsPostnrBy;
-    Label5.Caption := rsLand;
-    Label6.Caption := rsTlf;
-    Label7.Caption := rsMail;
-    Label8.Caption := rsBank;
-    Label9.Caption := rsBankKonto;
-    Label10.Caption := rsCVR;
-    Label11.Caption := rsMoms1;
-    Label12.Caption := rsMoms2;
-    Label13.Caption := rsMoms3;
-    Label14.Caption := rsMoms4;
-    Label15.Caption := rsMoms5;
-    Label16.Caption := rsSats;
-    Label17.Caption := rsMomsUd;
-    Label18.Caption := rsMomsInd;
-  end;
-  RestoreForm(FFirma);
+  Ts1.Caption := rsFirmanavn;
+  GB1.Caption := rsMomsSats;
+  GB2.Caption := rsMisc;
+  Finans.Caption:= rsBogholderi;
+  Label1.Caption := rsNavn;
+  Label2.Caption := rsAdresse;
+  Label3.Caption := rsAdresse2;
+  Label4.Caption := rsPostnrBy;
+  Label5.Caption := rsLand;
+  Label6.Caption := rsTlf;
+  Label7.Caption := rsMail;
+  Label8.Caption := rsBank;
+  Label9.Caption := rsBankKonto;
+  Label10.Caption := rsCVR;
+  Label11.Caption := rsMoms1;
+  Label12.Caption := rsMoms2;
+  Label13.Caption := rsMoms3;
+  Label14.Caption := rsMoms4;
+  Label15.Caption := rsMoms5;
+  Label16.Caption := rsSats;
+  Label17.Caption := rsMomsUd;
+  Label18.Caption := rsMomsInd;
+  Label19.Caption := rsAarstart;
+  Label20.Caption := rsNextBilagsNummer;
+  Label21.Caption := rsBilagCifre;
+  RestoreForm(Sender as TForm);
 end;
 
 procedure TFFirma.FormActivate(Sender: TObject);
@@ -132,6 +146,22 @@ begin
       (FFirma.Components[i] as Tedit).Text := DM1.GetDiverse(st);
       (FFirma.Components[i] as Tedit).AutoSelect := False;
     end;
+  If EAarstart.Text = '' Then
+  Begin
+    EAarstart.text := Date2YMDst(Now);
+    EAarstart.Modified := True;
+  end;
+  if EBilagNr.Text = '' Then
+  Begin
+     EBilagNr.Text := '0000';
+     EBilagNr.Modified := True;
+  end;
+  if EBilagCifre.Text = '' then
+  Begin
+    EBilagCifre.Text := '4';
+    EBilagCifre.Modified:=True;
+
+  end;
   //    (FFirma.Components[i] as Tedit);
 
 end;
@@ -144,6 +174,7 @@ begin
   for i := 0 to FFirma.ComponentCount - 1 do
     if FFirma.Components[i] is TEdit then
     begin
+      St := FFirma.Components[i].Name;
       if (FFirma.Components[i] as TEdit).Modified then
       begin
         St := FFirma.Components[i].Name;
@@ -153,6 +184,18 @@ begin
       end;
     end;
   ModalResult := mrOk;
+end;
+
+procedure TFFirma.EAarStartExit(Sender: TObject);
+begin
+  EAarStart.text := NormalizeDate(EAarStart.text,lastYMD);
+  If not IsYMDValid(EAarStart.Text) Then
+  begin
+     MessageDlg(rsFejlIDato, mtError, [mbOK], 0);
+    EAarStart.SetFocus;
+  end
+  else
+  EAarstart.Modified:=True;
 end;
 
 procedure TFFirma.EFirmaPostnrChange(Sender: TObject);
@@ -172,7 +215,7 @@ end;
 
 procedure TFFirma.FormDestroy(Sender: TObject);
 begin
-  SaveForm(FFirma);
+  SaveForm(Sender as TForm);
 end;
 
 procedure TFFirma.TS1Show(Sender: TObject);

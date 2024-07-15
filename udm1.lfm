@@ -20,14 +20,6 @@ object DM1: TDM1
     Database = lt1
     Transaction = SQLT1
     SQL.Strings = (
-      'CREATE TABLE Customer ('
-      'customerId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,'
-      'lastName TEXT,'
-      'firstName TEXT,'
-      'dob DATE,'
-      'mobile TEXT,'
-      'countryCode TEXT'
-      ');'
       ''
     )
     Params = <>

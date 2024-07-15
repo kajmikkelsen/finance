@@ -5,7 +5,8 @@ unit uselfields;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, CheckLst, StdCtrls,
+  ExtCtrls;
 
 type
 
@@ -15,6 +16,7 @@ type
     Button1: TButton;
     Button2: TButton;
     CLB1: TCheckListBox;
+    Panel1: TPanel;
     procedure CLB1DblClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);

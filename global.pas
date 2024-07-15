@@ -6,18 +6,21 @@ interface
 
 uses
   Classes, SysUtils;
-Type
+
+type
   PostDistrikt = record
-    land,nummer,by: String;
+    land, nummer, by: string;
   end;
 
-  FinKonto = Record
-    nummer,Navn,frakto,tilkto: String;
-    Typ: Integer;
+  FinKonto = record
+    nummer, Navn, frakto, tilkto: string;
+    Typ: integer;
   end;
 
-    Var
-    datadicst,SelHeaders: TStringList;
+var
+  datadicst, SelHeaders: TStringList;
+  lastYMD, lastYM, LastY, LastC: string;
+  SelectedKonto: Integer;
 
 resourcestring
   rsImportZipCode = 'Importer postnummer';
@@ -27,10 +30,11 @@ resourcestring
   rsPostDistrikt = 'Postdistrikt';
   rsAfbryd = 'Afbryd';
   rsOK = 'OK';
+  rsFortryd = 'Fortryd';
   rsSelFields = 'Vælg felter';
   rsAfslut = 'Afslut';
   rsRet = 'Ret';
-  rsNy  = 'Ny';
+  rsNy = 'Ny';
   rsSlet = 'Slet';
   rsLand = 'Land';
   rsPostNummer = 'Postnummer';
@@ -65,8 +69,8 @@ resourcestring
   rsMoms4 = 'Moms 4';
   rsMoms5 = 'Moms 5';
   rsSats = 'Sats';
-  rsMomsInd = 'Indgående'+lineEnding+'finanskonto';
-  rsMomsUd = 'Udgående'+lineEnding+'finanskonto';
+  rsMomsInd = 'Indgående' + lineEnding + 'finanskonto';
+  rsMomsUd = 'Udgående' + lineEnding + 'finanskonto';
   rsIngenmoms = 'Ingen moms';
   rsIndgaaende = 'Indgående moms (købsmoms)';
   rsUdgaaende = 'Udgående moms (salgsmoms)';
@@ -87,10 +91,29 @@ resourcestring
   rsImpWarn = 'Ved import slettes alle eksisterende data i tabellen';
   rsKtoFindes = 'Konto findes allerede';
   rsMomsTyp = 'Moms type';
-
-
-
-
+  rsBilagsNummer = 'Bilagsnummer';
+  rsTekst = 'Tekst';
+  rsPeriode = 'Periode';
+  rsAar = 'Regnskabsår';
+  rsDato = 'Dato';
+  rsBelob = 'Beløb';
+  rsKontoNavn = 'Kontonavn';
+  rsBilagsregistrering = 'Bilagsregistrering';
+  rsSettings = 'Opsætning';
+  rsShortcut = 'Genvej';
+  rsMenupunkt = 'menupunkt';
+  rsPerioder = 'Perioder';
+  rsBogholderi = 'Bogholderi';
+  rsMisc = 'Diverse';
+  rsAarstart = 'Regnskabsårets start';
+  rsVirksomhedsoplysninger = 'Virksomhedsoplysninger';
+  rsFejlIDato = 'Forkert datoformat';
+  rsPeriodeFejl = 'Dato tilhører et andet regnskabsår';
+  rsNoUpdate = 'Noget gik galt, opdaterer ikke';
+  rsNextBilagsNummer = 'Seneste bilagsnummer';
+  rsBilagCifre = 'Antal cifre i bilagsnummer';
+  rsVelg = 'Vælg';
+  rsKontofejl = 'Konto er ikke en bogføringskonto';
 
 implementation
 

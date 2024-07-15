@@ -9,6 +9,7 @@ object FPostnrEdit: TFPostnrEdit
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
+  LCLVersion = '3.0.0.1'
   object Label1: TLabel
     Left = 45
     Height = 16
@@ -68,17 +69,17 @@ object FPostnrEdit: TFPostnrEdit
   end
   object Panel1: TPanel
     Left = 0
-    Height = 50
-    Top = 155
+    Height = 42
+    Top = 163
     Width = 609
     Align = alBottom
-    ClientHeight = 50
+    ClientHeight = 42
     ClientWidth = 609
     TabOrder = 3
     object Button1: TButton
       Left = 520
       Height = 25
-      Top = 16
+      Top = 8
       Width = 75
       Anchors = [akRight, akBottom]
       Caption = 'Button1'
@@ -88,7 +89,7 @@ object FPostnrEdit: TFPostnrEdit
     object Button2: TButton
       Left = 432
       Height = 25
-      Top = 16
+      Top = 8
       Width = 75
       Anchors = [akRight, akBottom]
       Caption = 'Button2'

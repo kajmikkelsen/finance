@@ -50,6 +50,15 @@ object FMain: TFMain
     ScrollBars = ssAutoBoth
     TabOrder = 3
   end
+  object Edit1: TEdit
+    Left = 341
+    Height = 24
+    Top = 15
+    Width = 80
+    OnKeyUp = Edit1KeyUp
+    TabOrder = 4
+    Text = 'Edit1'
+  end
   object MM1: TMainMenu
     Left = 656
     Top = 8
@@ -70,6 +79,12 @@ object FMain: TFMain
       object MenuItem2: TMenuItem
         Action = AImportZip
       end
+      object Separator3: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem9: TMenuItem
+        Action = ASettings
+      end
       object Separator1: TMenuItem
         Caption = '-'
       end
@@ -77,8 +92,15 @@ object FMain: TFMain
         Action = AAfslut
       end
     end
+    object MenuItem7: TMenuItem
+      Caption = 'Funktioner'
+      object MenuItem8: TMenuItem
+        Action = ABilagsreg
+      end
+    end
   end
   object AL1: TActionList
+    Tag = 1
     Left = 736
     object AImportZip: TAction
       Caption = 'rsImportZipCode'
@@ -89,9 +111,11 @@ object FMain: TFMain
       OnExecute = APostnrExecute
     end
     object APostnrEdit: TAction
+      Tag = 1
       OnExecute = APostnrEditExecute
     end
     object APostnrNy: TAction
+      Tag = 1
       Caption = 'APostnrNy'
       OnExecute = APostnrNyExecute
     end
@@ -100,6 +124,7 @@ object FMain: TFMain
       OnExecute = AAfslutExecute
     end
     object APostnrDel: TAction
+      Tag = 1
       Caption = 'Slet'
       OnExecute = APostnrDelExecute
     end
@@ -112,6 +137,7 @@ object FMain: TFMain
       OnExecute = AKontoExecute
     end
     object AKontoNy: TAction
+      Tag = 1
       Caption = 'AKontoNy'
       OnExecute = AKontoNyExecute
     end
@@ -121,17 +147,35 @@ object FMain: TFMain
       ShortCut = 49225
     end
     object Akontoedit: TAction
+      Tag = 1
       Caption = 'Akontoedit'
       OnExecute = AkontoeditExecute
     end
     object AKontoDel: TAction
+      Tag = 1
       Caption = 'AKontoDel'
       OnExecute = AKontoDelExecute
+    end
+    object ABilagsreg: TAction
+      Caption = 'ABilagsreg'
+      OnExecute = ABilagsregExecute
+    end
+    object ASettings: TAction
+      Caption = 'Settings'
+      OnExecute = ASettingsExecute
+    end
+    object AVelgKto: TAction
+      Caption = ' Vælg'
+      OnExecute = AVelgKtoExecute
     end
   end
   object OD1: TOpenDialog
     Title = 'rsOpenFile'
     Left = 253
     Top = 15
+  end
+  object il1: TImageList
+    Left = 537
+    Top = 7
   end
 end

@@ -9,7 +9,6 @@ object FSelect: TFSelect
   OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
-  OnShow = FormShow
   object dbg1: TDBGrid
     Left = 16
     Height = 624

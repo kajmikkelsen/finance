@@ -12,9 +12,10 @@ type
   { TFImport }
 
   TFImport = class(TForm)
-    Button1: TButton;
     Button2: TButton;
     Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -23,7 +24,6 @@ type
     Memo1: TMemo;
     OD1: TOpenDialog;
     Panel1: TPanel;
-    procedure Button1Click(Sender: TObject);
     procedure Edit1Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -55,7 +55,6 @@ procedure TFImport.FormCreate(Sender: TObject);
 begin
   RestoreForm(Sender as TForm);
   FImport.Caption := rsImport;
-  Button1.Caption := rsOpen;
   Button2.Caption := rsAfslut;
   Label1.Caption := rsFields;
   Label2.Caption := rsTables;
@@ -66,14 +65,6 @@ end;
 procedure TFImport.Edit1Click(Sender: TObject);
 begin
   if OD1.Execute then edit1.Text := od1.FileName;
-end;
-
-procedure TFImport.Button1Click(Sender: TObject);
-begin
-  if CheckParms then
-    ShowMessage('We are good')
-  else
-    ShowMessage('Errors are found');
 end;
 
 procedure TFImport.FormActivate(Sender: TObject);
@@ -158,18 +149,21 @@ procedure TFImport.DoTheImport;
 var
   InsertSQL: TStringList;
   fl: TextFile;
-  i: integer;
+  i,count: integer;
   St, st1, st2: string;
+  OldCursor: TCursor;
 begin
-      with DM1 do
-    begin
-      Sqlq1.Close;
-      SQLQ1.sql.clear;
-      sqlq1.SQL.Add('delete from '+tblnm);
-      SqlQ1.ExecSQL;
-      SqlT1.Commit;
-      SqlQ1.Close;
-    end;
+  OldCursor := Screen.Cursor;
+  Screen.Cursor := crHourGlass;
+  with DM1 do
+  begin
+    Sqlq1.Close;
+    SQLQ1.sql.Clear;
+    sqlq1.SQL.Add('delete from ' + tblnm);
+    SqlQ1.ExecSQL;
+    SqlT1.Commit;
+    SqlQ1.Close;
+  end;
 
   InsertSQL := TStringList.Create;
   Assignfile(fl, OD1.FileName);
@@ -185,7 +179,7 @@ begin
     else
       st := st + ')';
   end;
-
+Count := 0;
   while not EOF(fl) do
   begin
     Readln(fl, st1);
@@ -209,10 +203,15 @@ begin
       SqlT1.Commit;
       SqlQ1.Close;
     end;
-    memo1.Lines.Add(St);
-    Memo1.Lines.Add(st2);
+    inc(Count);
+    Edit2.Text := IntToStr(Count);
+    Edit3.Text := St1;
+//    memo1.Lines.Add(St);
+//    Memo1.Lines.Add(st2);
+    Application.processmessages;
   end;
   InsertSQL.Free;
+  Screen.Cursor := OldCursor;
 
 end;
 
@@ -272,7 +271,6 @@ begin
             end;
           end;
         end;
-        ShowMessage('der er ' + IntToStr(ImpFields.Count));
       end;
     except
       Memo1.Append(rsAabnErr + od1.filename);

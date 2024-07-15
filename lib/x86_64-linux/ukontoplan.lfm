@@ -9,6 +9,7 @@ object FKontoplan: TFKontoplan
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  LCLVersion = '3.0.0.1'
   object ENummer: TEdit
     Left = 176
     Height = 24
@@ -142,17 +143,17 @@ object FKontoplan: TFKontoplan
   end
   object Panel1: TPanel
     Left = 0
-    Height = 50
-    Top = 411
+    Height = 42
+    Top = 419
     Width = 658
     Align = alBottom
-    ClientHeight = 50
+    ClientHeight = 42
     ClientWidth = 658
     TabOrder = 7
     object Button1: TButton
       Left = 568
       Height = 25
-      Top = 15
+      Top = 8
       Width = 75
       Anchors = [akRight, akBottom]
       Caption = 'Button1'
@@ -162,7 +163,7 @@ object FKontoplan: TFKontoplan
     object Button2: TButton
       Left = 472
       Height = 25
-      Top = 15
+      Top = 8
       Width = 75
       Anchors = [akRight, akBottom]
       Cancel = True

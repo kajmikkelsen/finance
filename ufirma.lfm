@@ -1,34 +1,33 @@
 object FFirma: TFFirma
   Left = 343
-  Height = 468
+  Height = 481
   Top = 250
-  Width = 786
+  Width = 1070
   Caption = 'Virksomhedsoplysninger'
-  ClientHeight = 468
-  ClientWidth = 786
+  ClientHeight = 481
+  ClientWidth = 1070
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '3.0.0.1'
   object PageControl1: TPageControl
     Left = 0
-    Height = 418
+    Height = 431
     Top = 0
-    Width = 786
-    ActivePage = Momssats
+    Width = 1070
+    ActivePage = Finans
     Align = alClient
     TabIndex = 1
     TabOrder = 0
     object TS1: TTabSheet
       Caption = 'Firmanavn'
-      ClientHeight = 388
-      ClientWidth = 782
+      ClientHeight = 401
+      ClientWidth = 1066
       OnShow = TS1Show
       object EFirmaNavn: TEdit
         Left = 136
         Height = 24
         Top = 16
-        Width = 618
+        Width = 902
         Anchors = [akTop, akLeft, akRight]
         AutoSelect = False
         TabOrder = 0
@@ -45,7 +44,7 @@ object FFirma: TFFirma
         Left = 136
         Height = 24
         Top = 48
-        Width = 618
+        Width = 902
         Anchors = [akTop, akLeft, akRight]
         AutoSelect = False
         TabOrder = 1
@@ -55,7 +54,7 @@ object FFirma: TFFirma
         Left = 136
         Height = 24
         Top = 80
-        Width = 618
+        Width = 902
         Anchors = [akTop, akLeft, akRight]
         TabOrder = 2
         Text = 'EFirmaAdresse2'
@@ -73,7 +72,7 @@ object FFirma: TFFirma
         Left = 224
         Height = 24
         Top = 112
-        Width = 530
+        Width = 814
         Anchors = [akTop, akLeft, akRight]
         TabOrder = 4
         Text = 'EFirmaBy'
@@ -82,7 +81,7 @@ object FFirma: TFFirma
         Left = 136
         Height = 24
         Top = 146
-        Width = 618
+        Width = 902
         Anchors = [akTop, akLeft, akRight]
         TabOrder = 5
         Text = 'EFirmaLand'
@@ -123,7 +122,7 @@ object FFirma: TFFirma
         Left = 224
         Height = 24
         Top = 240
-        Width = 530
+        Width = 814
         Anchors = [akTop, akLeft, akRight]
         TabOrder = 10
         Text = 'EFirmaBankNavn'
@@ -200,207 +199,275 @@ object FFirma: TFFirma
         Caption = 'Label10'
       end
     end
-    object Momssats: TTabSheet
-      Caption = 'Momssats'
-      ClientHeight = 388
-      ClientWidth = 782
-      object Label11: TLabel
+    object Finans: TTabSheet
+      Caption = 'Finans'
+      ClientHeight = 401
+      ClientWidth = 1066
+      object GB1: TGroupBox
         Left = 24
-        Height = 16
-        Top = 64
-        Width = 49
-        Caption = 'Label11'
-      end
-      object Label12: TLabel
-        Left = 24
-        Height = 16
-        Top = 95
-        Width = 49
-        Caption = 'Label12'
-      end
-      object Label13: TLabel
-        Left = 24
-        Height = 16
-        Top = 127
-        Width = 49
-        Caption = 'Label13'
-      end
-      object Label14: TLabel
-        Left = 24
-        Height = 16
-        Top = 159
-        Width = 49
-        Caption = 'Label14'
-      end
-      object Label15: TLabel
-        Left = 24
-        Height = 16
-        Top = 191
-        Width = 49
-        Caption = 'Label15'
-      end
-      object EMoms1: TEdit
-        Left = 150
-        Height = 24
-        Top = 56
-        Width = 80
-        OnKeyPress = EMoms1KeyPress
+        Height = 234
+        Top = 24
+        Width = 454
+        Caption = 'GB1'
+        ClientHeight = 216
+        ClientWidth = 450
         TabOrder = 0
+        object Label11: TLabel
+          Left = 16
+          Height = 16
+          Top = 52
+          Width = 49
+          Caption = 'Label11'
+        end
+        object Label12: TLabel
+          Left = 16
+          Height = 16
+          Top = 83
+          Width = 49
+          Caption = 'Label12'
+        end
+        object Label13: TLabel
+          Left = 16
+          Height = 16
+          Top = 115
+          Width = 49
+          Caption = 'Label13'
+        end
+        object Label14: TLabel
+          Left = 16
+          Height = 16
+          Top = 147
+          Width = 49
+          Caption = 'Label14'
+        end
+        object Label15: TLabel
+          Left = 16
+          Height = 16
+          Top = 179
+          Width = 49
+          Caption = 'Label15'
+        end
+        object EMoms1: TEdit
+          Left = 142
+          Height = 24
+          Top = 44
+          Width = 80
+          OnKeyPress = EMoms1KeyPress
+          TabOrder = 0
+        end
+        object EMoms2: TEdit
+          Left = 142
+          Height = 24
+          Top = 75
+          Width = 80
+          OnKeyPress = EMoms1KeyPress
+          TabOrder = 1
+        end
+        object EMoms3: TEdit
+          Left = 142
+          Height = 24
+          Top = 107
+          Width = 80
+          OnKeyPress = EMoms1KeyPress
+          TabOrder = 2
+        end
+        object EMoms4: TEdit
+          Left = 142
+          Height = 24
+          Top = 139
+          Width = 80
+          OnKeyPress = EMoms1KeyPress
+          TabOrder = 3
+        end
+        object EMoms5: TEdit
+          Left = 142
+          Height = 24
+          Top = 171
+          Width = 80
+          OnKeyPress = EMoms1KeyPress
+          TabOrder = 4
+        end
+        object Emomsuk1: TEdit
+          Left = 242
+          Height = 24
+          Top = 44
+          Width = 80
+          NumbersOnly = True
+          OnKeyPress = Emomsuk1KeyPress
+          TabOrder = 5
+        end
+        object Emomsuk2: TEdit
+          Left = 240
+          Height = 24
+          Top = 75
+          Width = 80
+          NumbersOnly = True
+          TabOrder = 6
+        end
+        object Emomsuk3: TEdit
+          Left = 240
+          Height = 24
+          Top = 107
+          Width = 80
+          NumbersOnly = True
+          TabOrder = 7
+        end
+        object EMomsuk4: TEdit
+          Left = 240
+          Height = 24
+          Top = 139
+          Width = 80
+          NumbersOnly = True
+          TabOrder = 8
+        end
+        object EMomsuk5: TEdit
+          Left = 240
+          Height = 24
+          Top = 171
+          Width = 80
+          NumbersOnly = True
+          TabOrder = 9
+        end
+        object Emomsik1: TEdit
+          Left = 338
+          Height = 24
+          Top = 44
+          Width = 80
+          NumbersOnly = True
+          TabOrder = 10
+        end
+        object Emomsik2: TEdit
+          Left = 338
+          Height = 24
+          Top = 75
+          Width = 80
+          NumbersOnly = True
+          TabOrder = 11
+        end
+        object Emomsik3: TEdit
+          Left = 338
+          Height = 24
+          Top = 107
+          Width = 80
+          NumbersOnly = True
+          TabOrder = 12
+        end
+        object Emomsik4: TEdit
+          Left = 338
+          Height = 24
+          Top = 139
+          Width = 80
+          NumbersOnly = True
+          TabOrder = 13
+        end
+        object Emomsik5: TEdit
+          Left = 338
+          Height = 24
+          Top = 171
+          Width = 80
+          NumbersOnly = True
+          OnKeyPress = Emomsuk1KeyPress
+          TabOrder = 14
+        end
+        object Label16: TLabel
+          Left = 158
+          Height = 16
+          Top = 24
+          Width = 49
+          Caption = 'Label16'
+        end
+        object Label17: TLabel
+          Left = 248
+          Height = 32
+          Top = 8
+          Width = 75
+          Alignment = taCenter
+          Caption = 'Ugående'#10'Finanskonto'
+        end
+        object Label18: TLabel
+          Left = 341
+          Height = 32
+          Top = 8
+          Width = 75
+          Alignment = taCenter
+          Caption = 'Indgående'#10'Finanskonto'
+        end
       end
-      object EMoms2: TEdit
-        Left = 150
-        Height = 24
-        Top = 87
-        Width = 80
-        NumbersOnly = True
-        OnKeyPress = EMoms1KeyPress
-        TabOrder = 3
-      end
-      object EMoms3: TEdit
-        Left = 150
-        Height = 24
-        Top = 119
-        Width = 80
-        NumbersOnly = True
-        OnKeyPress = EMoms1KeyPress
-        TabOrder = 6
-      end
-      object EMoms4: TEdit
-        Left = 150
-        Height = 24
-        Top = 151
-        Width = 80
-        NumbersOnly = True
-        OnKeyPress = EMoms1KeyPress
-        TabOrder = 9
-      end
-      object EMoms5: TEdit
-        Left = 150
-        Height = 24
-        Top = 183
-        Width = 80
-        NumbersOnly = True
-        OnKeyPress = EMoms1KeyPress
-        TabOrder = 12
-      end
-      object Emomsuk1: TEdit
-        Left = 250
-        Height = 24
-        Top = 56
-        Width = 80
-        NumbersOnly = True
-        OnKeyPress = Emomsuk1KeyPress
+      object GB2: TGroupBox
+        Left = 488
+        Height = 224
+        Top = 32
+        Width = 304
+        Caption = 'GB2'
+        ClientHeight = 206
+        ClientWidth = 300
         TabOrder = 1
+        object Label19: TLabel
+          Left = 16
+          Height = 16
+          Top = 16
+          Width = 49
+          Caption = 'Label19'
+        end
+        object EAarStart: TEdit
+          Left = 200
+          Height = 24
+          Top = 8
+          Width = 80
+          OnExit = EAarStartExit
+          OnKeyPress = Emomsuk1KeyPress
+          TabOrder = 0
+          Text = 'EAarStart'
+        end
+        object Label20: TLabel
+          Left = 16
+          Height = 16
+          Top = 47
+          Width = 49
+          Caption = 'Label20'
+        end
+        object EBilagNr: TEdit
+          Left = 200
+          Height = 24
+          Top = 39
+          Width = 80
+          OnKeyPress = Emomsuk1KeyPress
+          TabOrder = 1
+          Text = 'EBilagNr'
+        end
+        object Label21: TLabel
+          Left = 16
+          Height = 16
+          Top = 78
+          Width = 49
+          Caption = 'Label21'
+        end
+        object EBilagCifre: TEdit
+          Left = 200
+          Height = 24
+          Top = 70
+          Width = 80
+          OnKeyPress = Emomsuk1KeyPress
+          TabOrder = 2
+          Text = 'EBilagCifre'
+        end
       end
-      object Emomsuk2: TEdit
-        Left = 248
-        Height = 24
-        Top = 87
-        Width = 80
-        NumbersOnly = True
-        TabOrder = 4
-      end
-      object Emomsuk3: TEdit
-        Left = 248
-        Height = 24
-        Top = 119
-        Width = 80
-        NumbersOnly = True
-        TabOrder = 7
-      end
-      object EMomsuk4: TEdit
-        Left = 248
-        Height = 24
-        Top = 151
-        Width = 80
-        NumbersOnly = True
-        TabOrder = 10
-      end
-      object EMomsuk5: TEdit
-        Left = 248
-        Height = 24
-        Top = 183
-        Width = 80
-        NumbersOnly = True
-        TabOrder = 14
-      end
-      object Emomsik1: TEdit
-        Left = 346
-        Height = 24
-        Top = 56
-        Width = 80
-        NumbersOnly = True
-        TabOrder = 2
-      end
-      object Emomsik2: TEdit
-        Left = 346
-        Height = 24
-        Top = 87
-        Width = 80
-        NumbersOnly = True
-        TabOrder = 5
-      end
-      object Emomsik3: TEdit
-        Left = 346
-        Height = 24
-        Top = 119
-        Width = 80
-        NumbersOnly = True
-        TabOrder = 8
-      end
-      object Emomsik4: TEdit
-        Left = 346
-        Height = 24
-        Top = 151
-        Width = 80
-        NumbersOnly = True
-        TabOrder = 11
-      end
-      object Emomsik5: TEdit
-        Left = 346
-        Height = 24
-        Top = 183
-        Width = 80
-        NumbersOnly = True
-        OnKeyPress = Emomsuk1KeyPress
-        TabOrder = 13
-      end
-      object Label16: TLabel
-        Left = 166
-        Height = 16
-        Top = 36
-        Width = 49
-        Caption = 'Label16'
-      end
-      object Label17: TLabel
-        Left = 256
-        Height = 32
-        Top = 20
-        Width = 75
-        Alignment = taCenter
-        Caption = 'Ugående'#10'Finanskonto'
-      end
-      object Label18: TLabel
-        Left = 349
-        Height = 32
-        Top = 20
-        Width = 75
-        Alignment = taCenter
-        Caption = 'Indgående'#10'Finanskonto'
-      end
+    end
+    object TabAarPer: TTabSheet
+      Caption = 'Perioder'
     end
   end
   object Panel1: TPanel
     Left = 0
     Height = 50
-    Top = 418
-    Width = 786
+    Top = 431
+    Width = 1070
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 786
+    ClientWidth = 1070
     TabOrder = 1
     object Button1: TButton
-      Left = 696
+      Left = 980
       Height = 25
       Top = 16
       Width = 75
@@ -411,7 +478,7 @@ object FFirma: TFFirma
       TabOrder = 0
     end
     object Button2: TButton
-      Left = 608
+      Left = 892
       Height = 25
       Top = 16
       Width = 75

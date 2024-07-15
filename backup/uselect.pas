@@ -38,7 +38,6 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
     procedure SaveGrid;
   public
@@ -53,7 +52,7 @@ var
 implementation
 
 uses
-  MyLib, udm1, global;
+  MyLib, udm1, global,Mydbmain;
 
   {$R *.lfm}
 
@@ -63,7 +62,6 @@ procedure TFSelect.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   SaveForm(FSelect);
   SaveGrid;
-
 end;
 
 procedure TFSelect.FormCreate(Sender: TObject);
@@ -74,27 +72,18 @@ end;
 procedure TFSelect.dbg1TitleClick(Column: TColumn);
 var
   st: string;
-  asc: boolean;
 begin
   savegrid;
   PutStdIni('Sort', tblnm, Column.fieldname);
   Label1.Caption := Column.fieldname;
   St := GetStdIni('Sortorder', tblnm, '');
-  asc := False;
   if st = 'ASC' then
   begin
-    asc := True;
     putStdIni('Sortorder', tblnm, 'DESC');
   end
   else
     putStdIni('Sortorder', tblnm, 'ASC');
   DoTheSQL;
-  if asc then
-    dbg1.Columns[Column.Index].Title.Caption :=
-      DBG1.Columns[Column.Index].Title.Caption + '▲'
-  else
-    dbg1.Columns[Column.Index].Title.Caption :=
-      DBG1.Columns[Column.Index].Title.Caption + '▼';
 
 end;
 
@@ -151,6 +140,9 @@ end;
 
 procedure TFSelect.dbg1DblClick(Sender: TObject);
 begin
+  If button1.Action = FMain.AVelgKto Then
+  Button1.Action.Execute
+  else
   Button2.Action.Execute;
 end;
 
@@ -160,15 +152,9 @@ begin
 
 end;
 
-procedure TFSelect.FormShow(Sender: TObject);
-begin
-  RestoreForm(FSelect);
-  DoTheSQL;
-end;
-
 procedure TFSelect.dothesql;
 var
-  st, st1, st2, st3, tmpst: string;
+  st, st1, st2, st3, st4, tmpst: string;
   i: integer;
 begin
   St := GetStdIni('BrowseFields', tblnm, DefFields);
@@ -193,9 +179,10 @@ begin
     end;
     if St1 <> '' then
     begin
+
       if (St2 = 'ASC') or (st2 = 'DESC') then
-        St1 := st1 + ' ' + st2;
-      sqlq1.sql.Add(' ORDER BY ' + st1);
+        St4 := st1 + ' ' + st2;
+      sqlq1.sql.Add(' ORDER BY ' + st4);
     end;
     try
       SQLQ1.Open;
@@ -206,6 +193,16 @@ begin
         tmpst := GetFieldByDelimiter(i, st, ',');
         dbg1.columns[i].fieldname := tmpst;
         dbg1.columns[i].Title.Caption := SelHeaders.Values[tmpst];
+        if tmpst = st1 then
+        begin
+          if st2 = 'ASC' then
+            dbg1.Columns[i].Title.Caption :=
+              DBG1.Columns[i].Title.Caption + ' ▲'
+          else
+            dbg1.Columns[i].Title.Caption :=
+              DBG1.Columns[i].Title.Caption + ' ▼';
+        end;
+
       end;
     except
     end;

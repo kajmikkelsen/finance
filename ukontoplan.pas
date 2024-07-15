@@ -105,7 +105,7 @@ begin
   if (orgkonto <> enummer.Text) then
     if konto.KontoExists((Sender as TEdit).Text) then
     begin
-      ShowMessage(rsKtoFindes);
+       MessageDlg(rsKtoFindes, mtError, [mbOK], 0);
     end;
 end;
 
@@ -121,8 +121,7 @@ end;
 
 procedure TFKontoplan.DisEn;
 Var
-  i:Integer;
-  sats:Double;
+  i,i1:Integer;
 begin
   case ETyp.ItemIndex of
     0: begin
@@ -149,15 +148,15 @@ begin
     EMomssats.Enabled := True
   else
     EMomssats.Enabled := False;
-  //Emomssats.Clear;
-  //EMomssats.Items.Add(FloatToStrf(0,ffFixed,4,2));
-  //EMomssats.Text := FloatToStrf(0,ffFixed,4,2);
-  //For i := 1 to 5 do
-  //begin
-  //  sats := dm1.GetMomsSats(i);
-  //  if sats > 0 then
-  //   EMomssats.Items.Add(FloatToStrF(sats,ffFixed,2,2));
-  //end;
+  i1 := EMomssats.Itemindex;
+  Emomssats.Clear;
+  EMomssats.Items.Add(FloatToStrf(0,ffFixed,4,2));
+//  EMomssats.Text := FloatToStrf(0,ffFixed,4,2);
+  For i := 1 to 5 do
+  begin
+    EMomssats.Items.Add(dm1.Momssatser[i]);
+  end;
+  EMomssats.Itemindex := i1;
 end;
 
 function TFKontoplan.FormOK: boolean;

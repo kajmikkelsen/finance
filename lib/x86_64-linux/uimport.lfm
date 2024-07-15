@@ -9,35 +9,26 @@ object FImport: TFImport
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  LCLVersion = '3.0.0.1'
   object Panel1: TPanel
     Left = 0
-    Height = 50
-    Top = 384
+    Height = 42
+    Top = 392
     Width = 745
     Align = alBottom
-    ClientHeight = 50
+    ClientHeight = 42
     ClientWidth = 745
     TabOrder = 1
-    object Button1: TButton
-      Left = 648
-      Height = 25
-      Top = 16
-      Width = 75
-      Anchors = [akRight, akBottom]
-      Caption = 'Button1'
-      OnClick = Button1Click
-      TabOrder = 0
-    end
     object Button2: TButton
-      Left = 560
+      Left = 664
       Height = 25
-      Top = 16
+      Top = 8
       Width = 75
       Anchors = [akRight, akBottom]
       Cancel = True
       Caption = 'Button2'
       ModalResult = 2
-      TabOrder = 1
+      TabOrder = 0
     end
   end
   object lb1: TListBox
@@ -96,8 +87,8 @@ object FImport: TFImport
   end
   object Memo1: TMemo
     Left = 32
-    Height = 304
-    Top = 64
+    Height = 264
+    Top = 104
     Width = 328
     Anchors = [akTop, akLeft, akRight, akBottom]
     Lines.Strings = (
@@ -105,6 +96,22 @@ object FImport: TFImport
     )
     ReadOnly = True
     TabOrder = 4
+  end
+  object Edit2: TEdit
+    Left = 32
+    Height = 24
+    Top = 64
+    Width = 80
+    TabOrder = 5
+    Text = 'Edit2'
+  end
+  object Edit3: TEdit
+    Left = 128
+    Height = 24
+    Top = 64
+    Width = 224
+    TabOrder = 6
+    Text = 'Edit3'
   end
   object OD1: TOpenDialog
     Filter = 'csv|*.csv|txt|*.txt|Alle|*.*'

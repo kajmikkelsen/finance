@@ -10,8 +10,9 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, anchordockpkg, lazcontrols, MyDbMain, udm1, MyLib, global, uselect,
-  uselfields, upostnr, ufirma, Ukontoplan, uimport;
+  Forms, anchordockpkg, lazcontrols, datetimectrls, MyDbMain, udm1, MyLib,
+  global, uselect, uselfields, upostnr, ufirma, Ukontoplan, uimport, ubilag,
+  usettings;
 
 {$R *.res}
 
@@ -27,6 +28,8 @@ begin
   Application.CreateForm(TFFirma, FFirma);
   Application.CreateForm(TFKontoplan, FKontoplan);
   Application.CreateForm(TFImport, FImport);
+  Application.CreateForm(TFbilag, Fbilag);
+  Application.CreateForm(TFSettings, FSettings);
   Application.Run;
 end.
 

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, SQLite3Conn, SQLDB, DB, Forms, Controls, Graphics, Dialogs,
   DBGrids, StdCtrls, Menus, ActnList, LCLTranslator, global, uselect,
-  upostnr, ukontoplan;
+  upostnr, ukontoplan,ubilag,lclproc,lclType;
 
 type
 
@@ -15,6 +15,9 @@ type
 
   TFMain = class(TForm)
     AAfslut: TAction;
+    ABilagsreg: TAction;
+    AVelgKto: TAction;
+    ASettings: TAction;
     AKontoDel: TAction;
     Akontoedit: TAction;
     AImport: TAction;
@@ -29,12 +32,18 @@ type
     AL1: TActionList;
     Button1: TButton;
     DBGrid1: TDBGrid;
+    Edit1: TEdit;
+    il1: TImageList;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
+    Separator3: TMenuItem;
     Separator1: TMenuItem;
     MM1: TMainMenu;
     Memo1: TMemo;
@@ -42,6 +51,8 @@ type
     OD1: TOpenDialog;
     Separator2: TMenuItem;
     procedure AAfslutExecute(Sender: TObject);
+    procedure ABilagsregExecute(Sender: TObject);
+    procedure AVelgKtoExecute(Sender: TObject);
     procedure AFirmaExecute(Sender: TObject);
     procedure AImportExecute(Sender: TObject);
     procedure AImportZipExecute(Sender: TObject);
@@ -53,7 +64,9 @@ type
     procedure APostnrEditExecute(Sender: TObject);
     procedure APostnrExecute(Sender: TObject);
     procedure APostnrNyExecute(Sender: TObject);
+    procedure ASettingsExecute(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
@@ -68,7 +81,7 @@ var
 
 implementation
 
-uses uDM1, MyLib, uFirma, uimport;
+uses uDM1, MyLib, uFirma, uimport,usettings;
 
   {$R *.lfm}
 
@@ -88,19 +101,34 @@ begin
   end;
   RestoreForm(Sender as TForm);
   SetDefaultLang(GetStdIni('Misc', 'Lang', 'da'));
+  LastYMD := GetStdIni('dates','LastYMD',FormatDateTime('YYYYMMDD',Now));
+  LastYM := Copy(LastYMD,1,6);
+  LastY := Copy(LastYMD,1,4);
+  LastC := Copy(LastYMD,1,2);
   menuitem1.Caption := rsFiles;
   AImportZip.Caption := rsImportZipCode;
+  AImportZip.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AImportZip.Caption , ''));
   APostnr.Caption := rsPostDistrikt;
+  APostnr.ShortCut:=TextToShortCut(GetStdIni('shortcuts',APostnr.Caption , ''));
   AAfslut.Caption := rsAfslut;
+  AAfslut.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AAfslut.Caption , ''));
   APostnrEdit.Caption := rsRet;
   APostnrNy.Caption := rsNy;
   APostnrDel.Caption := rsSlet;
   AFirma.Caption := rsFirmaoplysninger;
+  AFirma.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AFirma.Caption , ''));
   AKonto.Caption := rsKontoplan;
+  AKonto.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AKonto.Caption , ''));
   AKontoNy.Caption := rsNy;
   AImport.Caption := rsImport;
+  AImport.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AImport.Caption , ''));
   AKontoEdit.Caption := rsRet;
   AkontoDel.Caption := rsSlet;
+  ASettings.Caption:= rsSettings;
+  ASettings.ShortCut:=TextToShortCut(GetStdIni('shortcuts',ASettings.Caption , ''));
+  ABilagsreg.Caption:=rsBilagsregistrering;
+  ABilagsreg.ShortCut:=TextToShortCut(GetStdIni('shortcuts',ABilagsreg.Caption , ''));;
+
 end;
 
 procedure TFMain.FormDestroy(Sender: TObject);
@@ -111,7 +139,7 @@ end;
 procedure TFMain.AImportZipExecute(Sender: TObject);
 var
   fl: TextFile;
-  st, st1: string;
+  st: string;
   p: PostDistrikt;
 begin
   memo1.Clear;
@@ -136,37 +164,30 @@ begin
 end;
 
 procedure TFMain.AkontoeditExecute(Sender: TObject);
-Var
-  st,st1: String;
+var
+  id: integer;
 begin
   ClearForm(FKontoPlan);
   FKontoplan.status := 2;
   FKontoplan.orgkonto := '';
   FKontoplan.orgkonto := DM1.Sqlq1.FieldByName('Nummer').AsString;
-  with dm1.sqlq1 do
-  begin
-    close;
-    sql.clear;
-    sql.add('select * from konto where Nummer = '+Fkontoplan.orgkonto);
-    open;
-  end;
-  st := DM1.Sqlq1.FieldByName('ID').AsString;
-  st1 := DM1.Sqlq1.FieldByName('momssats').AsString;
-  showmessage(IntToStr(dm1.SQLQ1.RecordCount));
-  fKontoplan.Etyp.itemindex := 1;
+  id := DM1.Sqlq1.FieldByName('ID').AsInteger;
   SrcToForm(FKontoPlan, DM1.Sqlq1);
   if uKontoPlan.Fkontoplan.ShowModal = mrOk then
   begin
-    dm1.SQLQ1.close;
-    dm1.sqlq1.sql.clear;
-    st1 := 'select * from konto where ID = '+st;
-    dm1.sqlq1.SQL.Add(st1);
-    dm1.sqlq1.Open;
-    dm1.sqlq1.Edit;
-    FormToSrc(FKontoPlan, DM1.Sqlq1);
-    dm1.SQLQ1.Post;
-    dm1.SQLq1.ApplyUpdates(0);
-    dm1.SQLT1.commit;
+    if ID <> dm1.sqlq1.FieldByName('ID').AsInteger then
+    Begin
+       MessageDlg(rsNoUpdate, mtInformation, [mbOK], 0);
+      dm1.sqlq1.Cancel;
+    end
+    else
+    begin
+      dm1.sqlq1.Edit;
+      FormToSrc(FKontoPlan, DM1.Sqlq1);
+      dm1.SQLQ1.Post;
+      dm1.SQLq1.ApplyUpdates(0);
+      dm1.SQLT1.commit;
+    end;
     fselect.dothesql;
   end
   else
@@ -203,9 +224,8 @@ procedure TFMain.AKontoDelExecute(Sender: TObject);
 var
   ID: integer;
 begin
-  if MessageDlg('Bekræft', 'Ønsker du at slette ' +
-    dm1.SQLQ1.Fields[4].AsString + ' ' + dm1.SQLQ1.Fields[3].AsString,
-    mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  if MessageDlg('Bekræft', 'Ønsker du at slette ' + dm1.SQLQ1.Fields[4].AsString +
+    ' ' + dm1.SQLQ1.Fields[3].AsString, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     ID := DM1.SQLQ1.FieldByName('id').AsInteger;
     konto.Delete(ID);
@@ -234,9 +254,19 @@ begin
   Application.terminate;
 end;
 
+procedure TFMain.ABilagsregExecute(Sender: TObject);
+begin
+  FBilag.ShowModal;
+end;
+
+procedure TFMain.AVelgKtoExecute(Sender: TObject);
+begin
+  SelectedKonto := DM1.SQLQ1.FieldByName('id').AsInteger;
+end;
+
 procedure TFMain.AFirmaExecute(Sender: TObject);
 begin
-  FFirma.Caption := rsFirmaoplysninger;
+//  FFirma.Caption := rsFirmaoplysninger;
   FFirma.ShowModal;
 end;
 
@@ -279,25 +309,25 @@ begin
     DM1.sqlq1.Cancel;
 end;
 
-procedure TFMain.Button1Click(Sender: TObject);
-var
-  i: integer;
-  sqlst: TStringList;
+procedure TFMain.ASettingsExecute(Sender: TObject);
 begin
-  dm1.PutDiverse('Kaj','tst');
-  with dm1 do
-  Begin
-  SqlSt := TStringList.Create;
-  sqlqx.Close;
-  sqlqx.SQL.Clear;
-  SqlSt.Add('Select * from misc');
-  sqlqx.SQL.Assign(SqlSt);
-  sqlqx.Open;
-  SqlSt.Free;
-  i := DSx.DataSet.RecordCount;
-  sqlqx.Close;
-  End;
-  ShowMessage('her er '+IntToStr(i)+' records');
+  FSettings.ShowModal;
+end;
+
+procedure TFMain.Button1Click(Sender: TObject);
+begin
+
+  ABilagsreg.ShortCut := TextToShortCut('CTRL+K');;
+end;
+
+procedure TFMain.Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  If ssCtrl in Shift Then Showmessage('Ctrl was pressed');
+  If ssAlt in Shift Then Showmessage('Alt was pressed');
+  If (ssCtrl in Shift) and (ssAlt in shift) Then showmessage('Both was pressed');
+  if key = VK_ACCEPT then;
+
+
 end;
 
 end.

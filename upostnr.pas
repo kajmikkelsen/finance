@@ -83,8 +83,6 @@ begin
 end;
 
 procedure TFPostnrEdit.FormCreate(Sender: TObject);
-Var
-  i:Integer;
 begin
   RestoreForm(FPostNrEdit);
 end;

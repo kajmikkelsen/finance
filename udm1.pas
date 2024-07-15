@@ -20,7 +20,6 @@ type
     ltx: TSQLite3Connection;
     SQLQ1: TSQLQuery;
     sqlq2: TSQLQuery;
-// sqlq3 is to be used for queries withou affecting othe querries
     SQLQ3: TSQLQuery;
     SQLQx: TSQLQuery;
     SQLT1: TSQLTransaction;
@@ -36,11 +35,13 @@ type
     procedure AddFieldsIfNeeded(Fields, ActFields, DataDicSt, TblExists,
       CreateSql: TStringList);
   public
+    Momssatser: array [0..5] of string;
     function InitDB(DataBaseName: string): boolean;
     function GetDiverse(Ident: string): string;
     function PutDiverse(Ident, Value: string): boolean;
     function DiverseExists(Ident: string): boolean;
-    Function GetMomsSats(nr:Integer): Double;
+    function GetMomsSats(nr: integer): double;
+    procedure GetTables(ThisSqlq: TSQlQuery; StL: TStringList);
   end;
 
 
@@ -51,10 +52,10 @@ type
 
   public
     constructor Create(Name: string);
-    function NewDistrict(d: PostDistrikt): integer;
+    procedure NewDistrict(d: PostDistrikt);
     function Search(nr: string): integer;
     function GetDistFromNr(nr: string): string;
-    function Delete(id: integer): string;
+    procedure Delete(id: integer);
     function getnr(id: integer): string;
     function getdist(id: integer): string;
     procedure PrepareSelect;
@@ -62,15 +63,18 @@ type
   end;
 
 
+  { TFinKto }
+
   TFinKto = class
   private
     TblNm: string;
-    kto: FinKonto;
   public
     constructor Create(Name: string);
     procedure PrepareSelect;
     function KontoExists(KtoNummer: string): boolean;
-    function Delete(id: integer): string;
+    procedure Delete(id: integer);
+    function GetBogfKtoFromID(Var Nummer, Navn: string; id: integer): boolean;
+    function GetBogfKtoFromNr(Var Nummer, Navn: string; Var id: integer): boolean;
   end;
 
 procedure DeleteFromDb(ID: integer; Bas: string);
@@ -109,26 +113,38 @@ end;
 function TDM1.TableExist(DBName: string): boolean;
 var
   Res: boolean;
+  TableList: TStringList;
+  i: integer;
 begin
+  TAbleList := TStringList.Create;
+  TableList.Sorted := True;
+  GetTables(SqlQ1, TableList);
   Res := True;
-  with SQLQ1 do
-  begin
-    try
-      Active := False;
-      SQL.Clear;
-      Sql.Append('Select * from ' + dbname);
-      Active := True;
-    except
-      on E: EDatabaseError do
-      begin
-        Res := False;
-      end;
-    end;
-  end;
+  if TableList.Find(DBName, i) then
+    res := True
+  else
+    Res := False;
+  //with SQLQ1 do
+  //begin
+  //  try
+  //    Active := False;
+  //    SQL.Clear;
+  //    Sql.Append('Select * from ' + dbname);
+  //    Active := True;
+  //  except
+  //    on E: EDatabaseError do
+  //    begin
+  //      Res := False;
+  //    end;
+  //  end;
+  //end;
   Result := res;
 end;
 
 procedure TDM1.DataModuleCreate(Sender: TObject);
+var
+  i: integer;
+  sats: double;
 begin
   DataDicST := TStringList.Create;
   DataDicSt.Sorted := True;
@@ -137,6 +153,12 @@ begin
   postnr := TPostnr.Create('postnr');
   konto := TFinkto.Create('konto');
   DM1.InitDB(DatDir + 'FinDB.db');
+  Momssatser[0] := '0';
+  for i := 1 to 5 do
+  begin
+    sats := dm1.GetMomsSats(i);
+    Momssatser[i] := (FloatToStrF(sats, ffFixed, 2, 2));
+  end;
 
 end;
 
@@ -170,6 +192,14 @@ begin
     Append('postnr,landekode,varchar(10)');
     Append('postnr,postnummer,varchar(40)');
     Append('postnr,postdistrikt,varchar(40)');
+    Append('bilag,bnummer,varchar(40)');
+    Append('bilag,kontonummer,Integer');
+    Append('bilag,tekst,varchar(40)');
+    Append('bilag,periode,Integer');
+    Append('bilag,aar,Integer');
+    Append('bilag,dato,varchar(10)');
+    Append('bilag,belob,Real');
+
   end;
   with SelHeaders do
   begin
@@ -185,6 +215,13 @@ begin
     append('landekode=' + rsLand);
     append('postnummer=' + rsPostnummer);
     append('postdistrikt=' + rsPostDistrikt);
+    append('bnummer=' + rsBilagsNummer);
+    append('kontonummer=' + rsKontoNummer);
+    append('tekst=' + rsTekst);
+    append('periode=' + rsPeriode);
+    append('aar=' + rsAar);
+    append('dato=' + rsDato);
+    append('belob=' + rsBelob);
   end;
 end;
 
@@ -351,6 +388,7 @@ function TDM1.PutDiverse(Ident, Value: string): boolean;
 var
   SqlSt: TStringList;
 begin
+  lt1.CloseTransactions;
   SqlSt := TStringList.Create;
   sqlqx.Close;
   sqlqx.SQL.Clear;
@@ -369,6 +407,7 @@ begin
   SQLTx.Commit;
   sqlqx.Close;
   SqlSt.Free;
+  Result := True;
 end;
 
 function TDM1.DiverseExists(Ident: string): boolean;
@@ -385,6 +424,7 @@ begin
   SqlSt.Free;
   i := DSx.DataSet.RecordCount;
   sqlqx.Close;
+  ltx.CloseTransactions;
   ;
   if i > 0 then
     Result := True
@@ -393,16 +433,36 @@ begin
 
 end;
 
-function TDM1.GetMomsSats(nr: Integer): Double;
-Var
-  St:String;
-  sats: Double;
+function TDM1.GetMomsSats(nr: integer): double;
+var
+  St: string;
+  sats: double;
 begin
-  St := GetDiverse('Moms'+IntToStr(nr));
-  If trystrtofloat(st,sats) Then
-  Result := sats
+  St := GetDiverse('Moms' + IntToStr(nr));
+  if trystrtofloat(st, sats) then
+    Result := sats
   else
-    result := 0;
+    Result := 0;
+end;
+
+procedure TDM1.GetTables(ThisSqlq: TSQlQuery; StL: TStringList);
+begin
+  Stl.Clear;
+  with Thissqlq do
+  begin
+    Close;
+    SQL.Clear;
+    sql.Add('select * from sqlite_master where type=''table'' and name not like ''sqlite%''');
+    Open;
+    First;
+    while not EOF do
+    begin
+      Stl.Append(FieldByName('name').AsString);
+      Next;
+    end;
+    Close;
+  end;
+
 end;
 
 { postnr }
@@ -413,7 +473,7 @@ begin
 end;
 
 
-function Tpostnr.NewDistrict(d: PostDistrikt): integer;
+procedure Tpostnr.NewDistrict(d: PostDistrikt);
 var
   InsertSQL: TStringList;
 begin
@@ -471,18 +531,21 @@ begin
 
 end;
 
-function Tpostnr.Delete(id: integer): string;
+procedure Tpostnr.Delete(id: integer);
 begin
   DeleteFromDb(id, 'postnr');
 end;
 
 function Tpostnr.getnr(id: integer): string;
 begin
-
+  //Dummystatement
+  Result := IntToStr(id);
 end;
 
 function Tpostnr.getdist(id: integer): string;
 begin
+  //Dummystatement
+  Result := IntToStr(id);
 
 end;
 
@@ -542,9 +605,80 @@ begin
   end;
 end;
 
-function TFinKto.Delete(id: integer): string;
+procedure TFinKto.Delete(id: integer);
 begin
   DeleteFromDb(id, 'konto');
+end;
+
+function TFinKto.GetBogfKtoFromID(var Nummer, Navn: string; id: integer
+  ): boolean;
+Var
+  res: Boolean;
+begin
+  with Dm1.Sqlq3 do
+  begin
+    Close;
+    sql.Clear;
+    sql.add('select * from ' + tblnm + ' where ID = ' + IntToStr(id) + ';');
+    Open;
+    if dm1.sqlq3.RecordCount = 0 then
+      res := False
+    else
+    begin
+      First;
+      If FieldByName('typ').AsString = '0' Then
+      Begin
+        res := True;
+      Nummer := FieldByName('Nummer').AsString;
+      Navn := FieldByName('navn').AsString;
+      end
+      else
+      Begin
+        Res := False;
+        Nummer := '';
+        Navn := '';
+      end;
+
+    end;
+  end;
+  Result := res;
+end;
+
+function TFinKto.GetBogfKtoFromNr(var Nummer, Navn: string; var id: integer
+  ): boolean;
+Var
+  res: Boolean;
+begin
+  with Dm1.Sqlq3 do
+  begin
+    Close;
+    sql.Clear;
+    sql.add('select * from ' + tblnm + ' where nummer = ' + Nummer + ';');
+    Open;
+    if dm1.sqlq3.RecordCount = 0 then
+      res := False
+    else
+    begin
+      First;
+      If FieldByName('typ').AsString = '0' Then
+      Begin
+        res := True;
+      ID := FieldByName('Nummer').AsInteger;
+      Nummer := FieldByName('Nummer').AsString;
+      Navn := FieldByName('navn').AsString;
+      end
+      else
+      Begin
+        Res := False;
+        ID := -1;
+        Nummer := '';
+        Navn := '';
+      end;
+
+    end;
+  end;
+  Result := res;
+
 end;
 
 
