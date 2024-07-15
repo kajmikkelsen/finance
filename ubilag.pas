@@ -153,7 +153,7 @@ begin
   end;
 end;
 //{$hints off}
-
+//
 procedure TFbilag.SpeedButton2Click(Sender: TObject);
 Var
   Nummer,Navn: String;
