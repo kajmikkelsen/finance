@@ -1,0 +1,9 @@
+{"version":1,"strings":[
+{"hash":213569395,"name":"tfsettings.caption","sourcebytes":[70,83,101,116,116,105,110,103,115],"value":"FSettings"},
+{"hash":110818627,"name":"tfsettings.tabsheet1.caption","sourcebytes":[83,104,111,114,116,99,117,116,115],"value":"Shortcuts"},
+{"hash":306060,"name":"tfsettings.cb1.caption","sourcebytes":[67,116,114,108],"value":"Ctrl"},
+{"hash":18484,"name":"tfsettings.cb2.caption","sourcebytes":[65,108,116],"value":"Alt"},
+{"hash":5894100,"name":"tfsettings.cb3.caption","sourcebytes":[83,104,105,102,116],"value":"Shift"},
+{"hash":164345425,"name":"tfsettings.button1.caption","sourcebytes":[66,117,116,116,111,110,49],"value":"Button1"},
+{"hash":164345426,"name":"tfsettings.button2.caption","sourcebytes":[66,117,116,116,111,110,50],"value":"Button2"}
+]}

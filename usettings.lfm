@@ -1,0 +1,179 @@
+object FSettings: TFSettings
+  Left = 339
+  Height = 483
+  Top = 250
+  Width = 896
+  Caption = 'FSettings'
+  ClientHeight = 483
+  ClientWidth = 896
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '3.0.0.1'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 441
+    Top = 0
+    Width = 896
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Shortcuts'
+      ClientHeight = 411
+      ClientWidth = 892
+      object VLE1: TValueListEditor
+        Left = 16
+        Height = 384
+        Top = 0
+        Width = 712
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        DefaultColWidth = 128
+        FixedCols = 0
+        RowCount = 2
+        TabOrder = 0
+        OnSelection = VLE1Selection
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goAlwaysShowEditor, goThumbTracking]
+        ColWidths = (
+          128
+          584
+        )
+      end
+      object CB1: TCheckBox
+        Left = 752
+        Height = 21
+        Top = 24
+        Width = 45
+        Caption = 'Ctrl'
+        OnClick = CB1Change
+        TabOrder = 1
+      end
+      object CB2: TCheckBox
+        Left = 752
+        Height = 21
+        Top = 56
+        Width = 41
+        Caption = 'Alt'
+        OnClick = CB1Change
+        TabOrder = 2
+      end
+      object CB3: TCheckBox
+        Left = 752
+        Height = 21
+        Top = 88
+        Width = 51
+        Caption = 'Shift'
+        OnClick = CB1Change
+        TabOrder = 3
+      end
+      object CMB1: TComboBox
+        Left = 752
+        Height = 26
+        Top = 120
+        Width = 100
+        ItemHeight = 0
+        ItemIndex = 0
+        Items.Strings = (
+          ''
+          'BkSp'
+          'Del'
+          'Down'
+          'End'
+          'Enter'
+          'Esc'
+          'Help'
+          'Home'
+          'Ins'
+          'Left'
+          'PgDn'
+          'PgUp'
+          'Right'
+          'Space'
+          'Tab'
+          'Up'
+          '1'
+          '2'
+          '3'
+          '4'
+          '5'
+          '6'
+          '7'
+          '8'
+          '9'
+          '0'
+          'F1'
+          'F2'
+          'F3'
+          'F4'
+          'F5'
+          'F6'
+          'F7'
+          'F8'
+          'F9'
+          'F10'
+          'F11'
+          'F12'
+          'A'
+          'B'
+          'C'
+          'D'
+          'E'
+          'F'
+          'G'
+          'H'
+          'I'
+          'J'
+          'K'
+          'L'
+          'M'
+          'N'
+          'O'
+          'P'
+          'Q'
+          'R'
+          'S'
+          'T'
+          'U'
+          'V'
+          'X'
+          'Y'
+          'Z'
+        )
+        OnChange = CB1Change
+        TabOrder = 4
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 42
+    Top = 441
+    Width = 896
+    Align = alBottom
+    ClientHeight = 42
+    ClientWidth = 896
+    TabOrder = 1
+    object Button1: TButton
+      Left = 808
+      Height = 25
+      Top = 8
+      Width = 75
+      Anchors = [akTop, akRight]
+      Caption = 'Button1'
+      Default = True
+      ModalResult = 1
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 728
+      Height = 25
+      Top = 8
+      Width = 75
+      Anchors = [akTop, akRight]
+      Caption = 'Button2'
+      ModalResult = 2
+      TabOrder = 1
+    end
+  end
+end
