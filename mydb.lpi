@@ -18,6 +18,8 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
+      <AutoIncrementBuild Value="True"/>
+      <BuildNr Value="2"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
     </VersionInfo>
     <BuildModes>

@@ -21,10 +21,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MyDbMain"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos Y="3"/>
+        <CursorPos Y="5"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
-          <Item0 X="3" Y="132" ID="2"/>
+          <Item0 X="3" Y="133" ID="2"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
