@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Grids, ExtCtrls,
-  StdCtrls, Buttons, ExtDlgs;
+  StdCtrls, Buttons, ExtDlgs, lcltype;
 
 type
 
@@ -41,18 +41,21 @@ type
     Panel4: TPanel;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
-    StringGrid1: TStringGrid;
+    sg1: TStringGrid;
+    procedure EbelobKeyPress(Sender: TObject; var Key: char);
     procedure EDatoExit(Sender: TObject);
     procedure EKontoKeyPress(Sender: TObject; var Key: char);
+    procedure ENrExit(Sender: TObject);
+    procedure ENrKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
   private
     Perioder: array [0..12] of int64;
-    Aar: String;
-    Procedure SetPerioder;
-    Function GetPeriode(Dato:String):Integer;
+    Aar: string;
+    procedure SetPerioder;
+    function GetPeriode(Dato: string): integer;
   public
 
   end;
@@ -63,7 +66,7 @@ var
 implementation
 
 uses
-  MyLib, Global, udm1,uselect,mydbmain;
+  MyLib, Global, udm1, uselect;
 
   {$R *.lfm}
 
@@ -85,20 +88,36 @@ begin
   Button1.Caption := rsOK;
   Button2.Caption := rsFortryd;
   Button3.Caption := rsAfslut;
+  sg1.RowCount := 10;
+  sg1.AutoSizeColumns;
+  Sg1.Columns[0].Title.Caption:= label1.Caption;
+  Sg1.Columns[1].Title.Caption := Label8.Caption;
+  Sg1.Columns[2].Title.Caption := Label2.Caption;
+  Sg1.Columns[3].Title.Caption := Label3.Caption;
+  Sg1.Columns[4].Title.Caption := Label4.Caption;
+  Sg1.Columns[5].Title.Caption := Label5.Caption;
+  Sg1.Columns[6].Title.Caption := Label6.Caption;
+  Sg1.Columns[7].Title.Caption := Label7.Caption;
+  Sg1.Columns[8].Title.Caption :=  'ID';
+  sg1.Columns[8].Visible:=False;
+  sg1.AutoSizeColumns;
+
+
+
   EDato.Text := LastYMD;
   if not dm1.DiverseExists('AarStart') then
-    dm1.PutDiverse('AarStart',LastYMD);
+    dm1.PutDiverse('AarStart', LastYMD);
 end;
 
 procedure TFbilag.EDatoExit(Sender: TObject);
-Var
-  per,bilagnr,cifre:Integer;
-  St: String;
+var
+  per, bilagnr, cifre: integer;
+  St: string;
 begin
   LastYMD := NormalizeDate(EDato.Text, LastYMD);
   if not IsYMDValid(LastYMD) then
   begin
-     MessageDlg(rsFejlIDato, mtError, [mbOK], 0);
+    MessageDlg(rsFejlIDato, mtError, [mbOK], 0);
     EDato.SetFocus;
   end
   else
@@ -106,40 +125,74 @@ begin
     PutStdIni('dates', 'LastYMD', LastYMD);
     EDato.Text := LastYMD;
     per := GetPeriode(LastYMD);
-    If per = -1 Then
+    if per = -1 then
     begin
-       MessageDlg(rsPeriodeFejl, mtError, [mbOK], 0);
+      MessageDlg(rsPeriodeFejl, mtError, [mbOK], 0);
       EDato.SetFocus;
     end
     else
     begin
       EPeriode.Text := IntToStr(per);
       EAar.Text := Aar;
-      BilagNr := StrToInt(DM1.GetDiverse('BilagNr'))+1;
+      BilagNr := StrToInt(DM1.GetDiverse('BilagNr')) + 1;
       Cifre := StrToInt(DM1.GetDiverse('BilagCifre'));
       St := IntToStr(BilagNr);
-      While (Length(st) < Cifre) Do
-        St := '0'+st;
+      while (Length(st) < Cifre) do
+        St := '0' + st;
       EBnummer.Text := St;
-//      Dm1.PutDiverse('BilagNr',st);
+      //      Dm1.PutDiverse('BilagNr',st);
 
     end;
   end;
 
 end;
 
+procedure TFbilag.EbelobKeyPress(Sender: TObject; var Key: char);
+begin
+  KeyPressFloat((Sender as tedit).Text, key);
+end;
+
 procedure TFbilag.EKontoKeyPress(Sender: TObject; var Key: char);
 begin
-   KeyPressInt((Sender as TEdit).Text, Key);
+  KeyPressInt((Sender as TEdit).Text, Key);
+end;
+
+procedure TFbilag.ENrExit(Sender: TObject);
+var
+  navn, Nummer: string;
+  id: integer;
+begin
+  Nummer := Enr.Text;
+  if not udm1.konto.GetBogfKtoFromNr(Nummer,{%H-}navn,{%H-}id) then
+  begin
+    MessageDlg(rsKontofejl, mtError, [mbOK], 0);
+    Enr.SetFocus;
+  end
+  else
+  begin
+    Edit1.Text := navn;
+    ENr.Text := Nummer;
+    EKonto.Text := IntToStr(id);
+    ETekst.SetFocus;
+  end;
+end;
+
+procedure TFbilag.ENrKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if Key = VK_F3 then
+  begin
+    SpeedButton2Click(Sender);
+    Key := 0;
+  end;
 end;
 
 procedure TFbilag.FormActivate(Sender: TObject);
-Var
-  St:String;
+var
+  St: string;
 begin
   SetPerioder;
   St := IntToStr(Perioder[0]);
-  Aar := Copy(st,1,4);
+  Aar := Copy(st, 1, 4);
 end;
 
 procedure TFbilag.SpeedButton1Click(Sender: TObject);
@@ -152,49 +205,40 @@ begin
     EDato.SetFocus;
   end;
 end;
+
 //{$hints off}
-//
+
 procedure TFbilag.SpeedButton2Click(Sender: TObject);
-Var
-  Nummer,Navn: String;
+var
+  Nummer, Navn: string;
 begin
   Nummer := '';
   Navn := '';
   udm1.konto.PrepareSelect;
-  FSelect.Caption := rsKontoplan;
-  FSelect.Button1.Action := FMain.AVelgKto;
-  FSelect.Button1.ModalResult:=mrOK;
-  FSelect.Button2.Caption:= rsFortryd;
-  FSelect.Button2.ModalResult:=mrCancel;
-  FSelect.Button2.Action := nil;
-  FSelect.Button3.Visible:=False;
-  FSelect.Button4.Visible:=False;
-  if FSelect.showModal = mrOK Then
-  Begin
-    If udm1.konto.GetBogfKtoFromID(Nummer,Navn,SelectedKonto) then
+  udm1.Konto.PrepareSelect4Search;
+  if FSelect.showModal = mrOk then
+  begin
+    if udm1.konto.GetBogfKtoFromID(Nummer, Navn, SelectedKonto) then
     begin
       ENr.Text := Nummer;
-      Edit1.Text:= Navn;
+      Edit1.Text := Navn;
       EKonto.Text := IntToStr(SelectedKonto);
       ETekst.SetFocus;
     end
     else
     begin
-       MessageDlg(rsKontofejl, mtError, [mbOK], 0);
+      MessageDlg(rsKontofejl, mtError, [mbOK], 0);
 
-    ENr.Text := '';
-    Edit1.Text:= '';
-    EKonto.Text := ''
+      ENr.Text := '';
+      Edit1.Text := '';
+      EKonto.Text := '';
     end;
   end
   else
     ShowMessage('None selected');
-  FSelect.Button1.ModalResult:=mrNone;
-  FSelect.Button2.ModalResult:=mrNone;
-  FSelect.Button2.Caption := rsRet;
-  FSelect.Button3.Visible:=True;
-  FSelect.Button4.Visible:=True;
+  udm1.Konto.resetPrepSel;
 end;
+
 //{$hints on}
 
 procedure TFbilag.SetPerioder;
@@ -203,7 +247,7 @@ var
   i: integer;
   St: string;
 begin
-    begin
+  begin
     st := dm1.GetDiverse('AarStart');
     y := StrToInt(copy(st, 1, 4));
     m := StrToInt(copy(st, 5, 2));
@@ -220,24 +264,24 @@ begin
       end
       else
         Inc(m);
-      Perioder[i] := y*10000+m*100+d;
+      Perioder[i] := y * 10000 + m * 100 + d;
       Memo1.Append(IntToStr(Perioder[i]));
     end;
-   End;
+  end;
 end;
 
-function TFbilag.GetPeriode(Dato: String): Integer;
-Var
-  i,res:Integer;
-  Dat:LongInt;
+function TFbilag.GetPeriode(Dato: string): integer;
+var
+  i, res: integer;
+  Dat: longint;
 begin
   Res := -1;
-  Dat :=  StrToInt(Dato);
-  If (Dat >= Perioder[0]) and (Dat < Perioder[12]) Then
-  Begin
-    For i := 1 to 12 do
-      If (Dat >= Perioder[i-1]) and (dat < perioder[i]) Then
-      res := i;
+  Dat := StrToInt(Dato);
+  if (Dat >= Perioder[0]) and (Dat < Perioder[12]) then
+  begin
+    for i := 1 to 12 do
+      if (Dat >= Perioder[i - 1]) and (dat < perioder[i]) then
+        res := i;
   end;
   Result := res;
 end;

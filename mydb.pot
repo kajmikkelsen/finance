@@ -173,6 +173,51 @@ msgstr ""
 msgid "Panel2"
 msgstr ""
 
+#: tfbilag.sg1.columns[0].title.caption
+msgctxt "tfbilag.sg1.columns[0].title.caption"
+msgid "Testing"
+msgstr ""
+
+#: tfbilag.sg1.columns[1].title.caption
+msgctxt "tfbilag.sg1.columns[1].title.caption"
+msgid "Title"
+msgstr ""
+
+#: tfbilag.sg1.columns[2].title.caption
+msgctxt "tfbilag.sg1.columns[2].title.caption"
+msgid "Title"
+msgstr ""
+
+#: tfbilag.sg1.columns[3].title.caption
+msgctxt "tfbilag.sg1.columns[3].title.caption"
+msgid "Title"
+msgstr ""
+
+#: tfbilag.sg1.columns[4].title.caption
+msgctxt "tfbilag.sg1.columns[4].title.caption"
+msgid "Title"
+msgstr ""
+
+#: tfbilag.sg1.columns[5].title.caption
+msgctxt "tfbilag.sg1.columns[5].title.caption"
+msgid "Title"
+msgstr ""
+
+#: tfbilag.sg1.columns[6].title.caption
+msgctxt "tfbilag.sg1.columns[6].title.caption"
+msgid "Title"
+msgstr ""
+
+#: tfbilag.sg1.columns[7].title.caption
+msgctxt "tfbilag.sg1.columns[7].title.caption"
+msgid "Title"
+msgstr ""
+
+#: tfbilag.sg1.columns[8].title.caption
+msgctxt "tfbilag.sg1.columns[8].title.caption"
+msgid "Title"
+msgstr ""
+
 #: tffirma.button1.caption
 msgctxt "tffirma.button1.caption"
 msgid "Button1"

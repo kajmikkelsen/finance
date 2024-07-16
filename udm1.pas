@@ -6,7 +6,7 @@ unit udm1;
 interface
 
 uses
-  Classes, SysUtils, SQLite3Conn, SQLDB, DB, Dialogs, Global, uselect, DBGrids;
+  Classes, SysUtils, SQLite3Conn, SQLDB, DB, Dialogs, Global, uselect, DBGrids,Controls;
 
 type
 
@@ -71,6 +71,8 @@ type
   public
     constructor Create(Name: string);
     procedure PrepareSelect;
+    Procedure PrepareSelect4Search;
+    Procedure resetPrepSel;
     function KontoExists(KtoNummer: string): boolean;
     procedure Delete(id: integer);
     function GetBogfKtoFromID(Var Nummer, Navn: string; id: integer): boolean;
@@ -465,6 +467,7 @@ begin
 
 end;
 
+
 { postnr }
 
 constructor Tpostnr.Create(Name: string);
@@ -590,6 +593,30 @@ begin
     sql.add('select * from ' + tblnm);
     Open;
   end;
+
+end;
+
+procedure TFinKto.PrepareSelect4Search;
+begin
+  udm1.konto.PrepareSelect;
+  FSelect.Caption := rsKontoplan;
+  FSelect.Button1.Action := FMain.AVelgKto;
+  FSelect.Button1.ModalResult:=mrOK;
+  FSelect.Button2.Caption:= rsFortryd;
+  FSelect.Button2.ModalResult:=mrCancel;
+  FSelect.Button2.Action := nil;
+  FSelect.Button3.Visible:=False;
+  FSelect.Button4.Visible:=False;
+
+end;
+
+procedure TFinKto.resetPrepSel;
+begin
+    FSelect.Button1.ModalResult:=mrNone;
+  FSelect.Button2.ModalResult:=mrNone;
+  FSelect.Button2.Caption := rsRet;
+  FSelect.Button3.Visible:=True;
+  FSelect.Button4.Visible:=True;
 
 end;
 

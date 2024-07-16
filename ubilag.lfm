@@ -8,7 +8,6 @@ object Fbilag: TFbilag
   ClientWidth = 925
   OnActivate = FormActivate
   OnCreate = FormCreate
-  LCLVersion = '3.0.0.1'
   object Panel1: TPanel
     Left = 0
     Height = 42
@@ -55,12 +54,43 @@ object Fbilag: TFbilag
     ClientHeight = 192
     ClientWidth = 925
     TabOrder = 2
-    object StringGrid1: TStringGrid
+    object sg1: TStringGrid
       Left = 2
       Height = 188
       Top = 2
       Width = 921
       Align = alClient
+      ColCount = 9
+      Columns = <      
+        item
+          Title.Caption = 'Testing'
+        end      
+        item
+          Title.Caption = 'Title'
+        end      
+        item
+          Title.Caption = 'Title'
+        end      
+        item
+          Title.Caption = 'Title'
+        end      
+        item
+          Title.Caption = 'Title'
+        end      
+        item
+          Title.Caption = 'Title'
+        end      
+        item
+          Title.Caption = 'Title'
+        end      
+        item
+          Title.Caption = 'Title'
+        end      
+        item
+          Title.Caption = 'Title'
+        end>
+      FixedCols = 0
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goAutoAddRows, goSmoothScroll]
       TabOrder = 0
     end
   end
@@ -126,6 +156,9 @@ object Fbilag: TFbilag
       Height = 24
       Top = 144
       Width = 104
+      OnExit = ENrExit
+      OnKeyDown = ENrKeyDown
+      OnKeyPress = EKontoKeyPress
       TabOrder = 4
       Text = 'ENr'
     end
@@ -142,6 +175,7 @@ object Fbilag: TFbilag
       Height = 24
       Top = 242
       Width = 104
+      OnKeyPress = EbelobKeyPress
       TabOrder = 6
       Text = 'Ebelob'
     end
