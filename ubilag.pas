@@ -1,3 +1,22 @@
+{ <description>
+
+  Copyright (C) <year> <name of author> <contact>
+
+  This source is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+
+  This code is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  A copy of the GNU General Public License is available on the World Wide Web
+  at <http://www.gnu.org/copyleft/gpl.html>. You can also obtain it by writing
+  to the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor,
+  Boston, MA 02110-1335, USA.
+}
 unit ubilag;
 
 {$mode ObjFPC}{$H+}
@@ -6,7 +25,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Grids, ExtCtrls,
-  StdCtrls, Buttons, ExtDlgs, lcltype;
+  StdCtrls, Buttons, ExtDlgs, lcltype, Types;
 
 type
 
@@ -42,6 +61,7 @@ type
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     sg1: TStringGrid;
+    procedure EbelobExit(Sender: TObject);
     procedure EbelobKeyPress(Sender: TObject; var Key: char);
     procedure EDatoExit(Sender: TObject);
     procedure EKontoKeyPress(Sender: TObject; var Key: char);
@@ -49,6 +69,9 @@ type
     procedure ENrKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure sg1DrawCell(Sender: TObject; aCol, aRow: Integer; aRect: TRect;
+      aState: TGridDrawState);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
   private
@@ -74,9 +97,8 @@ uses
 
 procedure TFbilag.FormCreate(Sender: TObject);
 begin
-  RestoreForm(Sender as TForm);
-  ClearForm(Sender as TForm);
   (Sender as TForm).Caption := rsBilagsregistrering;
+  ClearForm(Sender as TForm);
   label1.Caption := rsDato;
   Label8.Caption := rsPeriode;
   Label2.Caption := rsAar;
@@ -88,7 +110,6 @@ begin
   Button1.Caption := rsOK;
   Button2.Caption := rsFortryd;
   Button3.Caption := rsAfslut;
-  sg1.RowCount := 10;
   sg1.AutoSizeColumns;
   Sg1.Columns[0].Title.Caption:= label1.Caption;
   Sg1.Columns[1].Title.Caption := Label8.Caption;
@@ -101,12 +122,25 @@ begin
   Sg1.Columns[8].Title.Caption :=  'ID';
   sg1.Columns[8].Visible:=False;
   sg1.AutoSizeColumns;
-
-
-
   EDato.Text := LastYMD;
   if not dm1.DiverseExists('AarStart') then
     dm1.PutDiverse('AarStart', LastYMD);
+  RestoreForm(Sender as TForm);
+end;
+
+procedure TFbilag.FormDestroy(Sender: TObject);
+begin
+  SaveForm(Sender as TForm);
+end;
+
+procedure TFbilag.sg1DrawCell(Sender: TObject; aCol, aRow: Integer;
+  aRect: TRect; aState: TGridDrawState);
+begin
+  IF (acol=7)  and (aRow = 1) Then
+    begin
+    Sg1.Canvas.Pen.Color:=clRed;
+    Sg1.Canvas.Brush.Color:=clGreen;
+    end;
 end;
 
 procedure TFbilag.EDatoExit(Sender: TObject);
@@ -150,6 +184,28 @@ end;
 procedure TFbilag.EbelobKeyPress(Sender: TObject; var Key: char);
 begin
   KeyPressFloat((Sender as tedit).Text, key);
+end;
+
+procedure TFbilag.EbelobExit(Sender: TObject);
+Var
+  saldo: Double;
+  i: Integer;
+begin
+
+   if MessageDlg(rsLinieTilfoj, mtConfirmation, [mbYes,mbNo], 0) = mrYes Then
+   begin
+     Sg1.InsertRowWithValues(sg1.rowcount,[EDato.text,EPeriode.text,EAar.text,
+     EBnummer.text,eNr.text,Edit1.text,ETekst.Text,formatfloat('##########.00',StrToFloat(EBelob.Text)),EKonto.text]);
+     sg1.AutoSizeColumns;
+     ENr.SetFocus;
+   end;
+   Saldo := 0;
+   for i := 1 to Pred(sg1.rowcount) do
+   begin
+     Saldo := Saldo + StrToFloat(Sg1.Cells[7,i]);
+   end;
+   Saldo := Saldo*-1;
+   EBelob.Text:=FloatToStr(Saldo);
 end;
 
 procedure TFbilag.EKontoKeyPress(Sender: TObject; var Key: char);

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, DBGrids, StdCtrls,
-  Menus, ActnList, DBCtrls, ExtCtrls, LR_PGrid, LR_Class, uselfields;
+  Menus, ActnList, DBCtrls, ExtCtrls, LR_PGrid, LR_Class, uselfields,lcltype;
 
 type
 
@@ -33,6 +33,7 @@ type
     procedure APrintExecute(Sender: TObject);
     procedure ASelectFieldsExecute(Sender: TObject);
     procedure dbg1DblClick(Sender: TObject);
+    procedure dbg1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure dbg1TitleClick(Column: TColumn);
     procedure Edit1Change(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -94,8 +95,8 @@ end;
 
 procedure TFSelect.FormActivate(Sender: TObject);
 begin
-  RestoreForm(FSelect);
   DoTheSQL;
+  RestoreForm(FSelect);
 
 end;
 
@@ -140,6 +141,19 @@ end;
 
 procedure TFSelect.dbg1DblClick(Sender: TObject);
 begin
+  If button1.Action = FMain.AVelgKto Then
+  Begin
+    Button1.Action.Execute;
+    ModalResult := mrOK;
+  end
+  else
+  Button2.Action.Execute;
+end;
+
+procedure TFSelect.dbg1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+    if key = vk_return then
   If button1.Action = FMain.AVelgKto Then
   Begin
     Button1.Action.Execute;

@@ -8,6 +8,7 @@ object Fbilag: TFbilag
   ClientWidth = 925
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   object Panel1: TPanel
     Left = 0
     Height = 42
@@ -55,11 +56,12 @@ object Fbilag: TFbilag
     ClientWidth = 925
     TabOrder = 2
     object sg1: TStringGrid
-      Left = 2
-      Height = 188
-      Top = 2
-      Width = 921
+      Left = 12
+      Height = 168
+      Top = 12
+      Width = 901
       Align = alClient
+      BorderSpacing.Around = 10
       ColCount = 9
       Columns = <      
         item
@@ -84,6 +86,7 @@ object Fbilag: TFbilag
           Title.Caption = 'Title'
         end      
         item
+          Alignment = taRightJustify
           Title.Caption = 'Title'
         end      
         item
@@ -91,7 +94,9 @@ object Fbilag: TFbilag
         end>
       FixedCols = 0
       Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goAutoAddRows, goSmoothScroll]
+      RowCount = 1
       TabOrder = 0
+      OnDrawCell = sg1DrawCell
     end
   end
   object Panel3: TPanel
@@ -175,6 +180,7 @@ object Fbilag: TFbilag
       Height = 24
       Top = 242
       Width = 104
+      OnExit = EbelobExit
       OnKeyPress = EbelobKeyPress
       TabOrder = 6
       Text = 'Ebelob'

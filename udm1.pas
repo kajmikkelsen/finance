@@ -602,8 +602,10 @@ begin
   FSelect.Caption := rsKontoplan;
   FSelect.Button1.Action := FMain.AVelgKto;
   FSelect.Button1.ModalResult:=mrOK;
+  FSelect.Button1.Default:=False;;
   FSelect.Button2.Caption:= rsFortryd;
   FSelect.Button2.ModalResult:=mrCancel;
+  FSelect.Button2.Default:=False;;
   FSelect.Button2.Action := nil;
   FSelect.Button3.Visible:=False;
   FSelect.Button4.Visible:=False;
@@ -617,7 +619,8 @@ begin
   FSelect.Button2.Caption := rsRet;
   FSelect.Button3.Visible:=True;
   FSelect.Button4.Visible:=True;
-
+  FSelect.Button1.Default:=False;;
+  FSelect.Button2.Default:=False;;
 end;
 
 function TFinKto.KontoExists(KtoNummer: string): boolean;

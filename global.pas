@@ -113,7 +113,8 @@ resourcestring
   rsNextBilagsNummer = 'Seneste bilagsnummer';
   rsBilagCifre = 'Antal cifre i bilagsnummer';
   rsVelg = 'Vælg';
-  rsKontofejl = 'Konto er ikke en bogføringskonto';
+  rsKontofejl = 'Kontnummer findes ikke'+sLineBreak+'Eller er ikke en bogføringskonto';
+  rsLinieTilfoj = 'Tilføj til bilag';
 
 implementation
 

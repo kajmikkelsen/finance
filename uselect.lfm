@@ -21,6 +21,7 @@ object FSelect: TFSelect
     PopupMenu = PopupMenu1
     TabOrder = 0
     OnDblClick = dbg1DblClick
+    OnKeyDown = dbg1KeyDown
     OnTitleClick = dbg1TitleClick
   end
   object Edit1: TEdit
@@ -77,6 +78,7 @@ object FSelect: TFSelect
       Width = 75
       Anchors = [akTop, akRight]
       Caption = 'Ret'
+      Default = True
       TabOrder = 1
     end
     object Button3: TButton
