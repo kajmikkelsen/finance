@@ -1,22 +1,22 @@
 object Fbilag: TFbilag
   Left = 646
-  Height = 518
+  Height = 755
   Top = 485
-  Width = 925
+  Width = 1161
   Caption = 'Bilagsregistrering'
-  ClientHeight = 518
-  ClientWidth = 925
+  ClientHeight = 755
+  ClientWidth = 1161
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   object Panel1: TPanel
     Left = 0
     Height = 42
-    Top = 476
-    Width = 925
+    Top = 713
+    Width = 1161
     Align = alBottom
     ClientHeight = 42
-    ClientWidth = 925
+    ClientWidth = 1161
     TabOrder = 1
     object Button1: TButton
       Left = 845
@@ -27,7 +27,7 @@ object Fbilag: TFbilag
       TabOrder = 0
     end
     object Button2: TButton
-      Left = 760
+      Left = 996
       Height = 25
       Top = 8
       Width = 75
@@ -46,21 +46,19 @@ object Fbilag: TFbilag
   end
   object Panel2: TPanel
     Left = 0
-    Height = 192
-    Top = 0
-    Width = 925
-    Align = alTop
+    Height = 160
+    Top = 176
+    Width = 1161
     BevelInner = bvLowered
     Caption = 'Panel2'
-    ClientHeight = 192
-    ClientWidth = 925
+    ClientHeight = 160
+    ClientWidth = 1161
     TabOrder = 2
     object sg1: TStringGrid
-      Left = 12
-      Height = 168
-      Top = 12
-      Width = 901
-      Align = alClient
+      Left = 24
+      Height = 160
+      Top = 56
+      Width = 1137
       BorderSpacing.Around = 10
       ColCount = 9
       Columns = <      
@@ -100,61 +98,14 @@ object Fbilag: TFbilag
     end
   end
   object Panel3: TPanel
-    Left = 0
-    Height = 284
-    Top = 192
+    Left = 56
+    Height = 312
+    Top = 320
     Width = 466
-    Align = alLeft
     BevelInner = bvLowered
-    ClientHeight = 284
+    ClientHeight = 312
     ClientWidth = 466
     TabOrder = 0
-    object Label1: TLabel
-      Left = 10
-      Height = 16
-      Top = 24
-      Width = 41
-      Caption = 'Label1'
-    end
-    object EDato: TEdit
-      Left = 110
-      Height = 24
-      Top = 16
-      Width = 104
-      OnExit = EDatoExit
-      TabOrder = 0
-      Text = 'EDato'
-    end
-    object EPeriode: TEdit
-      Left = 110
-      Height = 24
-      Top = 48
-      Width = 104
-      Enabled = False
-      ReadOnly = True
-      TabOrder = 1
-      Text = 'EPeriode'
-    end
-    object EAar: TEdit
-      Left = 110
-      Height = 24
-      Top = 80
-      Width = 104
-      Enabled = False
-      ReadOnly = True
-      TabOrder = 2
-      Text = 'EAar'
-    end
-    object Ebnummer: TEdit
-      Left = 110
-      Height = 24
-      Top = 112
-      Width = 104
-      Enabled = False
-      ReadOnly = True
-      TabOrder = 3
-      Text = 'Ebnummer'
-    end
     object ENr: TEdit
       Tag = 1
       Left = 110
@@ -164,7 +115,7 @@ object Fbilag: TFbilag
       OnExit = ENrExit
       OnKeyDown = ENrKeyDown
       OnKeyPress = EKontoKeyPress
-      TabOrder = 4
+      TabOrder = 0
       Text = 'ENr'
     end
     object ETekst: TEdit
@@ -172,7 +123,7 @@ object Fbilag: TFbilag
       Height = 24
       Top = 210
       Width = 280
-      TabOrder = 5
+      TabOrder = 1
       Text = 'ETekst'
     end
     object Ebelob: TEdit
@@ -182,7 +133,7 @@ object Fbilag: TFbilag
       Width = 104
       OnExit = EbelobExit
       OnKeyPress = EbelobKeyPress
-      TabOrder = 6
+      TabOrder = 2
       Text = 'Ebelob'
     end
     object Edit1: TEdit
@@ -192,102 +143,36 @@ object Fbilag: TFbilag
       Top = 176
       Width = 280
       ReadOnly = True
-      TabOrder = 7
+      TabOrder = 3
       Text = 'Edit1'
-    end
-    object Label2: TLabel
-      Left = 10
-      Height = 16
-      Top = 88
-      Width = 41
-      Caption = 'Label2'
-    end
-    object Label3: TLabel
-      Left = 10
-      Height = 16
-      Top = 120
-      Width = 41
-      Caption = 'Label3'
     end
     object Label4: TLabel
       Left = 10
       Height = 16
       Top = 152
-      Width = 41
-      Caption = 'Label4'
+      Width = 48
+      Caption = 'rsKonto'
     end
     object Label5: TLabel
       Left = 10
       Height = 16
       Top = 184
-      Width = 41
-      Caption = 'Label5'
+      Width = 80
+      Caption = 'rsKontoNavn'
     end
     object Label6: TLabel
       Left = 10
       Height = 16
       Top = 216
-      Width = 41
-      Caption = 'Label6'
+      Width = 43
+      Caption = 'rsTekst'
     end
     object Label7: TLabel
       Left = 10
       Height = 16
       Top = 248
-      Width = 41
-      Caption = 'Label7'
-    end
-    object Label8: TLabel
-      Left = 10
-      Height = 16
-      Top = 56
-      Width = 41
-      Caption = 'Label8'
-    end
-    object SpeedButton1: TSpeedButton
-      Left = 232
-      Height = 22
-      Top = 16
-      Width = 23
-      Glyph.Data = {
-        36040000424D3604000000000000360000002800000010000000100000000100
-        2000000000000004000064000000640000000000000000000000FFFFFF008484
-        84C4919191FF919191FF154057FF2A6087FF4A88BCFF558EB2FF848E96FF9191
-        91FF919191FF919191FF919191FF919191FF8A8A8AE0FFFFFF00FFFFFF009595
-        95FFBFBFBFFFC3C3C3FF2D6684FF94C7F9FF91C9F9FF4185C9FF2468ABFFA8B5
-        C1FFC3C3C3FFC4C4C4FFC5C5C5FFC2C2C2FF959595FFFFFFFF00FFFFFF00BCBC
-        BCFFEFEFEFF1FBFBFBFD4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478D
-        C5FFBCCAD7FFE0E0E0FFFFFFFFFFF7F7F7FFC7C7C7FFFFFFFF00FFFFFF00C9C9
-        C9FFFBFBFBFDFBFBFBFFA5C2D6FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
-        EDFF4E9ADAFFE3EEF8FFE2E2E2FFFFFFFFFFCCCCCCFFFFFFFF0000000001C9C9
-        C9FFFCFCFCFFFBFBFBFFFBFBFBFFB1D4E5FF74B8D5FFC2F6FDFF63DFF7FF5DE2
-        F8FF79D3F0FF4A99DCFFE4EFF8FFE0E0E0FFCBCBCBFFFFFFFF0000000001C9C9
-        C9FFFCFCFCFFFBFBFBFFFBFBFBFFFBFBFBFF7BA0B1FF77CBE7FFC7F7FDFF5EDC
-        F5FF5AE1F7FF7BD4F1FF4A99DCFFB9CBDBFFC7C7C7FF0000000100000001C9C9
-        C9FFFCFCFCFFFBFBFBFFFCFCFCFFFCFCFCFFAEAEAEFFBCE5F1FF79D3EEFFC7F7
-        FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A1E0FFAFBDC9FF0000000100000001C9C9
-        C9FFFCFCFCFFFCFCFCFFFCFCFCFFCBCBCBFFAFAFAFFFFBFBFBFFBDE6F3FF7DD4
-        EEFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF659ED1FF4F8EC42700000001C9C9
-        C9FFFCFCFCFFFCFCFCFFFCFCFCFFF5F5F5FFCBCBCBFFEEEEEEFFCACACAFF90C1
-        D0FF7FD4EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F700000001C9C9
-        C9FFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFBFB
-        FBFFABE0F0FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8000000010000
-        DCFF1313F3FF3B3BE9FF3333E8FF2D2DE7FF2828E3FF2323E1FF1E1EDFFF1B1B
-        DDFF1717DCFF1E47DCFF58A5D8FF85B1DBFF469DD0FF2A93CF5F000000010000
-        DCFF0F0FEBFF2828BDFF1C1C98FF1F1FBCFF1E1EDDFF1B1BDFFF1616DEFF1212
-        D7FF0D0DB5FF080892FF0606B4FF0101E6FF0000DCFF00000001000000010000
-        DCFF0B0BDAFFA1A1AEFFE0E0E0FF9F9FAEFF1414CEFF1212E1FF0E0EE1FF0909
-        CCFF9E9EAEFFE0E0E0FF9E9EAEFF0000D7FF0000DCFF00000001000000010000
-        DCFF0707D2FFC4C4D6FFE3E3E3FFC4C4D5FF0303D0FF0202EDFF0202EDFF0101
-        CFFFC5C5D6FFE3E3E3FFC4C4D6FF0000CFFF0000DCFF00000001FFFFFF000000
-        DCFF0000C7FFB5B5CBFFE6E6E6FFB3B3C9FF0000C7FF0000DCFF0000DCFF0000
-        C7FFB8B8CEFFE6E6E6FFB6B6CDFF0000C7FF0000DCFFFFFFFF00FFFFFF00FFFF
-        FF000000000129292944919191CA262626480000000400000001000000010000
-        00043232323C9B9B9BC72929294400000001FFFFFF00FFFFFF00
-      }
-      HotImageIndex = 0
-      ImageIndex = 0
-      OnClick = SpeedButton1Click
+      Width = 47
+      Caption = 'rsBelob'
     end
     object SpeedButton2: TSpeedButton
       Left = 232
@@ -337,17 +222,16 @@ object Fbilag: TFbilag
       Height = 24
       Top = 144
       Width = 80
-      TabOrder = 8
+      TabOrder = 4
       Text = 'EKonto'
       Visible = False
     end
   end
   object Panel4: TPanel
-    Left = 466
+    Left = 584
     Height = 284
-    Top = 192
+    Top = 344
     Width = 459
-    Align = alClient
     BevelInner = bvLowered
     ClientHeight = 284
     ClientWidth = 459
@@ -363,11 +247,166 @@ object Fbilag: TFbilag
       TabOrder = 0
     end
   end
+  object Panel5: TPanel
+    Left = 0
+    Height = 160
+    Top = 0
+    Width = 1161
+    Align = alTop
+    Caption = 'Panel5'
+    ClientHeight = 160
+    ClientWidth = 1161
+    TabOrder = 4
+    object Label1: TLabel
+      AnchorSideTop.Control = EDato
+      Left = 10
+      Height = 16
+      Top = 24
+      Width = 40
+      BorderSpacing.Around = 8
+      Caption = 'rsDato'
+    end
+    object EDato: TEdit
+      Left = 110
+      Height = 24
+      Top = 16
+      Width = 104
+      BorderSpacing.Around = 8
+      OnExit = EDatoExit
+      TabOrder = 0
+      Text = 'EDato'
+    end
+    object EPeriode: TEdit
+      AnchorSideLeft.Control = EDato
+      AnchorSideTop.Control = EDato
+      AnchorSideTop.Side = asrBottom
+      Left = 110
+      Height = 24
+      Top = 48
+      Width = 104
+      BorderSpacing.Top = 8
+      BorderSpacing.Bottom = 8
+      Enabled = False
+      ReadOnly = True
+      TabOrder = 1
+      Text = 'EPeriode'
+    end
+    object EAar: TEdit
+      AnchorSideLeft.Control = EPeriode
+      AnchorSideTop.Control = EPeriode
+      AnchorSideTop.Side = asrBottom
+      Left = 110
+      Height = 24
+      Top = 80
+      Width = 104
+      BorderSpacing.Top = 8
+      BorderSpacing.Right = 8
+      BorderSpacing.Bottom = 8
+      Enabled = False
+      ReadOnly = True
+      TabOrder = 2
+      Text = 'EAar'
+    end
+    object Ebnummer: TEdit
+      AnchorSideLeft.Control = EAar
+      AnchorSideTop.Control = EAar
+      AnchorSideTop.Side = asrBottom
+      Left = 110
+      Height = 24
+      Top = 112
+      Width = 104
+      BorderSpacing.Top = 8
+      BorderSpacing.Right = 8
+      BorderSpacing.Bottom = 8
+      Enabled = False
+      ReadOnly = True
+      TabOrder = 3
+      Text = 'Ebnummer'
+    end
+    object Label2: TLabel
+      AnchorSideLeft.Control = Label8
+      AnchorSideTop.Control = EAar
+      Left = 10
+      Height = 16
+      Top = 88
+      Width = 32
+      BorderSpacing.Top = 8
+      BorderSpacing.Bottom = 8
+      Caption = 'rsAar'
+    end
+    object Label3: TLabel
+      AnchorSideLeft.Control = Label2
+      AnchorSideTop.Control = Ebnummer
+      Left = 10
+      Height = 16
+      Top = 120
+      Width = 98
+      BorderSpacing.Top = 8
+      BorderSpacing.Bottom = 8
+      Caption = 'rsBilagsnummer'
+    end
+    object Label8: TLabel
+      AnchorSideLeft.Control = Label1
+      AnchorSideTop.Control = EPeriode
+      Left = 10
+      Height = 16
+      Top = 56
+      Width = 57
+      BorderSpacing.Top = 8
+      BorderSpacing.Bottom = 8
+      Caption = 'rsPeriode'
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 232
+      Height = 22
+      Top = 16
+      Width = 23
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF008484
+        84C4919191FF919191FF154057FF2A6087FF4A88BCFF558EB2FF848E96FF9191
+        91FF919191FF919191FF919191FF919191FF8A8A8AE0FFFFFF00FFFFFF009595
+        95FFBFBFBFFFC3C3C3FF2D6684FF94C7F9FF91C9F9FF4185C9FF2468ABFFA8B5
+        C1FFC3C3C3FFC4C4C4FFC5C5C5FFC2C2C2FF959595FFFFFFFF00FFFFFF00BCBC
+        BCFFEFEFEFF1FBFBFBFD4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478D
+        C5FFBCCAD7FFE0E0E0FFFFFFFFFFF7F7F7FFC7C7C7FFFFFFFF00FFFFFF00C9C9
+        C9FFFBFBFBFDFBFBFBFFA5C2D6FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+        EDFF4E9ADAFFE3EEF8FFE2E2E2FFFFFFFFFFCCCCCCFFFFFFFF0000000001C9C9
+        C9FFFCFCFCFFFBFBFBFFFBFBFBFFB1D4E5FF74B8D5FFC2F6FDFF63DFF7FF5DE2
+        F8FF79D3F0FF4A99DCFFE4EFF8FFE0E0E0FFCBCBCBFFFFFFFF0000000001C9C9
+        C9FFFCFCFCFFFBFBFBFFFBFBFBFFFBFBFBFF7BA0B1FF77CBE7FFC7F7FDFF5EDC
+        F5FF5AE1F7FF7BD4F1FF4A99DCFFB9CBDBFFC7C7C7FF0000000100000001C9C9
+        C9FFFCFCFCFFFBFBFBFFFCFCFCFFFCFCFCFFAEAEAEFFBCE5F1FF79D3EEFFC7F7
+        FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A1E0FFAFBDC9FF0000000100000001C9C9
+        C9FFFCFCFCFFFCFCFCFFFCFCFCFFCBCBCBFFAFAFAFFFFBFBFBFFBDE6F3FF7DD4
+        EEFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF659ED1FF4F8EC42700000001C9C9
+        C9FFFCFCFCFFFCFCFCFFFCFCFCFFF5F5F5FFCBCBCBFFEEEEEEFFCACACAFF90C1
+        D0FF7FD4EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F700000001C9C9
+        C9FFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFCFCFCFFFBFB
+        FBFFABE0F0FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8000000010000
+        DCFF1313F3FF3B3BE9FF3333E8FF2D2DE7FF2828E3FF2323E1FF1E1EDFFF1B1B
+        DDFF1717DCFF1E47DCFF58A5D8FF85B1DBFF469DD0FF2A93CF5F000000010000
+        DCFF0F0FEBFF2828BDFF1C1C98FF1F1FBCFF1E1EDDFF1B1BDFFF1616DEFF1212
+        D7FF0D0DB5FF080892FF0606B4FF0101E6FF0000DCFF00000001000000010000
+        DCFF0B0BDAFFA1A1AEFFE0E0E0FF9F9FAEFF1414CEFF1212E1FF0E0EE1FF0909
+        CCFF9E9EAEFFE0E0E0FF9E9EAEFF0000D7FF0000DCFF00000001000000010000
+        DCFF0707D2FFC4C4D6FFE3E3E3FFC4C4D5FF0303D0FF0202EDFF0202EDFF0101
+        CFFFC5C5D6FFE3E3E3FFC4C4D6FF0000CFFF0000DCFF00000001FFFFFF000000
+        DCFF0000C7FFB5B5CBFFE6E6E6FFB3B3C9FF0000C7FF0000DCFF0000DCFF0000
+        C7FFB8B8CEFFE6E6E6FFB6B6CDFF0000C7FF0000DCFFFFFFFF00FFFFFF00FFFF
+        FF000000000129292944919191CA262626480000000400000001000000010000
+        00043232323C9B9B9BC72929294400000001FFFFFF00FFFFFF00
+      }
+      HotImageIndex = 0
+      ImageIndex = 0
+      OnClick = SpeedButton1Click
+    end
+  end
   object CalendarDialog1: TCalendarDialog
     Date = 45478
     OKCaption = '&OK'
     CancelCaption = 'Cancel'
-    Left = 304
-    Top = 208
+    Left = 364
+    Top = 436
   end
 end

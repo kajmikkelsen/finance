@@ -131,46 +131,50 @@ msgstr ""
 
 #: tfbilag.label1.caption
 msgctxt "tfbilag.label1.caption"
-msgid "Label1"
+msgid "rsDato"
 msgstr ""
 
 #: tfbilag.label2.caption
 msgctxt "tfbilag.label2.caption"
-msgid "Label2"
+msgid "rsAar"
 msgstr ""
 
 #: tfbilag.label3.caption
 msgctxt "tfbilag.label3.caption"
-msgid "Label3"
+msgid "rsBilagsnummer"
 msgstr ""
 
 #: tfbilag.label4.caption
 msgctxt "tfbilag.label4.caption"
-msgid "Label4"
+msgid "rsKonto"
 msgstr ""
 
 #: tfbilag.label5.caption
 msgctxt "tfbilag.label5.caption"
-msgid "Label5"
+msgid "rsKontoNavn"
 msgstr ""
 
 #: tfbilag.label6.caption
 msgctxt "tfbilag.label6.caption"
-msgid "Label6"
+msgid "rsTekst"
 msgstr ""
 
 #: tfbilag.label7.caption
 msgctxt "tfbilag.label7.caption"
-msgid "Label7"
+msgid "rsBelob"
 msgstr ""
 
 #: tfbilag.label8.caption
 msgctxt "tfbilag.label8.caption"
-msgid "Label8"
+msgid "rsPeriode"
 msgstr ""
 
 #: tfbilag.panel2.caption
 msgid "Panel2"
+msgstr ""
+
+#: tfbilag.panel5.caption
+msgid "Panel5"
 msgstr ""
 
 #: tfbilag.sg1.columns[0].title.caption
@@ -495,20 +499,20 @@ msgstr ""
 
 #: tfmain.aafslut.caption
 msgctxt "tfmain.aafslut.caption"
-msgid "Afslut"
+msgid "rsAfslut"
 msgstr ""
 
 #: tfmain.abilagsreg.caption
-msgid "ABilagsreg"
+msgid "rsBilagsRegistrering"
 msgstr ""
 
 #: tfmain.afirma.caption
-msgid "AFirma"
+msgid "rsFirmaOplysninger"
 msgstr ""
 
 #: tfmain.aimport.caption
 msgctxt "tfmain.aimport.caption"
-msgid "Importer"
+msgid "rsImport"
 msgstr ""
 
 #: tfmain.aimportzip.caption
@@ -517,15 +521,17 @@ msgstr ""
 
 #: tfmain.akonto.caption
 msgctxt "tfmain.akonto.caption"
-msgid "AKonto"
+msgid "rsKontoplan"
 msgstr ""
 
 #: tfmain.akontodel.caption
-msgid "AKontoDel"
+msgctxt "tfmain.akontodel.caption"
+msgid "rsSlet"
 msgstr ""
 
 #: tfmain.akontoedit.caption
-msgid "Akontoedit"
+msgctxt "tfmain.akontoedit.caption"
+msgid "rsRet"
 msgstr ""
 
 #: tfmain.akontony.caption
@@ -533,24 +539,29 @@ msgid "AKontoNy"
 msgstr ""
 
 #: tfmain.apostnr.caption
-msgid "APostnr"
+msgid "rsPostDistrikt"
 msgstr ""
 
 #: tfmain.apostnrdel.caption
 msgctxt "tfmain.apostnrdel.caption"
-msgid "Slet"
+msgid "rsSlet"
+msgstr ""
+
+#: tfmain.apostnredit.caption
+msgctxt "tfmain.apostnredit.caption"
+msgid "rsRet"
 msgstr ""
 
 #: tfmain.apostnrny.caption
-msgid "APostnrNy"
+msgid "rsNy"
 msgstr ""
 
 #: tfmain.asettings.caption
-msgid "Settings"
+msgid "rsSettings"
 msgstr ""
 
 #: tfmain.avelgkto.caption
-msgid " Vælg"
+msgid " rsVelg"
 msgstr ""
 
 #: tfmain.button1.caption
@@ -697,5 +708,9 @@ msgstr ""
 
 #: tfsettings.tabsheet1.caption
 msgid "Shortcuts"
+msgstr ""
+
+#: tfvelgfirma.caption
+msgid "FVelgFirma"
 msgstr ""
 

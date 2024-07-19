@@ -11,7 +11,7 @@ object FFirma: TFFirma
   OnDestroy = FormDestroy
   object PageControl1: TPageControl
     Left = 0
-    Height = 431
+    Height = 427
     Top = 0
     Width = 1070
     ActivePage = Finans
@@ -20,7 +20,7 @@ object FFirma: TFFirma
     TabOrder = 0
     object TS1: TTabSheet
       Caption = 'Firmanavn'
-      ClientHeight = 401
+      ClientHeight = 397
       ClientWidth = 1066
       OnShow = TS1Show
       object EFirmaNavn: TEdit
@@ -201,7 +201,7 @@ object FFirma: TFFirma
     end
     object Finans: TTabSheet
       Caption = 'Finans'
-      ClientHeight = 401
+      ClientHeight = 397
       ClientWidth = 1066
       object GB1: TGroupBox
         Left = 24
@@ -458,13 +458,14 @@ object FFirma: TFFirma
     end
   end
   object Panel1: TPanel
-    Left = 0
-    Height = 50
-    Top = 431
-    Width = 1070
+    Left = 6
+    Height = 42
+    Top = 433
+    Width = 1058
     Align = alBottom
-    ClientHeight = 50
-    ClientWidth = 1070
+    BorderSpacing.Around = 6
+    ClientHeight = 42
+    ClientWidth = 1058
     TabOrder = 1
     object Button1: TButton
       Left = 980
@@ -473,14 +474,13 @@ object FFirma: TFFirma
       Width = 75
       Anchors = [akRight, akBottom]
       Caption = 'Button1'
-      Default = True
       OnClick = Button1Click
       TabOrder = 0
     end
     object Button2: TButton
-      Left = 892
+      Left = 880
       Height = 25
-      Top = 16
+      Top = 8
       Width = 75
       Anchors = [akRight, akBottom]
       Cancel = True

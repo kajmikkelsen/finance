@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, anchordockpkg, lazcontrols, datetimectrls, MyDbMain, udm1, MyLib,
   global, uselect, uselfields, upostnr, ufirma, Ukontoplan, uimport, ubilag,
-  usettings;
+  usettings, uvelgfirma;
 
 {$R *.res}
 
@@ -30,6 +30,7 @@ begin
   Application.CreateForm(TFImport, FImport);
   Application.CreateForm(TFbilag, Fbilag);
   Application.CreateForm(TFSettings, FSettings);
+  Application.CreateForm(TFVelgFirma, FVelgFirma);
   Application.Run;
 end.
 

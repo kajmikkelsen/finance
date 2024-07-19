@@ -19,7 +19,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <BuildNr Value="16"/>
+      <BuildNr Value="20"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
     </VersionInfo>
     <BuildModes>
@@ -147,6 +147,13 @@
         <Filename Value="usettings.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FSettings"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uvelgfirma.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FVelgFirma"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>

@@ -107,33 +107,34 @@ object FMain: TFMain
       OnExecute = AImportZipExecute
     end
     object APostnr: TAction
-      Caption = 'APostnr'
+      Caption = 'rsPostDistrikt'
       OnExecute = APostnrExecute
     end
     object APostnrEdit: TAction
       Tag = 1
+      Caption = 'rsRet'
       OnExecute = APostnrEditExecute
     end
     object APostnrNy: TAction
       Tag = 1
-      Caption = 'APostnrNy'
+      Caption = 'rsNy'
       OnExecute = APostnrNyExecute
     end
     object AAfslut: TAction
-      Caption = 'Afslut'
+      Caption = 'rsAfslut'
       OnExecute = AAfslutExecute
     end
     object APostnrDel: TAction
       Tag = 1
-      Caption = 'Slet'
+      Caption = 'rsSlet'
       OnExecute = APostnrDelExecute
     end
     object AFirma: TAction
-      Caption = 'AFirma'
+      Caption = 'rsFirmaOplysninger'
       OnExecute = AFirmaExecute
     end
     object AKonto: TAction
-      Caption = 'AKonto'
+      Caption = 'rsKontoplan'
       OnExecute = AKontoExecute
     end
     object AKontoNy: TAction
@@ -142,30 +143,30 @@ object FMain: TFMain
       OnExecute = AKontoNyExecute
     end
     object AImport: TAction
-      Caption = 'Importer'
+      Caption = 'rsImport'
       OnExecute = AImportExecute
       ShortCut = 49225
     end
     object Akontoedit: TAction
       Tag = 1
-      Caption = 'Akontoedit'
+      Caption = 'rsRet'
       OnExecute = AkontoeditExecute
     end
     object AKontoDel: TAction
       Tag = 1
-      Caption = 'AKontoDel'
+      Caption = 'rsSlet'
       OnExecute = AKontoDelExecute
     end
     object ABilagsreg: TAction
-      Caption = 'ABilagsreg'
+      Caption = 'rsBilagsRegistrering'
       OnExecute = ABilagsregExecute
     end
     object ASettings: TAction
-      Caption = 'Settings'
+      Caption = 'rsSettings'
       OnExecute = ASettingsExecute
     end
     object AVelgKto: TAction
-      Caption = ' Vælg'
+      Caption = ' rsVelg'
       OnExecute = AVelgKtoExecute
     end
   end

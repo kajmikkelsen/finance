@@ -1,6 +1,6 @@
-//
+
 // version 0.0.0.0 added version controll
-//
+
 
 
 { <description>
@@ -24,6 +24,7 @@
 }
 
 unit MyDbMain;
+
 {$mode objfpc}{$H+}
 
 interface
@@ -31,7 +32,7 @@ interface
 uses
   Classes, SysUtils, SQLite3Conn, SQLDB, DB, Forms, Controls, Graphics, Dialogs,
   DBGrids, StdCtrls, Menus, ActnList, LCLTranslator, global, uselect,
-  upostnr, ukontoplan,ubilag,lclproc,lclType;
+  upostnr, ukontoplan, ubilag, lclproc, lclType;
 
 type
 
@@ -90,7 +91,7 @@ type
     procedure APostnrNyExecute(Sender: TObject);
     procedure ASettingsExecute(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
@@ -105,13 +106,15 @@ var
 
 implementation
 
-uses uDM1, MyLib, uFirma, uimport,usettings;
+uses uDM1, MyLib, uFirma, uimport, usettings, uvelgfirma;
 
   {$R *.lfm}
 
   { TFMain }
 
 procedure TFMain.FormCreate(Sender: TObject);
+Var
+  i:Integer;
 begin
   //    SQLiteLibraryName:='./libsqlite3.so';
   SetAllDirs;
@@ -125,33 +128,39 @@ begin
   end;
   RestoreForm(Sender as TForm);
   SetDefaultLang(GetStdIni('Misc', 'Lang', 'da'));
-  LastYMD := GetStdIni('dates','LastYMD',FormatDateTime('YYYYMMDD',Now));
-  LastYM := Copy(LastYMD,1,6);
-  LastY := Copy(LastYMD,1,4);
-  LastC := Copy(LastYMD,1,2);
-  menuitem1.Caption := rsFiles;
-  AImportZip.Caption := rsImportZipCode;
-  AImportZip.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AImportZip.Caption , ''));
-  APostnr.Caption := rsPostDistrikt;
-  APostnr.ShortCut:=TextToShortCut(GetStdIni('shortcuts',APostnr.Caption , ''));
-  AAfslut.Caption := rsAfslut;
-  AAfslut.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AAfslut.Caption , ''));
-  APostnrEdit.Caption := rsRet;
-  APostnrNy.Caption := rsNy;
-  APostnrDel.Caption := rsSlet;
-  AFirma.Caption := rsFirmaoplysninger;
-  AFirma.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AFirma.Caption , ''));
-  AKonto.Caption := rsKontoplan;
-  AKonto.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AKonto.Caption , ''));
-  AKontoNy.Caption := rsNy;
-  AImport.Caption := rsImport;
-  AImport.ShortCut:=TextToShortCut(GetStdIni('shortcuts',AImport.Caption , ''));
-  AKontoEdit.Caption := rsRet;
-  AkontoDel.Caption := rsSlet;
-  ASettings.Caption:= rsSettings;
-  ASettings.ShortCut:=TextToShortCut(GetStdIni('shortcuts',ASettings.Caption , ''));
-  ABilagsreg.Caption:=rsBilagsregistrering;
-  ABilagsreg.ShortCut:=TextToShortCut(GetStdIni('shortcuts',ABilagsreg.Caption , ''));;
+  LastYMD := GetStdIni('dates', 'LastYMD', FormatDateTime('YYYYMMDD', Now));
+  LastYM := Copy(LastYMD, 1, 6);
+  LastY := Copy(LastYMD, 1, 4);
+  LastC := Copy(LastYMD, 1, 2);
+  TransCaption(Sender as TForm,rsStrings);
+  //AKontoEdit.Caption := rsRet;
+  //AkontoDel.Caption := rsSlet;
+  //ASettings.Caption := rsSettings;
+  //AImportZip.Caption := rsImportZipCode;
+  //APostnr.Caption := rsPostDistrikt;
+  //menuitem1.Caption := rsFiles;
+  //APostnrEdit.Caption := rsRet;
+  //APostnrNy.Caption := rsNy;
+  //APostnrDel.Caption := rsSlet;
+  //AFirma.Caption := rsFirmaoplysninger;
+  //ABilagsreg.Caption := rsBilagsregistrering;
+  //AKonto.Caption := rsKontoplan;
+  //AKontoNy.Caption := rsNy;
+  //AImport.Caption := rsImport;
+  //AAfslut.Caption := rsAfslut;
+  ASettings.ShortCut := TextToShortCut(GetStdIni('shortcuts', ASettings.Caption, ''));
+  ABilagsreg.ShortCut := TextToShortCut(GetStdIni('shortcuts', ABilagsreg.Caption, ''));
+  AImportZip.ShortCut := TextToShortCut(GetStdIni('shortcuts', AImportZip.Caption, ''));
+  APostnr.ShortCut := TextToShortCut(GetStdIni('shortcuts', APostnr.Caption, ''));
+  AAfslut.ShortCut := TextToShortCut(GetStdIni('shortcuts', AAfslut.Caption, ''));
+  AFirma.ShortCut := TextToShortCut(GetStdIni('shortcuts', AFirma.Caption, ''));
+  AKonto.ShortCut := TextToShortCut(GetStdIni('shortcuts', AKonto.Caption, ''));
+  AImport.ShortCut := TextToShortCut(GetStdIni('shortcuts', AImport.Caption, ''));
+  for i := 0 to Pred(RsStrings.Count) do
+  begin
+    Memo1.Append(RsStrings.ValueFromIndex[i]);
+  end;
+  Button1.Caption:= rsStrings.values['rsImportZipCode '];
 
 end;
 
@@ -200,8 +209,8 @@ begin
   if uKontoPlan.Fkontoplan.ShowModal = mrOk then
   begin
     if ID <> dm1.sqlq1.FieldByName('ID').AsInteger then
-    Begin
-       MessageDlg(rsNoUpdate, mtInformation, [mbOK], 0);
+    begin
+      MessageDlg(rsNoUpdate, mtInformation, [mbOK], 0);
       dm1.sqlq1.Cancel;
     end
     else
@@ -290,7 +299,7 @@ end;
 
 procedure TFMain.AFirmaExecute(Sender: TObject);
 begin
-//  FFirma.Caption := rsFirmaoplysninger;
+  //  FFirma.Caption := rsFirmaoplysninger;
   FFirma.ShowModal;
 end;
 
@@ -340,17 +349,15 @@ end;
 
 procedure TFMain.Button1Click(Sender: TObject);
 begin
-
-  ABilagsreg.ShortCut := TextToShortCut('CTRL+K');;
+  fvelgfirma.showmodal;
 end;
 
-procedure TFMain.Edit1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFMain.Edit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
-  If ssCtrl in Shift Then Showmessage('Ctrl was pressed');
-  If ssAlt in Shift Then Showmessage('Alt was pressed');
-  If (ssCtrl in Shift) and (ssAlt in shift) Then showmessage('Both was pressed');
+  if ssCtrl in Shift then ShowMessage('Ctrl was pressed');
+  if ssAlt in Shift then ShowMessage('Alt was pressed');
+  if (ssCtrl in Shift) and (ssAlt in shift) then ShowMessage('Both was pressed');
   if key = VK_ACCEPT then;
-
 
 end;
 

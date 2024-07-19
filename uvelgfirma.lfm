@@ -1,0 +1,24 @@
+object FVelgFirma: TFVelgFirma
+  Left = 339
+  Height = 458
+  Top = 250
+  Width = 654
+  Caption = 'FVelgFirma'
+  ClientHeight = 458
+  ClientWidth = 654
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 40
+    Top = 412
+    Width = 642
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 0
+  end
+end
