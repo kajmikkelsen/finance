@@ -3,13 +3,12 @@ object FImport: TFImport
   Height = 434
   Top = 1293
   Width = 745
-  Caption = 'Importer'
+  Caption = 'rsImport'
   ClientHeight = 434
   ClientWidth = 745
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '3.0.0.1'
   object Panel1: TPanel
     Left = 0
     Height = 42
@@ -26,7 +25,7 @@ object FImport: TFImport
       Width = 75
       Anchors = [akRight, akBottom]
       Cancel = True
-      Caption = 'Button2'
+      Caption = 'rsAfslut'
       ModalResult = 2
       TabOrder = 0
     end
@@ -53,20 +52,20 @@ object FImport: TFImport
     TopIndex = -1
   end
   object Label1: TLabel
-    Left = 560
+    Left = 549
     Height = 16
     Top = 11
-    Width = 35
+    Width = 46
     Anchors = [akTop, akRight, akBottom]
-    Caption = 'Felter'
+    Caption = 'rsFields'
   end
   object Label2: TLabel
-    Left = 384
+    Left = 383
     Height = 16
     Top = 11
-    Width = 49
+    Width = 50
     Anchors = [akTop, akRight, akBottom]
-    Caption = 'Tabeller'
+    Caption = 'rsTables'
   end
   object Edit1: TEdit
     Left = 32
@@ -82,8 +81,8 @@ object FImport: TFImport
     Left = 32
     Height = 16
     Top = 12
-    Width = 72
-    Caption = 'Fil til import'
+    Width = 25
+    Caption = 'rsFil'
   end
   object Memo1: TMemo
     Left = 32

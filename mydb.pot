@@ -65,19 +65,57 @@ msgstr ""
 msgid " Kunne ikke danne "
 msgstr ""
 
+#: tfabout.button1.caption
+msgid "rsLuk"
+msgstr ""
+
+#: tfabout.caption
+msgctxt "tfabout.caption"
+msgid "rsOm"
+msgstr ""
+
+#: tfabout.label1.caption
+msgid "Message icons created by Freepik - Flaticon"
+msgstr ""
+
+#: tfabout.label2.caption
+msgid "Label2"
+msgstr ""
+
+#: tfabout.label3.caption
+msgid "FloatingNote"
+msgstr ""
+
+#: tfabout.label4.caption
+msgid "Version"
+msgstr ""
+
+#: tfabout.tabsheet1.caption
+msgctxt "tfabout.tabsheet1.caption"
+msgid "rsOm"
+msgstr ""
+
+#: tfabout.tabsheet2.caption
+msgid "rsLicens"
+msgstr ""
+
+#: tfabout.tabsheet3.caption
+msgid "rsAttribute"
+msgstr ""
+
 #: tfbilag.button1.caption
 msgctxt "tfbilag.button1.caption"
-msgid "Button1"
+msgid "rsFortryd"
 msgstr ""
 
 #: tfbilag.button2.caption
 msgctxt "tfbilag.button2.caption"
-msgid "Button2"
+msgid "rsOK"
 msgstr ""
 
 #: tfbilag.button3.caption
 msgctxt "tfbilag.button3.caption"
-msgid "Button3"
+msgid "rsAfslut"
 msgstr ""
 
 #: tfbilag.calendardialog1.cancelcaption
@@ -96,10 +134,6 @@ msgstr ""
 msgid "EAar"
 msgstr ""
 
-#: tfbilag.ebelob.text
-msgid "Ebelob"
-msgstr ""
-
 #: tfbilag.ebnummer.text
 msgid "Ebnummer"
 msgstr ""
@@ -113,20 +147,8 @@ msgctxt "tfbilag.edit1.text"
 msgid "Edit1"
 msgstr ""
 
-#: tfbilag.ekonto.text
-msgid "EKonto"
-msgstr ""
-
-#: tfbilag.enr.text
-msgid "ENr"
-msgstr ""
-
 #: tfbilag.eperiode.text
 msgid "EPeriode"
-msgstr ""
-
-#: tfbilag.etekst.text
-msgid "ETekst"
 msgstr ""
 
 #: tfbilag.label1.caption
@@ -145,23 +167,7 @@ msgid "rsBilagsnummer"
 msgstr ""
 
 #: tfbilag.label4.caption
-msgctxt "tfbilag.label4.caption"
-msgid "rsKonto"
-msgstr ""
-
-#: tfbilag.label5.caption
-msgctxt "tfbilag.label5.caption"
-msgid "rsKontoNavn"
-msgstr ""
-
-#: tfbilag.label6.caption
-msgctxt "tfbilag.label6.caption"
-msgid "rsTekst"
-msgstr ""
-
-#: tfbilag.label7.caption
-msgctxt "tfbilag.label7.caption"
-msgid "rsBelob"
+msgid "rsBalance"
 msgstr ""
 
 #: tfbilag.label8.caption
@@ -171,10 +177,6 @@ msgstr ""
 
 #: tfbilag.panel2.caption
 msgid "Panel2"
-msgstr ""
-
-#: tfbilag.panel5.caption
-msgid "Panel5"
 msgstr ""
 
 #: tfbilag.sg1.columns[0].title.caption
@@ -202,38 +204,22 @@ msgctxt "tfbilag.sg1.columns[4].title.caption"
 msgid "Title"
 msgstr ""
 
-#: tfbilag.sg1.columns[5].title.caption
-msgctxt "tfbilag.sg1.columns[5].title.caption"
-msgid "Title"
-msgstr ""
-
-#: tfbilag.sg1.columns[6].title.caption
-msgctxt "tfbilag.sg1.columns[6].title.caption"
-msgid "Title"
-msgstr ""
-
-#: tfbilag.sg1.columns[7].title.caption
-msgctxt "tfbilag.sg1.columns[7].title.caption"
-msgid "Title"
-msgstr ""
-
-#: tfbilag.sg1.columns[8].title.caption
-msgctxt "tfbilag.sg1.columns[8].title.caption"
-msgid "Title"
+#: tfdebkar.caption
+msgid "FDebKar"
 msgstr ""
 
 #: tffirma.button1.caption
 msgctxt "tffirma.button1.caption"
-msgid "Button1"
+msgid "rsOK"
 msgstr ""
 
 #: tffirma.button2.caption
 msgctxt "tffirma.button2.caption"
-msgid "Button2"
+msgid "rsAfbryd"
 msgstr ""
 
 #: tffirma.caption
-msgid "Virksomhedsoplysninger"
+msgid "rsVirksomhedsoplysninger"
 msgstr ""
 
 #: tffirma.eaarstart.text
@@ -298,110 +284,106 @@ msgid "EFirmaTlf"
 msgstr ""
 
 #: tffirma.finans.caption
-msgid "Finans"
+msgid "rsBogholderi"
 msgstr ""
 
 #: tffirma.gb1.caption
-msgid "GB1"
+msgid "rsMomsSats"
 msgstr ""
 
 #: tffirma.gb2.caption
-msgid "GB2"
+msgid "rsMisc"
 msgstr ""
 
 #: tffirma.label1.caption
-msgid "Navn"
+msgid "rsNavn"
 msgstr ""
 
 #: tffirma.label10.caption
-msgid "Label10"
+msgid "rsCVR"
 msgstr ""
 
 #: tffirma.label11.caption
-msgid "Label11"
+msgid "rsMoms1"
 msgstr ""
 
 #: tffirma.label12.caption
-msgid "Label12"
+msgid "rsMoms2"
 msgstr ""
 
 #: tffirma.label13.caption
-msgid "Label13"
+msgid "rsMoms3"
 msgstr ""
 
 #: tffirma.label14.caption
-msgid "Label14"
+msgid "rsMoms4"
 msgstr ""
 
 #: tffirma.label15.caption
-msgid "Label15"
+msgid "rsMoms5"
 msgstr ""
 
 #: tffirma.label16.caption
-msgid "Label16"
+msgid "rsSats"
 msgstr ""
 
 #: tffirma.label17.caption
-msgid ""
-"Ugående\n"
-"Finanskonto"
+msgid "rsMomsud"
 msgstr ""
 
 #: tffirma.label18.caption
-msgid ""
-"Indgående\n"
-"Finanskonto"
+msgid "rsMomsInd"
 msgstr ""
 
 #: tffirma.label19.caption
-msgid "Label19"
+msgid "rsAarstart"
 msgstr ""
 
 #: tffirma.label2.caption
 msgctxt "tffirma.label2.caption"
-msgid "Label2"
+msgid "rsAdresse"
 msgstr ""
 
 #: tffirma.label20.caption
-msgid "Label20"
+msgid "rsNextBilagsNummer"
 msgstr ""
 
 #: tffirma.label21.caption
-msgid "Label21"
+msgid "rsBilagCifre"
 msgstr ""
 
 #: tffirma.label3.caption
 msgctxt "tffirma.label3.caption"
-msgid "Label3"
+msgid "rsAdresse2"
 msgstr ""
 
 #: tffirma.label4.caption
 msgctxt "tffirma.label4.caption"
-msgid "Label4"
+msgid "rsPostnrBy"
 msgstr ""
 
 #: tffirma.label5.caption
 msgctxt "tffirma.label5.caption"
-msgid "Label5"
+msgid "rsLand"
 msgstr ""
 
 #: tffirma.label6.caption
 msgctxt "tffirma.label6.caption"
-msgid "Label6"
+msgid "rsTlf"
 msgstr ""
 
 #: tffirma.label7.caption
 msgctxt "tffirma.label7.caption"
-msgid "Label7"
+msgid "rsMail"
 msgstr ""
 
 #: tffirma.label8.caption
 msgctxt "tffirma.label8.caption"
-msgid "Label8"
+msgid "rsBank"
 msgstr ""
 
 #: tffirma.label9.caption
-msgid "Label9"
+msgid "rsBankKonto"
 msgstr ""
 
 #: tffirma.tabaarper.caption
@@ -409,17 +391,17 @@ msgid "Perioder"
 msgstr ""
 
 #: tffirma.ts1.caption
-msgid "Firmanavn"
+msgid "rsFirmanavn"
 msgstr ""
 
 #: tfimport.button2.caption
 msgctxt "tfimport.button2.caption"
-msgid "Button2"
+msgid "rsAfslut"
 msgstr ""
 
 #: tfimport.caption
 msgctxt "tfimport.caption"
-msgid "Importer"
+msgid "rsImport"
 msgstr ""
 
 #: tfimport.edit2.text
@@ -433,25 +415,25 @@ msgid "Edit3"
 msgstr ""
 
 #: tfimport.label1.caption
-msgid "Felter"
+msgid "rsFields"
 msgstr ""
 
 #: tfimport.label2.caption
-msgid "Tabeller"
+msgid "rsTables"
 msgstr ""
 
 #: tfimport.label3.caption
-msgid "Fil til import"
+msgid "rsFil"
 msgstr ""
 
 #: tfkontoplan.button1.caption
 msgctxt "tfkontoplan.button1.caption"
-msgid "Button1"
+msgid "rsOK"
 msgstr ""
 
 #: tfkontoplan.button2.caption
 msgctxt "tfkontoplan.button2.caption"
-msgid "Button2"
+msgid "rsAfbryd"
 msgstr ""
 
 #: tfkontoplan.caption
@@ -464,7 +446,7 @@ msgstr ""
 
 #: tfkontoplan.emomstyp.caption
 msgctxt "tfkontoplan.emomstyp.caption"
-msgid "Moms"
+msgid "rsMoms"
 msgstr ""
 
 #: tfkontoplan.enavn.text
@@ -473,28 +455,33 @@ msgstr ""
 
 #: tfkontoplan.etyp.caption
 msgctxt "tfkontoplan.etyp.caption"
-msgid "Kontotype"
+msgid "rsKontotype"
 msgstr ""
 
 #: tfkontoplan.label1.caption
-msgid "Kontonummer"
+msgid "rsKontonummer"
 msgstr ""
 
 #: tfkontoplan.label2.caption
-msgid "Kontotekst"
+msgid "rsKontotekst"
 msgstr ""
 
 #: tfkontoplan.label3.caption
 msgctxt "tfkontoplan.label3.caption"
-msgid "Momssats"
+msgid "rsMomssats"
 msgstr ""
 
 #: tfkontoplan.label4.caption
-msgid "Fra konto"
+msgid "rsFraKonto"
 msgstr ""
 
 #: tfkontoplan.label5.caption
-msgid "Til komto"
+msgid "rsTilKonto"
+msgstr ""
+
+#: tfmain.aabout.caption
+msgctxt "tfmain.aabout.caption"
+msgid "rsOm"
 msgstr ""
 
 #: tfmain.aafslut.caption
@@ -535,10 +522,12 @@ msgid "rsRet"
 msgstr ""
 
 #: tfmain.akontony.caption
-msgid "AKontoNy"
+msgctxt "tfmain.akontony.caption"
+msgid "rsNy"
 msgstr ""
 
 #: tfmain.apostnr.caption
+msgctxt "tfmain.apostnr.caption"
 msgid "rsPostDistrikt"
 msgstr ""
 
@@ -553,10 +542,12 @@ msgid "rsRet"
 msgstr ""
 
 #: tfmain.apostnrny.caption
+msgctxt "tfmain.apostnrny.caption"
 msgid "rsNy"
 msgstr ""
 
 #: tfmain.asettings.caption
+msgctxt "tfmain.asettings.caption"
 msgid "rsSettings"
 msgstr ""
 
@@ -593,12 +584,12 @@ msgstr ""
 
 #: tfpostnredit.button1.caption
 msgctxt "tfpostnredit.button1.caption"
-msgid "Button1"
+msgid "rsOK"
 msgstr ""
 
 #: tfpostnredit.button2.caption
 msgctxt "tfpostnredit.button2.caption"
-msgid "Button2"
+msgid "rsAfbryd"
 msgstr ""
 
 #: tfpostnredit.caption
@@ -607,32 +598,36 @@ msgstr ""
 
 #: tfpostnredit.label1.caption
 msgctxt "tfpostnredit.label1.caption"
-msgid "Label1"
+msgid "rsLand"
 msgstr ""
 
 #: tfpostnredit.label2.caption
 msgctxt "tfpostnredit.label2.caption"
-msgid "Label2"
+msgid "rsPostNummer"
 msgstr ""
 
 #: tfpostnredit.label3.caption
 msgctxt "tfpostnredit.label3.caption"
-msgid "Label3"
+msgid "rsPostDistrikt"
 msgstr ""
 
 #: tfselect.aprint.caption
+msgctxt "tfselect.aprint.caption"
 msgid "Print"
 msgstr ""
 
 #: tfselect.aselectfields.caption
+msgctxt "tfselect.aselectfields.caption"
 msgid "Vælg felter"
 msgstr ""
 
 #: tfselect.button1.caption
+msgctxt "tfselect.button1.caption"
 msgid "Ny"
 msgstr ""
 
 #: tfselect.button2.caption
+msgctxt "tfselect.button2.caption"
 msgid "Ret"
 msgstr ""
 
@@ -656,39 +651,42 @@ msgid "Label1"
 msgstr ""
 
 #: tfselect.label2.caption
+msgctxt "tfselect.label2.caption"
 msgid "  :    "
 msgstr ""
 
 #: tfselect.menuitem3.caption
+msgctxt "tfselect.menuitem3.caption"
 msgid "AExport"
 msgstr ""
 
 #: tfselfields.button1.caption
 msgctxt "tfselfields.button1.caption"
-msgid "Button1"
+msgid "rsOK"
 msgstr ""
 
 #: tfselfields.button2.caption
 msgctxt "tfselfields.button2.caption"
-msgid "Button2"
+msgid "rsAfbryd"
 msgstr ""
 
 #: tfselfields.caption
-msgid "FSelFields"
+msgid "rsSelfields"
 msgstr ""
 
 #: tfsettings.button1.caption
 msgctxt "tfsettings.button1.caption"
-msgid "Button1"
+msgid "rsOK"
 msgstr ""
 
 #: tfsettings.button2.caption
 msgctxt "tfsettings.button2.caption"
-msgid "Button2"
+msgid "rsFortryd"
 msgstr ""
 
 #: tfsettings.caption
-msgid "FSettings"
+msgctxt "tfsettings.caption"
+msgid "rsSettings"
 msgstr ""
 
 #: tfsettings.cb1.caption
@@ -706,11 +704,107 @@ msgctxt "tfsettings.cb3.caption"
 msgid "Shift"
 msgstr ""
 
+#: tfsettings.edit1.text
+msgctxt "tfsettings.edit1.text"
+msgid "Edit1"
+msgstr ""
+
+#: tfsettings.rsstdmapper.caption
+msgid "rsStdmapper"
+msgstr ""
+
 #: tfsettings.tabsheet1.caption
-msgid "Shortcuts"
+msgid "rsShortcut"
+msgstr ""
+
+#: tfsettings.tabsheet2.caption
+msgid "rsPaths"
+msgstr ""
+
+#: tfvelg.aprint.caption
+msgctxt "tfvelg.aprint.caption"
+msgid "Print"
+msgstr ""
+
+#: tfvelg.aselectfields.caption
+msgctxt "tfvelg.aselectfields.caption"
+msgid "Vælg felter"
+msgstr ""
+
+#: tfvelg.button1.caption
+msgctxt "tfvelg.button1.caption"
+msgid "rsVelg"
+msgstr ""
+
+#: tfvelg.button2.caption
+msgctxt "tfvelg.button2.caption"
+msgid "rsFortryd"
+msgstr ""
+
+#: tfvelg.caption
+msgctxt "tfvelg.caption"
+msgid "rsVelg"
+msgstr ""
+
+#: tfvelg.label1.caption
+msgctxt "tfvelg.label1.caption"
+msgid "Label1"
+msgstr ""
+
+#: tfvelg.label2.caption
+msgctxt "tfvelg.label2.caption"
+msgid "  :    "
+msgstr ""
+
+#: tfvelg.menuitem3.caption
+msgctxt "tfvelg.menuitem3.caption"
+msgid "AExport"
+msgstr ""
+
+#: tfvelgfirma.button1.caption
+msgctxt "tfvelgfirma.button1.caption"
+msgid "rsOK"
+msgstr ""
+
+#: tfvelgfirma.button2.caption
+msgctxt "tfvelgfirma.button2.caption"
+msgid "rsAfslut"
+msgstr ""
+
+#: tfvelgfirma.button3.caption
+msgctxt "tfvelgfirma.button3.caption"
+msgid "rsNy"
+msgstr ""
+
+#: tfvelgfirma.button3.hint
+msgctxt "tfvelgfirma.button3.hint"
+msgid "rsDanNytFirma"
 msgstr ""
 
 #: tfvelgfirma.caption
-msgid "FVelgFirma"
+msgid "rsVelgFirma"
+msgstr ""
+
+#: tmyinputbox.button1.caption
+msgctxt "tmyinputbox.button1.caption"
+msgid "rsOK"
+msgstr ""
+
+#: tmyinputbox.button2.caption
+msgctxt "tmyinputbox.button2.caption"
+msgid "rsFortryd"
+msgstr ""
+
+#: tmyinputbox.caption
+msgid "MyInputBox"
+msgstr ""
+
+#: tmyinputbox.einput.text
+msgid "EInput"
+msgstr ""
+
+#: tmyinputbox.label1.caption
+msgctxt "tmyinputbox.label1.caption"
+msgid "Label1"
 msgstr ""
 

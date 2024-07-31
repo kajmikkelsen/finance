@@ -47,11 +47,6 @@ begin
   DBEDIT1.DataField:='landekode';
   DbEdit2.DataField := 'postnummer';
   DbEdit3.DataField:='postdistrikt';
-  Button1.Caption := rsOK;
-  Button2.Caption := rsAfbryd;
-  Label1.Caption:= rsLand;
-  Label2.Caption := rsPostNummer;
-  Label3.Caption := rsPostDistrikt;
   DBEdit1.AnchorSide[akLeft].side := asrRight;
   DBEdit2.AnchorSide[akLeft].side := asrRight;
   DBEdit3.AnchorSide[akLeft].side := asrRight;
@@ -84,6 +79,7 @@ end;
 
 procedure TFPostnrEdit.FormCreate(Sender: TObject);
 begin
+  TransCaption(Sender as TForm,rsStrings);
   RestoreForm(FPostNrEdit);
 end;
 

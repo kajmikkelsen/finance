@@ -19,7 +19,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <BuildNr Value="20"/>
+      <BuildNr Value="33"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
     </VersionInfo>
     <BuildModes>
@@ -94,9 +94,9 @@
         <UnitName Value="MyLib"/>
       </Unit>
       <Unit>
-        <Filename Value="uselect.pas"/>
+        <Filename Value="usel.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="FSelect"/>
+        <ComponentName Value="fvelg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
@@ -156,6 +156,40 @@
         <ComponentName Value="FVelgFirma"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uselect.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FSelect"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="udebkar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FDebKar"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDebKar"/>
+      </Unit>
+      <Unit>
+        <Filename Value="myinputbox.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MyInputBox"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uabout.lfm"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uabout.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FAbout"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UAbout"/>
       </Unit>
     </Units>
   </ProjectOptions>

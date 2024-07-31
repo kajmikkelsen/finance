@@ -1,0 +1,11 @@
+{"version":1,"strings":[
+{"hash":497757,"name":"tfabout.caption","sourcebytes":[114,115,79,109],"value":"rsOm"},
+{"hash":497757,"name":"tfabout.tabsheet1.caption","sourcebytes":[114,115,79,109],"value":"rsOm"},
+{"hash":86477810,"name":"tfabout.label2.caption","sourcebytes":[76,97,98,101,108,50],"value":"Label2"},
+{"hash":211365381,"name":"tfabout.label3.caption","sourcebytes":[70,108,111,97,116,105,110,103,78,111,116,101],"value":"FloatingNote"},
+{"hash":214540302,"name":"tfabout.label4.caption","sourcebytes":[86,101,114,115,105,111,110],"value":"Version"},
+{"hash":137338307,"name":"tfabout.tabsheet2.caption","sourcebytes":[114,115,76,105,99,101,110,115],"value":"rsLicens"},
+{"hash":200729621,"name":"tfabout.tabsheet3.caption","sourcebytes":[114,115,65,116,116,114,105,98,117,116,101],"value":"rsAttribute"},
+{"hash":49889550,"name":"tfabout.label1.caption","sourcebytes":[77,101,115,115,97,103,101,32,105,99,111,110,115,32,99,114,101,97,116,101,100,32,98,121,32,70,114,101,101,112,105,107,32,45,32,70,108,97,116,105,99,111,110],"value":"Message icons created by Freepik - Flaticon"},
+{"hash":7963579,"name":"tfabout.button1.caption","sourcebytes":[114,115,76,117,107],"value":"rsLuk"}
+]}

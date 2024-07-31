@@ -1,0 +1,7 @@
+object FDebKar: TFDebKar
+  Left = 321
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'FDebKar'
+end

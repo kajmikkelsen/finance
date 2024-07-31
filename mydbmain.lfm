@@ -98,6 +98,9 @@ object FMain: TFMain
         Action = ABilagsreg
       end
     end
+    object MenuItem10: TMenuItem
+      Action = AAbout
+    end
   end
   object AL1: TActionList
     Tag = 1
@@ -139,7 +142,7 @@ object FMain: TFMain
     end
     object AKontoNy: TAction
       Tag = 1
-      Caption = 'AKontoNy'
+      Caption = 'rsNy'
       OnExecute = AKontoNyExecute
     end
     object AImport: TAction
@@ -166,8 +169,13 @@ object FMain: TFMain
       OnExecute = ASettingsExecute
     end
     object AVelgKto: TAction
+      Tag = 1
       Caption = ' rsVelg'
       OnExecute = AVelgKtoExecute
+    end
+    object AAbout: TAction
+      Caption = 'rsOm'
+      OnExecute = AAboutExecute
     end
   end
   object OD1: TOpenDialog
@@ -178,5 +186,10 @@ object FMain: TFMain
   object il1: TImageList
     Left = 537
     Top = 7
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = '*.pdf|*.pdf'
+    Left = 145
+    Top = 15
   end
 end

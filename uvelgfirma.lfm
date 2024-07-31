@@ -2,23 +2,90 @@ object FVelgFirma: TFVelgFirma
   Left = 339
   Height = 458
   Top = 250
-  Width = 654
-  Caption = 'FVelgFirma'
+  Width = 826
+  Caption = 'rsVelgFirma'
   ClientHeight = 458
-  ClientWidth = 654
-  object ButtonPanel1: TButtonPanel
-    Left = 6
+  ClientWidth = 826
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '3.0.0.1'
+  object Panel1: TPanel
+    Left = 0
     Height = 40
-    Top = 412
-    Width = 642
-    OKButton.Name = 'OKButton'
-    OKButton.DefaultCaption = True
-    HelpButton.Name = 'HelpButton'
-    HelpButton.DefaultCaption = True
-    CloseButton.Name = 'CloseButton'
-    CloseButton.DefaultCaption = True
-    CancelButton.Name = 'CancelButton'
-    CancelButton.DefaultCaption = True
+    Top = 418
+    Width = 826
+    Align = alBottom
+    ClientHeight = 40
+    ClientWidth = 826
     TabOrder = 0
+    object Button1: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      Left = 742
+      Height = 25
+      Top = 9
+      Width = 75
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Caption = 'rsOK'
+      TabOrder = 0
+    end
+    object Button2: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideRight.Control = Button3
+      Left = 576
+      Height = 25
+      Top = 9
+      Width = 75
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Caption = 'rsAfslut'
+      TabOrder = 1
+    end
+    object Button3: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideRight.Control = Button1
+      Left = 659
+      Height = 25
+      Hint = 'rsDanNytFirma'
+      Top = 9
+      Width = 75
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Caption = 'rsNy'
+      OnClick = Button3Click
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 418
+    Top = 0
+    Width = 826
+    Align = alClient
+    ClientHeight = 418
+    ClientWidth = 826
+    TabOrder = 1
+    object LB1: TListBox
+      AnchorSideLeft.Control = Panel2
+      AnchorSideTop.Control = Panel2
+      AnchorSideRight.Control = Panel2
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Panel2
+      AnchorSideBottom.Side = asrBottom
+      Left = 9
+      Height = 400
+      Top = 9
+      Width = 808
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Around = 8
+      ItemHeight = 0
+      TabOrder = 0
+      TopIndex = -1
+    end
   end
 end

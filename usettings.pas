@@ -19,9 +19,12 @@ type
     CB2: TCheckBox;
     CB3: TCheckBox;
     CMB1: TComboBox;
+    Edit1: TEdit;
+    rsStdmapper: TGroupBox;
     PageControl1: TPageControl;
     Panel1: TPanel;
     TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
     VLE1: TValueListEditor;
     procedure Button1Click(Sender: TObject);
     procedure CB1Change(Sender: TObject);
@@ -51,10 +54,8 @@ procedure TFSettings.FormCreate(Sender: TObject);
 var
   i: integer;
 begin
-  FSettings.Caption := rsSettings;
-  Tabsheet1.Caption := rsShortcut;
-  Button1.Caption := rsOK;
-  Button2.Caption := rsFortryd;
+  TransCaption(Sender as TForm,rsStrings);
+  RestoreForm(Sender as TForm);
   VLE1.Clear;
   with VLE1.TitleCaptions do
   begin

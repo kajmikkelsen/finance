@@ -1,3 +1,7 @@
 {"version":1,"strings":[
-{"hash":45725169,"name":"tfvelgfirma.caption","sourcebytes":[70,86,101,108,103,70,105,114,109,97],"value":"FVelgFirma"}
+{"hash":46564849,"name":"tfvelgfirma.caption","sourcebytes":[114,115,86,101,108,103,70,105,114,109,97],"value":"rsVelgFirma"},
+{"hash":497723,"name":"tfvelgfirma.button1.caption","sourcebytes":[114,115,79,75],"value":"rsOK"},
+{"hash":125674580,"name":"tfvelgfirma.button2.caption","sourcebytes":[114,115,65,102,115,108,117,116],"value":"rsAfslut"},
+{"hash":167218177,"name":"tfvelgfirma.button3.hint","sourcebytes":[114,115,68,97,110,78,121,116,70,105,114,109,97],"value":"rsDanNytFirma"},
+{"hash":497753,"name":"tfvelgfirma.button3.caption","sourcebytes":[114,115,78,121],"value":"rsNy"}
 ]}

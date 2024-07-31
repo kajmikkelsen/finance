@@ -3,7 +3,7 @@ object FFirma: TFFirma
   Height = 481
   Top = 250
   Width = 1070
-  Caption = 'Virksomhedsoplysninger'
+  Caption = 'rsVirksomhedsoplysninger'
   ClientHeight = 481
   ClientWidth = 1070
   OnActivate = FormActivate
@@ -14,12 +14,12 @@ object FFirma: TFFirma
     Height = 427
     Top = 0
     Width = 1070
-    ActivePage = Finans
+    ActivePage = TS1
     Align = alClient
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 0
     object TS1: TTabSheet
-      Caption = 'Firmanavn'
+      Caption = 'rsFirmanavn'
       ClientHeight = 397
       ClientWidth = 1066
       OnShow = TS1Show
@@ -37,8 +37,8 @@ object FFirma: TFFirma
         Left = 31
         Height = 16
         Top = 24
-        Width = 32
-        Caption = 'Navn'
+        Width = 43
+        Caption = 'rsNavn'
       end
       object EFirmaAdresse: TEdit
         Left = 136
@@ -139,68 +139,68 @@ object FFirma: TFFirma
         Left = 31
         Height = 16
         Top = 56
-        Width = 41
-        Caption = 'Label2'
+        Width = 59
+        Caption = 'rsAdresse'
       end
       object Label3: TLabel
         Left = 31
         Height = 16
         Top = 88
-        Width = 41
-        Caption = 'Label3'
+        Width = 67
+        Caption = 'rsAdresse2'
       end
       object Label4: TLabel
         Left = 31
         Height = 16
         Top = 120
-        Width = 41
-        Caption = 'Label4'
+        Width = 67
+        Caption = 'rsPostnrBy'
       end
       object Label5: TLabel
         Left = 31
         Height = 16
         Top = 154
         Width = 41
-        Caption = 'Label5'
+        Caption = 'rsLand'
       end
       object Label6: TLabel
         Left = 31
         Height = 16
         Top = 184
-        Width = 41
-        Caption = 'Label6'
+        Width = 28
+        Caption = 'rsTlf'
       end
       object Label7: TLabel
         Left = 31
         Height = 16
         Top = 216
-        Width = 41
-        Caption = 'Label7'
+        Width = 37
+        Caption = 'rsMail'
       end
       object Label8: TLabel
         Left = 31
         Height = 16
         Top = 248
-        Width = 41
-        Caption = 'Label8'
+        Width = 42
+        Caption = 'rsBank'
       end
       object Label9: TLabel
         Left = 31
         Height = 16
         Top = 280
-        Width = 41
-        Caption = 'Label9'
+        Width = 79
+        Caption = 'rsBankKonto'
       end
       object Label10: TLabel
         Left = 31
         Height = 16
         Top = 312
-        Width = 49
-        Caption = 'Label10'
+        Width = 36
+        Caption = 'rsCVR'
       end
     end
     object Finans: TTabSheet
-      Caption = 'Finans'
+      Caption = 'rsBogholderi'
       ClientHeight = 397
       ClientWidth = 1066
       object GB1: TGroupBox
@@ -208,7 +208,7 @@ object FFirma: TFFirma
         Height = 234
         Top = 24
         Width = 454
-        Caption = 'GB1'
+        Caption = 'rsMomsSats'
         ClientHeight = 216
         ClientWidth = 450
         TabOrder = 0
@@ -216,36 +216,36 @@ object FFirma: TFFirma
           Left = 16
           Height = 16
           Top = 52
-          Width = 49
-          Caption = 'Label11'
+          Width = 56
+          Caption = 'rsMoms1'
         end
         object Label12: TLabel
           Left = 16
           Height = 16
           Top = 83
-          Width = 49
-          Caption = 'Label12'
+          Width = 56
+          Caption = 'rsMoms2'
         end
         object Label13: TLabel
           Left = 16
           Height = 16
           Top = 115
-          Width = 49
-          Caption = 'Label13'
+          Width = 56
+          Caption = 'rsMoms3'
         end
         object Label14: TLabel
           Left = 16
           Height = 16
           Top = 147
-          Width = 49
-          Caption = 'Label14'
+          Width = 56
+          Caption = 'rsMoms4'
         end
         object Label15: TLabel
           Left = 16
           Height = 16
           Top = 179
-          Width = 49
-          Caption = 'Label15'
+          Width = 56
+          Caption = 'rsMoms5'
         end
         object EMoms1: TEdit
           Left = 142
@@ -373,24 +373,24 @@ object FFirma: TFFirma
           Left = 158
           Height = 16
           Top = 24
-          Width = 49
-          Caption = 'Label16'
+          Width = 36
+          Caption = 'rsSats'
         end
         object Label17: TLabel
           Left = 248
-          Height = 32
+          Height = 16
           Top = 8
-          Width = 75
+          Width = 64
           Alignment = taCenter
-          Caption = 'Ugående'#10'Finanskonto'
+          Caption = 'rsMomsud'
         end
         object Label18: TLabel
           Left = 341
-          Height = 32
+          Height = 16
           Top = 8
-          Width = 75
+          Width = 68
           Alignment = taCenter
-          Caption = 'Indgående'#10'Finanskonto'
+          Caption = 'rsMomsInd'
         end
       end
       object GB2: TGroupBox
@@ -398,7 +398,7 @@ object FFirma: TFFirma
         Height = 224
         Top = 32
         Width = 304
-        Caption = 'GB2'
+        Caption = 'rsMisc'
         ClientHeight = 206
         ClientWidth = 300
         TabOrder = 1
@@ -406,8 +406,8 @@ object FFirma: TFFirma
           Left = 16
           Height = 16
           Top = 16
-          Width = 49
-          Caption = 'Label19'
+          Width = 60
+          Caption = 'rsAarstart'
         end
         object EAarStart: TEdit
           Left = 200
@@ -423,8 +423,8 @@ object FFirma: TFFirma
           Left = 16
           Height = 16
           Top = 47
-          Width = 49
-          Caption = 'Label20'
+          Width = 129
+          Caption = 'rsNextBilagsNummer'
         end
         object EBilagNr: TEdit
           Left = 200
@@ -439,8 +439,8 @@ object FFirma: TFFirma
           Left = 16
           Height = 16
           Top = 78
-          Width = 49
-          Caption = 'Label21'
+          Width = 70
+          Caption = 'rsBilagCifre'
         end
         object EBilagCifre: TEdit
           Left = 200
@@ -468,23 +468,29 @@ object FFirma: TFFirma
     ClientWidth = 1058
     TabOrder = 1
     object Button1: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
       Left = 980
       Height = 25
-      Top = 16
+      Top = 9
       Width = 75
-      Anchors = [akRight, akBottom]
-      Caption = 'Button1'
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Caption = 'rsOK'
       OnClick = Button1Click
       TabOrder = 0
     end
     object Button2: TButton
-      Left = 880
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Button1
+      Left = 897
       Height = 25
       Top = 8
       Width = 75
       Anchors = [akRight, akBottom]
-      Cancel = True
-      Caption = 'Button2'
+      BorderSpacing.Around = 8
+      Caption = 'rsAfbryd'
       ModalResult = 2
       TabOrder = 1
     end

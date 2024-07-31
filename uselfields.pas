@@ -32,7 +32,7 @@ var
 implementation
 
 uses
-   Global,MyLib;
+  Global, MyLib;
 
   {$R *.lfm}
 
@@ -40,20 +40,18 @@ uses
 
 procedure TFSelFields.FormCreate(Sender: TObject);
 begin
-  button1.Caption := rsOK;
-  button2.Caption := rsAfbryd;
-  Caption := rsSelFields;
-  RestoreForm(FSelFields);
+  TransCaption(Sender as TForm, rsStrings);
+  RestoreForm(Sender as TForm);
 end;
 
 procedure TFSelFields.CLB1DblClick(Sender: TObject);
 begin
-    ShowMessage(IntToStr(clb1.ItemIndex));
+  ShowMessage(IntToStr(clb1.ItemIndex));
 end;
 
 procedure TFSelFields.FormDestroy(Sender: TObject);
 begin
-  SaveForm(FSelFields);
+  SaveForm(Sender as TForm);
 end;
 
 end.

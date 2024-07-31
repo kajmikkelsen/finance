@@ -1,4 +1,4 @@
-unit uselect;
+unit usel;
 
 {$mode ObjFPC}{$H+}
 
@@ -10,16 +10,14 @@ uses
 
 type
 
-  { TFSelect }
+  { Tfvelg }
 
-  TFSelect = class(TForm)
+  Tfvelg = class(TForm)
     APrint: TAction;
     ASelectFields: TAction;
     ActionList1: TActionList;
     Button1: TButton;
     Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
     dbg1: TDBGrid;
     Edit1: TEdit;
     Label1: TLabel;
@@ -38,7 +36,6 @@ type
     procedure Edit1Change(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
   private
     procedure SaveGrid;
   public
@@ -48,7 +45,7 @@ type
   end;
 
 var
-  FSelect: TFSelect;
+  fvelg: Tfvelg;
 
 implementation
 
@@ -57,20 +54,15 @@ uses
 
   {$R *.lfm}
 
-  { TFSelect }
+  { Tfvelg }
 
-procedure TFSelect.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure Tfvelg.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  SaveForm(FSelect);
+  SaveForm(fvelg);
   SaveGrid;
 end;
 
-procedure TFSelect.FormCreate(Sender: TObject);
-begin
-  Button4.Caption := rsAfslut;
-end;
-
-procedure TFSelect.dbg1TitleClick(Column: TColumn);
+procedure Tfvelg.dbg1TitleClick(Column: TColumn);
 var
   st: string;
 begin
@@ -88,20 +80,20 @@ begin
 
 end;
 
-procedure TFSelect.Edit1Change(Sender: TObject);
+procedure Tfvelg.Edit1Change(Sender: TObject);
 begin
   DoTheSQL;
 end;
 
-procedure TFSelect.FormActivate(Sender: TObject);
+procedure Tfvelg.FormActivate(Sender: TObject);
 begin
   DoTheSQL;
   TransCaption(Sender as TForm, rsStrings);
-  RestoreForm(FSelect);
+  RestoreForm(fvelg);
 
 end;
 
-procedure TFSelect.ASelectFieldsExecute(Sender: TObject);
+procedure Tfvelg.ASelectFieldsExecute(Sender: TObject);
 var
   i: integer;
   st: string;
@@ -140,7 +132,7 @@ begin
   Fields.Free;
 end;
 
-procedure TFSelect.dbg1DblClick(Sender: TObject);
+procedure Tfvelg.dbg1DblClick(Sender: TObject);
 begin
   if button1.Action = FMain.AVelgKto then
   begin
@@ -151,28 +143,26 @@ begin
     Button2.Action.Execute;
 end;
 
-procedure TFSelect.dbg1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+procedure Tfvelg.dbg1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if key = vk_return then
   begin
-    key := 0;
-    Button2.Click;
+    button1.Click;
+    //      ModalResult := mrOk;
   end;
-
   if key = vk_escape then
   begin
-    Key := 0;
-    Button4.Click;
+    button2.Click;
   end;
 end;
 
-procedure TFSelect.APrintExecute(Sender: TObject);
+procedure Tfvelg.APrintExecute(Sender: TObject);
 begin
   pg1.PreviewReport;
 
 end;
 
-procedure TFSelect.dothesql;
+procedure Tfvelg.dothesql;
 var
   st, st1, st2, st3, st4, tmpst: string;
   i: integer;
@@ -235,7 +225,7 @@ begin
   end;
 end;
 
-procedure TFSelect.SaveGrid;
+procedure Tfvelg.SaveGrid;
 var
   i: integer;
   st, st1: string;

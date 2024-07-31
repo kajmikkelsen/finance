@@ -41,6 +41,7 @@ type
   TFMain = class(TForm)
     AAfslut: TAction;
     ABilagsreg: TAction;
+    AAbout: TAction;
     AVelgKto: TAction;
     ASettings: TAction;
     AKontoDel: TAction;
@@ -60,6 +61,7 @@ type
     Edit1: TEdit;
     il1: TImageList;
     MenuItem1: TMenuItem;
+    MenuItem10: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -68,6 +70,7 @@ type
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
+    OpenDialog1: TOpenDialog;
     Separator3: TMenuItem;
     Separator1: TMenuItem;
     MM1: TMainMenu;
@@ -75,6 +78,7 @@ type
     Memo2: TMemo;
     OD1: TOpenDialog;
     Separator2: TMenuItem;
+    procedure AAboutExecute(Sender: TObject);
     procedure AAfslutExecute(Sender: TObject);
     procedure ABilagsregExecute(Sender: TObject);
     procedure AVelgKtoExecute(Sender: TObject);
@@ -106,7 +110,7 @@ var
 
 implementation
 
-uses uDM1, MyLib, uFirma, uimport, usettings, uvelgfirma;
+uses uDM1, MyLib, uFirma, uimport, usettings, uvelgfirma,LCLIntf,uabout;
 
   {$R *.lfm}
 
@@ -126,13 +130,13 @@ begin
     add(ConfDir);
     add(GetAppConfigFile(False, True));
   end;
-  RestoreForm(Sender as TForm);
   SetDefaultLang(GetStdIni('Misc', 'Lang', 'da'));
+  TransCaption(Sender as TForm,rsStrings);
+  RestoreForm(Sender as TForm);
   LastYMD := GetStdIni('dates', 'LastYMD', FormatDateTime('YYYYMMDD', Now));
   LastYM := Copy(LastYMD, 1, 6);
   LastY := Copy(LastYMD, 1, 4);
   LastC := Copy(LastYMD, 1, 2);
-  TransCaption(Sender as TForm,rsStrings);
   //AKontoEdit.Caption := rsRet;
   //AkontoDel.Caption := rsSlet;
   //ASettings.Caption := rsSettings;
@@ -160,7 +164,7 @@ begin
   begin
     Memo1.Append(RsStrings.ValueFromIndex[i]);
   end;
-  Button1.Caption:= rsStrings.values['rsImportZipCode '];
+  Button1.Caption:= rsStrings.values['rsImportZipCode'];
 
 end;
 
@@ -287,6 +291,11 @@ begin
   Application.terminate;
 end;
 
+procedure TFMain.AAboutExecute(Sender: TObject);
+begin
+  FAbout.ShowModal;
+end;
+
 procedure TFMain.ABilagsregExecute(Sender: TObject);
 begin
   FBilag.ShowModal;
@@ -349,7 +358,8 @@ end;
 
 procedure TFMain.Button1Click(Sender: TObject);
 begin
-  fvelgfirma.showmodal;
+  fvelgfirma.showModal;
+//  if OpenDialog1.Execute then openurl(OpendIalog1.FileName)
 end;
 
 procedure TFMain.Edit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);

@@ -11,8 +11,8 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, anchordockpkg, lazcontrols, datetimectrls, MyDbMain, udm1, MyLib,
-  global, uselect, uselfields, upostnr, ufirma, Ukontoplan, uimport, ubilag,
-  usettings, uvelgfirma;
+  global, usel, uselfields, upostnr, ufirma, Ukontoplan, uimport, ubilag,
+  usettings, uvelgfirma, uselect, uDebKar, myinputbox, UAbout;
 
 {$R *.res}
 
@@ -22,7 +22,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TFmain, Fmain);
   Application.CreateForm(TDM1, DM1);
-  Application.CreateForm(TFSelect, FSelect);
+  Application.CreateForm(TfSelect, fselect);
+  Application.CreateForm(Tfvelg, fvelg);
   Application.CreateForm(TFSelFields, FSelFields);
   Application.CreateForm(TFPostnrEdit, FPostnrEdit);
   Application.CreateForm(TFFirma, FFirma);
@@ -31,6 +32,9 @@ begin
   Application.CreateForm(TFbilag, Fbilag);
   Application.CreateForm(TFSettings, FSettings);
   Application.CreateForm(TFVelgFirma, FVelgFirma);
+  Application.CreateForm(TFDebKar, FDebKar);
+  Application.CreateForm(TMyInputBox, FMyInputBox);
+  Application.CreateForm(TFAbout, FAbout);
   Application.Run;
 end.
 

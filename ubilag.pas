@@ -37,31 +37,23 @@ type
     Button3: TButton;
     CalendarDialog1: TCalendarDialog;
     EAar: TEdit;
-    Ebelob: TEdit;
     Ebnummer: TEdit;
     EDato: TEdit;
     Edit1: TEdit;
-    EKonto: TEdit;
     EPeriode: TEdit;
-    ETekst: TEdit;
-    ENr: TEdit;
+    Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
     Label8: TLabel;
-    Memo1: TMemo;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
-    Panel4: TPanel;
     Panel5: TPanel;
     SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
     sg1: TStringGrid;
+    Timer1: TTimer;
     procedure EbelobExit(Sender: TObject);
     procedure EbelobKeyPress(Sender: TObject; var Key: char);
     procedure EDatoExit(Sender: TObject);
@@ -71,15 +63,24 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure sg1DrawCell(Sender: TObject; aCol, aRow: Integer; aRect: TRect;
-      aState: TGridDrawState);
+    procedure sg1DrawCell(Sender: TObject; aCol, aRow: integer;
+      aRect: TRect; aState: TGridDrawState);
+    procedure sg1EditingDone(Sender: TObject);
+    procedure sg1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure sg1Resize(Sender: TObject);
+    procedure sg1ValidateEntry(Sender: TObject; aCol, aRow: integer;
+      const OldValue: string; var NewValue: string);
     procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     Perioder: array [0..12] of int64;
+    r, c: integer;
     Aar: string;
     procedure SetPerioder;
     function GetPeriode(Dato: string): integer;
+    procedure BeregnTotal;
+    procedure GotoCell(col, row: integer);
+    procedure setcolwidths;
   public
 
   end;
@@ -90,7 +91,7 @@ var
 implementation
 
 uses
-  MyLib, Global, udm1, uselect;
+  MyLib, Global, udm1,  usel;
 
   {$R *.lfm}
 
@@ -100,30 +101,15 @@ procedure TFbilag.FormCreate(Sender: TObject);
 begin
   (Sender as TForm).Caption := rsBilagsregistrering;
   ClearForm(Sender as TForm);
-  TransCaption(Sender as TForm,rsStrings);
-  //label1.Caption := rsDato;
-  //Label8.Caption := rsPeriode;
-  //Label2.Caption := rsAar;
-  //Label3.Caption := rsBilagsNummer;
-  //Label4.Caption := rsKonto;
-  //Label5.Caption := rsKontoNavn;
-  //Label6.Caption := rsTekst;
-  //Label7.Caption := rsBelob;
-  //Button1.Caption := rsOK;
-  //Button2.Caption := rsFortryd;
-  //Button3.Caption := rsAfslut;
-  sg1.AutoSizeColumns;
-  Sg1.Columns[0].Title.Caption:= label1.Caption;
-  Sg1.Columns[1].Title.Caption := Label8.Caption;
-  Sg1.Columns[2].Title.Caption := Label2.Caption;
-  Sg1.Columns[3].Title.Caption := Label3.Caption;
-  Sg1.Columns[4].Title.Caption := Label4.Caption;
-  Sg1.Columns[5].Title.Caption := Label5.Caption;
-  Sg1.Columns[6].Title.Caption := Label6.Caption;
-  Sg1.Columns[7].Title.Caption := Label7.Caption;
-  Sg1.Columns[8].Title.Caption :=  'ID';
-  sg1.Columns[8].Visible:=False;
-  sg1.AutoSizeColumns;
+  TransCaption(Sender as TForm, rsStrings);
+  Sg1.Columns[0].Title.Caption := rsKonto;
+  Sg1.Columns[1].Title.Caption := rsKontoNavn;
+  Sg1.Columns[2].Title.Caption := rsDebet;
+  Sg1.Columns[3].Title.Caption := rsKredit;
+  Sg1.Columns[4].Title.Caption := 'ID';
+  sg1.Columns[4].Visible := False;
+  sg1.Cells[0, 1] := rsTotal;
+  setColWidths;
   EDato.Text := LastYMD;
   if not dm1.DiverseExists('AarStart') then
     dm1.PutDiverse('AarStart', LastYMD);
@@ -135,14 +121,107 @@ begin
   SaveForm(Sender as TForm);
 end;
 
-procedure TFbilag.sg1DrawCell(Sender: TObject; aCol, aRow: Integer;
+procedure TFbilag.sg1DrawCell(Sender: TObject; aCol, aRow: integer;
   aRect: TRect; aState: TGridDrawState);
 begin
-  IF (acol=7)  and (aRow = 1) Then
+  if (acol = 7) and (aRow = 1) then
+  begin
+    Sg1.Canvas.Pen.Color := clRed;
+    Sg1.Canvas.Brush.Color := clGreen;
+  end;
+end;
+
+procedure TFbilag.sg1EditingDone(Sender: TObject);
+var
+  sg: TStringGrid;
+  navn, Nummer: string;
+  id: integer;
+  belob: double;
+begin
+  sg := (Sender as tstringGrid);
+  if (sg.col = 2) or (sg.col = 3) then
+  begin
+    if trystrtofloat(sg1.Cells[2, sg.Row], belob) then
     begin
-    Sg1.Canvas.Pen.Color:=clRed;
-    Sg1.Canvas.Brush.Color:=clGreen;
+      sg.cells[2, sg1.row] := formatfloat('#########0.00', belob);
+      sg.InsertRowWithValues(sg.row+1, ['', '', '', '', '']);
+      gotocell(0, sg.row + 1);
     end;
+    if trystrtofloat(sg1.Cells[3, sg.Row], belob) then
+    begin
+      sg.cells[3, sg1.row] := formatfloat('#########0.00', belob);
+      sg.InsertRowWithValues(sg.row+1, ['', '', '', '', '']);
+      gotocell(0, sg.row + 1);
+    end;
+    BeregnTotal;
+  end;
+  if (sg.Col = 0) and (sg.cells[sg.col, sg.row] <> '') then
+  begin
+    Nummer := sg.cells[sg.col, sg.row];
+    if not udm1.konto.GetBogfKtoFromNr(Nummer,{%H-}navn,{%H-}id) then
+    begin
+      MessageDlg(rsKontofejl, mtError, [mbOK], 0);
+      gotocell(sg.col, sg.row);
+    end
+    else
+    begin
+      sg.cells[sg.col+1, sg.row] := navn;
+      sg.cells[4, sg.row] := IntToStr(id);
+      gotocell(sg.col + 2, sg.row);
+    end;
+  end;
+end;
+
+procedure TFbilag.sg1KeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+var
+  Nummer, Navn: string;
+  sg: TStringGrid;
+begin
+  sg := (Sender as tstringgrid);
+  if sg.Col = 0 then
+  begin
+    if key = VK_F3 then
+    begin
+      key := 0;
+      Nummer := '';
+      Navn := '';
+      //      udm1.konto.PrepareSelect;
+      udm1.Konto.PrepareSelect4Search;
+      if Fvelg.showModal = mrOk then
+      begin
+        if udm1.konto.GetBogfKtoFromID(Nummer, Navn, SelectedKonto) then
+        begin
+          Sg.cells[sg.col, sg.row] := Nummer;
+          Sg.cells[sg.col + 1, sg.row] := Navn;
+          sg.cells[4, sg.row] := IntToStr(SelectedKonto);
+          gotocell(sg.col + 2, sg.row);
+        end
+        else
+        begin
+          MessageDlg(rsKontofejl, mtError, [mbOK], 0);
+          gotocell(sg.col, sg.row);
+        end;
+      end
+      else
+      begin
+        ShowMessage('None selected');
+        gotocell(sg.col, sg.row);
+      end;
+      //      udm1.Konto.resetPrepSel;
+    end;
+  end;
+end;
+
+procedure TFbilag.sg1Resize(Sender: TObject);
+begin
+  setcolwidths;
+end;
+
+procedure TFbilag.sg1ValidateEntry(Sender: TObject; aCol, aRow: integer;
+  const OldValue: string; var NewValue: string);
+begin
+  if (acol = 1) then
+    ShowMessage('Validate cell ' + IntToStr(arow));
 end;
 
 procedure TFbilag.EDatoExit(Sender: TObject);
@@ -176,6 +255,8 @@ begin
       while (Length(st) < Cifre) do
         St := '0' + st;
       EBnummer.Text := St;
+      sg1.SetFocus;
+      sg1.Row := 1;
       //      Dm1.PutDiverse('BilagNr',st);
 
     end;
@@ -189,25 +270,25 @@ begin
 end;
 
 procedure TFbilag.EbelobExit(Sender: TObject);
-Var
-  saldo: Double;
-  i: Integer;
+var
+  saldo: double;
+  i: integer;
 begin
 
-   if MessageDlg(rsLinieTilfoj, mtConfirmation, [mbYes,mbNo], 0) = mrYes Then
-   begin
-     Sg1.InsertRowWithValues(sg1.rowcount,[EDato.text,EPeriode.text,EAar.text,
-     EBnummer.text,eNr.text,Edit1.text,ETekst.Text,formatfloat('##########.00',StrToFloat(EBelob.Text)),EKonto.text]);
-     sg1.AutoSizeColumns;
-     ENr.SetFocus;
-   end;
-   Saldo := 0;
-   for i := 1 to Pred(sg1.rowcount) do
-   begin
-     Saldo := Saldo + StrToFloat(Sg1.Cells[7,i]);
-   end;
-   Saldo := Saldo*-1;
-   EBelob.Text:=FloatToStr(Saldo);
+  if MessageDlg(rsLinieTilfoj, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    //     Sg1.InsertRowWithValues(sg1.rowcount,[EDato.text,EPeriode.text,EAar.text,
+    //     EBnummer.text,eNr.text,Edit1.text,ETekst.Text,formatfloat('##########.00',StrToFloat(EBelob.Text)),EKonto.text]);
+    ;
+    //     ENr.SetFocus;
+  end;
+  Saldo := 0;
+  for i := 1 to Pred(sg1.rowcount) do
+  begin
+    Saldo := Saldo + StrToFloat(Sg1.Cells[7, i]);
+  end;
+  Saldo := Saldo * -1;
+  //   EBelob.Text:=FloatToStr(Saldo);
 end;
 
 procedure TFbilag.EKontoKeyPress(Sender: TObject; var Key: char);
@@ -220,18 +301,18 @@ var
   navn, Nummer: string;
   id: integer;
 begin
-  Nummer := Enr.Text;
+  //  Nummer := Enr.Text;
   if not udm1.konto.GetBogfKtoFromNr(Nummer,{%H-}navn,{%H-}id) then
   begin
     MessageDlg(rsKontofejl, mtError, [mbOK], 0);
-    Enr.SetFocus;
+    //    Enr.SetFocus;
   end
   else
   begin
-    Edit1.Text := navn;
-    ENr.Text := Nummer;
-    EKonto.Text := IntToStr(id);
-    ETekst.SetFocus;
+    //Edit1.Text := navn;
+    //ENr.Text := Nummer;
+    //EKonto.Text := IntToStr(id);
+    //ETekst.SetFocus;
   end;
 end;
 
@@ -239,7 +320,7 @@ procedure TFbilag.ENrKeyDown(Sender: TObject; var Key: word; Shift: TShiftState)
 begin
   if Key = VK_F3 then
   begin
-    SpeedButton2Click(Sender);
+    //    SpeedButton2Click(Sender);
     Key := 0;
   end;
 end;
@@ -251,6 +332,8 @@ begin
   SetPerioder;
   St := IntToStr(Perioder[0]);
   Aar := Copy(st, 1, 4);
+  sg1.InsertRowWithValues(sg1.RowCount - 1, ['', '', '', '', '']);
+  BeregnTotal;
 end;
 
 procedure TFbilag.SpeedButton1Click(Sender: TObject);
@@ -264,38 +347,14 @@ begin
   end;
 end;
 
-//{$hints off}
-
-procedure TFbilag.SpeedButton2Click(Sender: TObject);
-var
-  Nummer, Navn: string;
+procedure TFbilag.Timer1Timer(Sender: TObject);
 begin
-  Nummer := '';
-  Navn := '';
-  udm1.konto.PrepareSelect;
-  udm1.Konto.PrepareSelect4Search;
-  if FSelect.showModal = mrOk then
-  begin
-    if udm1.konto.GetBogfKtoFromID(Nummer, Navn, SelectedKonto) then
-    begin
-      ENr.Text := Nummer;
-      Edit1.Text := Navn;
-      EKonto.Text := IntToStr(SelectedKonto);
-      ETekst.SetFocus;
-    end
-    else
-    begin
-      MessageDlg(rsKontofejl, mtError, [mbOK], 0);
-
-      ENr.Text := '';
-      Edit1.Text := '';
-      EKonto.Text := '';
-    end;
-  end
-  else
-    ShowMessage('None selected');
-  udm1.Konto.resetPrepSel;
+  sg1.col := c;
+  sg1.row := r;
+  timer1.Enabled := False;
 end;
+
+//{$hints off}
 
 //{$hints on}
 
@@ -311,8 +370,6 @@ begin
     m := StrToInt(copy(st, 5, 2));
     d := StrToInt(copy(st, 7, 2));
     Perioder[0] := StrToInt(St);
-    Memo1.Clear;
-    Memo1.Append(St);
     for i := 1 to 12 do
     begin
       if m = 12 then
@@ -323,7 +380,6 @@ begin
       else
         Inc(m);
       Perioder[i] := y * 10000 + m * 100 + d;
-      Memo1.Append(IntToStr(Perioder[i]));
     end;
   end;
 end;
@@ -342,6 +398,45 @@ begin
         res := i;
   end;
   Result := res;
+end;
+
+procedure TFbilag.BeregnTotal;
+var
+  i: integer;
+  deb, kred, belob: double;
+begin
+  deb := 0;
+  Kred := 0;
+  for i := 1 to sg1.RowCount - 2 do
+  begin
+    if trystrtofloat(sg1.Cells[2, i], belob) then
+      deb := deb + belob;
+    if trystrtofloat(sg1.Cells[3, i], belob) then
+      kred := kred + belob;
+  end;
+  sg1.cells[2, sg1.rowcount - 1] := formatfloat('#########0.00', deb);
+  sg1.cells[3, sg1.rowcount - 1] := formatfloat('#########0.00', kred);
+  Edit1.Text := formatfloat('#########0.00', deb - kred);
+end;
+
+procedure TFbilag.GotoCell(col, row: integer);
+begin
+  r := row;
+  c := col;
+  timer1.Enabled := True;
+  ;
+
+end;
+
+procedure TFbilag.setcolwidths;
+var
+  w: integer;
+begin
+  w := sg1.ClientWidth;
+  sg1.ColWidths[0] := w * 15 div 100;
+  sg1.ColWidths[1] := w * 55 div 100;
+  sg1.ColWidths[2] := w * 15 div 100;
+  sg1.ColWidths[3] := w * 15 div 100;
 end;
 
 end.

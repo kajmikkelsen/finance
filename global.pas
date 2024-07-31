@@ -116,11 +116,34 @@ resourcestring
   rsVelg = 'Vælg';
   rsKontofejl = 'Kontnummer findes ikke'+sLineBreak+'Eller er ikke en bogføringskonto';
   rsLinieTilfoj = 'Tilføj til bilag';
+  rsDebet = 'Debet';
+  rsKredit = 'Kredit';
+  rsBalance = 'Balance';
+  rsTotal = 'Total';
+  rsStdmapper = 'Standard mapper';
+  rsVelgFirma = 'Vælg firma';
+  rsDanNytFirma = 'Opret nyt firma';
+  rsNoFirm = 'Kunne ikke oprette firma';
+  rsOm = 'Om';
+  rsLicens = 'Licens';
+  rsAttribute = 'Attributter';
+  rsLuk = 'Luk';
 
 implementation
 
 initialization
 rsStrings := TStringlist.Create;
+rsStrings.Append('rsLuk='+rsLuk);
+rsStrings.Append('rsAttribute='+rsAttribute);
+rsStrings.Append('rsLicens='+rsLicens);
+rsStrings.Append('rsOm='+rsOm);
+rsStrings.Append('rsNoFirm='+rsNoFirm);
+rsStrings.Append('rsDanNytFirma='+rsDanNytFirma);
+rsStrings.Append('rsVelgFirma='+rsVelgFirma);
+rsStrings.Append('rsStdmapper='+rsStdmapper);
+rsStrings.Append('rsTotal='+rsTotal);
+rsStrings.Append('rsDebet'+rsDebet);
+rsStrings.Append('rsKredit'+rsKredit);
 rsStrings.append('rsImportZipCode='+ rsImportZipCode);
 rsStrings.append('rsOpenFile='+rsOpenFile);
 rsStrings.append('rsFiles='+rsFiles);
@@ -213,6 +236,8 @@ rsStrings.Append('rsBilagCifre='+rsBilagCifre);
 rsStrings.Append('rsVelg='+rsVelg);
 rsStrings.Append('rsKontofejl='+rsKontofejl);
 rsStrings.Append('rsLinieTilfoj='+rsLinieTilfoj);
+rsStrings.Append('rsBalance='+rsBalance);
+
 
 RsStrings.Sort;
 

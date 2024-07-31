@@ -102,35 +102,10 @@ uses
 
 procedure TFFirma.FormCreate(Sender: TObject);
 begin
-  FFirma.Caption:= rsVirksomhedsoplysninger;
-  Button1.Caption := rsOK;
-  Button2.Caption := rsAfbryd;
-  Ts1.Caption := rsFirmanavn;
-  GB1.Caption := rsMomsSats;
-  GB2.Caption := rsMisc;
-  Finans.Caption:= rsBogholderi;
-  Label1.Caption := rsNavn;
-  Label2.Caption := rsAdresse;
-  Label3.Caption := rsAdresse2;
-  Label4.Caption := rsPostnrBy;
-  Label5.Caption := rsLand;
-  Label6.Caption := rsTlf;
-  Label7.Caption := rsMail;
-  Label8.Caption := rsBank;
-  Label9.Caption := rsBankKonto;
-  Label10.Caption := rsCVR;
-  Label11.Caption := rsMoms1;
-  Label12.Caption := rsMoms2;
-  Label13.Caption := rsMoms3;
-  Label14.Caption := rsMoms4;
-  Label15.Caption := rsMoms5;
-  Label16.Caption := rsSats;
-  Label17.Caption := rsMomsUd;
-  Label18.Caption := rsMomsInd;
-  Label19.Caption := rsAarstart;
-  Label20.Caption := rsNextBilagsNummer;
-  Label21.Caption := rsBilagCifre;
+
+  TransCaption(Sender as TForm,rsStrings);
   RestoreForm(Sender as TForm);
+
 end;
 
 procedure TFFirma.FormActivate(Sender: TObject);

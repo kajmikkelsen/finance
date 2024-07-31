@@ -90,7 +90,7 @@ var
 implementation
 
 uses
-  MyLib, MyDbMain;
+  MyLib, MyDbMain,usel;
 
 procedure DeleteFromDb(ID: integer; Bas: string);
 begin
@@ -598,17 +598,28 @@ end;
 
 procedure TFinKto.PrepareSelect4Search;
 begin
-  udm1.konto.PrepareSelect;
-  FSelect.Caption := rsKontoplan;
-  FSelect.Button1.Action := FMain.AVelgKto;
-  FSelect.Button1.ModalResult:=mrOK;
-  FSelect.Button1.Default:=False;;
-  FSelect.Button2.Caption:= rsFortryd;
-  FSelect.Button2.ModalResult:=mrCancel;
-  FSelect.Button2.Default:=False;;
-  FSelect.Button2.Action := nil;
-  FSelect.Button3.Visible:=False;
-  FSelect.Button4.Visible:=False;
+  fvelg.tblnm := 'konto';
+  fvelg.DefFields := 'Nummer,navn';
+  fvelg.Caption := rsFinansKonto;
+  with dm1.sqlq2 do
+  begin
+    Close;
+    sql.Clear;
+    sql.add('select * from ' + tblnm);
+    Open;
+  end;
+  With Fvelg Do
+  Begin
+  Caption := rsKontoplan;
+  Button1.Action := FMain.AVelgKto;
+  Button1.ModalResult:=mrOK;
+  Button2.Default:=False;
+  Button1.Default:=True;
+  Button2.Caption:= rsFortryd;
+  Button2.ModalResult:=mrCancel;
+  Button2.Action := nil;
+
+  end;
 
 end;
 

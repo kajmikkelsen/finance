@@ -1,9 +1,12 @@
 {"version":1,"strings":[
-{"hash":213569395,"name":"tfsettings.caption","sourcebytes":[70,83,101,116,116,105,110,103,115],"value":"FSettings"},
-{"hash":110818627,"name":"tfsettings.tabsheet1.caption","sourcebytes":[83,104,111,114,116,99,117,116,115],"value":"Shortcuts"},
+{"hash":213744755,"name":"tfsettings.caption","sourcebytes":[114,115,83,101,116,116,105,110,103,115],"value":"rsSettings"},
+{"hash":258880084,"name":"tfsettings.tabsheet1.caption","sourcebytes":[114,115,83,104,111,114,116,99,117,116],"value":"rsShortcut"},
 {"hash":306060,"name":"tfsettings.cb1.caption","sourcebytes":[67,116,114,108],"value":"Ctrl"},
 {"hash":18484,"name":"tfsettings.cb2.caption","sourcebytes":[65,108,116],"value":"Alt"},
 {"hash":5894100,"name":"tfsettings.cb3.caption","sourcebytes":[83,104,105,102,116],"value":"Shift"},
-{"hash":164345425,"name":"tfsettings.button1.caption","sourcebytes":[66,117,116,116,111,110,49],"value":"Button1"},
-{"hash":164345426,"name":"tfsettings.button2.caption","sourcebytes":[66,117,116,116,111,110,50],"value":"Button2"}
+{"hash":159812227,"name":"tfsettings.tabsheet2.caption","sourcebytes":[114,115,80,97,116,104,115],"value":"rsPaths"},
+{"hash":188873826,"name":"tfsettings.rsstdmapper.caption","sourcebytes":[114,115,83,116,100,109,97,112,112,101,114],"value":"rsStdmapper"},
+{"hash":4960369,"name":"tfsettings.edit1.text","sourcebytes":[69,100,105,116,49],"value":"Edit1"},
+{"hash":497723,"name":"tfsettings.button1.caption","sourcebytes":[114,115,79,75],"value":"rsOK"},
+{"hash":225034372,"name":"tfsettings.button2.caption","sourcebytes":[114,115,70,111,114,116,114,121,100],"value":"rsFortryd"}
 ]}

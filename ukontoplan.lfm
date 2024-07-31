@@ -9,7 +9,6 @@ object FKontoplan: TFKontoplan
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '3.0.0.1'
   object ENummer: TEdit
     Left = 176
     Height = 24
@@ -17,6 +16,7 @@ object FKontoplan: TFKontoplan
     Width = 80
     NumbersOnly = True
     OnExit = ENummerExit
+    OnKeyDown = ENummerKeyDown
     OnKeyPress = ENummerKeyPress
     TabOrder = 0
   end
@@ -35,7 +35,7 @@ object FKontoplan: TFKontoplan
     Top = 80
     Width = 305
     AutoFill = True
-    Caption = 'Kontotype'
+    Caption = 'rsKontotype'
     ChildSizing.LeftRightSpacing = 6
     ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
     ChildSizing.EnlargeVertical = crsHomogenousChildResize
@@ -60,7 +60,7 @@ object FKontoplan: TFKontoplan
     Top = 192
     Width = 305
     AutoFill = True
-    Caption = 'Moms'
+    Caption = 'rsMoms'
     ChildSizing.LeftRightSpacing = 6
     ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
     ChildSizing.EnlargeVertical = crsHomogenousChildResize
@@ -110,36 +110,36 @@ object FKontoplan: TFKontoplan
     Left = 64
     Height = 16
     Top = 24
-    Width = 87
-    Caption = 'Kontonummer'
+    Width = 98
+    Caption = 'rsKontonummer'
   end
   object Label2: TLabel
     Left = 64
     Height = 16
     Top = 58
-    Width = 67
-    Caption = 'Kontotekst'
+    Width = 78
+    Caption = 'rsKontotekst'
   end
   object Label3: TLabel
     Left = 64
     Height = 16
     Top = 314
-    Width = 61
-    Caption = 'Momssats'
+    Width = 72
+    Caption = 'rsMomssats'
   end
   object Label4: TLabel
     Left = 64
     Height = 16
     Top = 348
-    Width = 58
-    Caption = 'Fra konto'
+    Width = 67
+    Caption = 'rsFraKonto'
   end
   object Label5: TLabel
     Left = 64
     Height = 16
     Top = 379
-    Width = 57
-    Caption = 'Til komto'
+    Width = 63
+    Caption = 'rsTilKonto'
   end
   object Panel1: TPanel
     Left = 0
@@ -156,7 +156,8 @@ object FKontoplan: TFKontoplan
       Top = 8
       Width = 75
       Anchors = [akRight, akBottom]
-      Caption = 'Button1'
+      Caption = 'rsOK'
+      Default = True
       OnClick = Button1Click
       TabOrder = 0
     end
@@ -167,7 +168,7 @@ object FKontoplan: TFKontoplan
       Width = 75
       Anchors = [akRight, akBottom]
       Cancel = True
-      Caption = 'Button2'
+      Caption = 'rsAfbryd'
       ModalResult = 2
       TabOrder = 1
     end

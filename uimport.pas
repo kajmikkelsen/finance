@@ -53,12 +53,8 @@ uses
 
 procedure TFImport.FormCreate(Sender: TObject);
 begin
+  TransCaption(Sender as TForm,rsStrings);
   RestoreForm(Sender as TForm);
-  FImport.Caption := rsImport;
-  Button2.Caption := rsAfslut;
-  Label1.Caption := rsFields;
-  Label2.Caption := rsTables;
-  Label3.Caption := rsFil;
   ImpFields := TStringList.Create;
 end;
 

@@ -12,12 +12,13 @@
 {"hash":127443652,"name":"tfmain.apostnrdel.caption","sourcebytes":[114,115,83,108,101,116],"value":"rsSlet"},
 {"hash":245336402,"name":"tfmain.afirma.caption","sourcebytes":[114,115,70,105,114,109,97,79,112,108,121,115,110,105,110,103,101,114],"value":"rsFirmaOplysninger"},
 {"hash":99610654,"name":"tfmain.akonto.caption","sourcebytes":[114,115,75,111,110,116,111,112,108,97,110],"value":"rsKontoplan"},
-{"hash":40220729,"name":"tfmain.akontony.caption","sourcebytes":[65,75,111,110,116,111,78,121],"value":"AKontoNy"},
+{"hash":497753,"name":"tfmain.akontony.caption","sourcebytes":[114,115,78,121],"value":"rsNy"},
 {"hash":134508804,"name":"tfmain.aimport.caption","sourcebytes":[114,115,73,109,112,111,114,116],"value":"rsImport"},
 {"hash":7964868,"name":"tfmain.akontoedit.caption","sourcebytes":[114,115,82,101,116],"value":"rsRet"},
 {"hash":127443652,"name":"tfmain.akontodel.caption","sourcebytes":[114,115,83,108,101,116],"value":"rsSlet"},
 {"hash":76583063,"name":"tfmain.abilagsreg.caption","sourcebytes":[114,115,66,105,108,97,103,115,82,101,103,105,115,116,114,101,114,105,110,103],"value":"rsBilagsRegistrering"},
 {"hash":213744755,"name":"tfmain.asettings.caption","sourcebytes":[114,115,83,101,116,116,105,110,103,115],"value":"rsSettings"},
 {"hash":127454215,"name":"tfmain.avelgkto.caption","sourcebytes":[32,114,115,86,101,108,103],"value":" rsVelg"},
+{"hash":497757,"name":"tfmain.aabout.caption","sourcebytes":[114,115,79,109],"value":"rsOm"},
 {"hash":113596485,"name":"tfmain.od1.title","sourcebytes":[114,115,79,112,101,110,70,105,108,101],"value":"rsOpenFile"}
 ]}

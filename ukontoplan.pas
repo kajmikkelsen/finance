@@ -30,12 +30,14 @@ type
     procedure Button1Click(Sender: TObject);
     procedure EmomstypClick(Sender: TObject);
     procedure ENummerExit(Sender: TObject);
+    procedure ENummerKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure ENummerKeyPress(Sender: TObject; var Key: char);
     procedure EtypClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
+    TestField: boolean;
     procedure DisEn;
     function FormOK: boolean;
   public
@@ -59,24 +61,15 @@ uses
 
 procedure TFKontoplan.FormCreate(Sender: TObject);
 begin
+  TransCaption((Sender as TForm), rsSTrings);
   RestoreForm(Sender as TForm);
-  //  TranslateForm(Sender as TForm);
-  Button1.Caption := rsOK;
-  Button2.Caption := rsAfbryd;
-  Label1.Caption := rsKontonummer;
-  Label2.Caption := rsKontotekst;
-  Label3.Caption := rsMomssats;
-  Label4.Caption := rsFraKonto;
-  Label5.Caption := rsTilKonto;
-  Etyp.Caption := rsKontotype;
-  Etyp.Items[0] := rsBogforing;
-  Etyp.Items[1] := rsOverskrift;
-  Etyp.Items[2] := rsSammentelling;
-  Emomstyp.Caption := rsMoms;
   Emomstyp.Items[0] := rsIngenmoms;
   Emomstyp.Items[1] := rsIndgaaende;
   Emomstyp.Items[2] := rsUdgaaende;
-
+  Etyp.Items[0] := rsBogforing;
+  Etyp.Items[1] := rsOverskrift;
+  Etyp.Items[2] := rsSammentelling;
+  testfield := True;
 end;
 
 procedure TFKontoplan.FormActivate(Sender: TObject);
@@ -105,13 +98,30 @@ begin
   if (orgkonto <> enummer.Text) then
     if konto.KontoExists((Sender as TEdit).Text) then
     begin
-       MessageDlg(rsKtoFindes, mtError, [mbOK], 0);
+      MessageDlg(rsKtoFindes, mtError, [mbOK], 0);
     end;
+end;
+
+procedure TFKontoplan.ENummerKeyDown(Sender: TObject; var Key: word;
+  Shift: TShiftState);
+begin
+  if key = vk_return then
+  begin
+    Button1.click;
+    TestField := False;
+  end;
+  if Key = vk_escape then
+  begin
+    button2.click;
+    TestField := False;
+  end;
 end;
 
 procedure TFKontoplan.ENummerKeyPress(Sender: TObject; var Key: char);
 begin
-  KeyPressInt((Sender as TEdit).Text, Key);
+  if testfield then
+    KeyPressInt((Sender as TEdit).Text, Key);
+  testfield := True;
 end;
 
 procedure TFKontoplan.FormDestroy(Sender: TObject);
@@ -120,8 +130,8 @@ begin
 end;
 
 procedure TFKontoplan.DisEn;
-Var
-  i,i1:Integer;
+var
+  i, i1: integer;
 begin
   case ETyp.ItemIndex of
     0: begin
@@ -148,15 +158,15 @@ begin
     EMomssats.Enabled := True
   else
     EMomssats.Enabled := False;
-  i1 := EMomssats.Itemindex;
+  i1 := EMomssats.ItemIndex;
   Emomssats.Clear;
-  EMomssats.Items.Add(FloatToStrf(0,ffFixed,4,2));
-//  EMomssats.Text := FloatToStrf(0,ffFixed,4,2);
-  For i := 1 to 5 do
+  EMomssats.Items.Add(FloatToStrf(0, ffFixed, 4, 2));
+  //  EMomssats.Text := FloatToStrf(0,ffFixed,4,2);
+  for i := 1 to 5 do
   begin
     EMomssats.Items.Add(dm1.Momssatser[i]);
   end;
-  EMomssats.Itemindex := i1;
+  EMomssats.ItemIndex := i1;
 end;
 
 function TFKontoplan.FormOK: boolean;

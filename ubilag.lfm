@@ -1,86 +1,96 @@
 object Fbilag: TFbilag
   Left = 646
-  Height = 755
+  Height = 574
   Top = 485
   Width = 1161
   Caption = 'Bilagsregistrering'
-  ClientHeight = 755
+  ClientHeight = 574
   ClientWidth = 1161
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  LCLVersion = '3.0.0.1'
   object Panel1: TPanel
     Left = 0
-    Height = 42
-    Top = 713
+    Height = 40
+    Top = 534
     Width = 1161
     Align = alBottom
-    ClientHeight = 42
+    ClientHeight = 40
     ClientWidth = 1161
-    TabOrder = 1
+    TabOrder = 2
     object Button1: TButton
-      Left = 845
-      Height = 25
-      Top = 8
-      Width = 75
-      Caption = 'Button1'
-      TabOrder = 0
-    end
-    object Button2: TButton
-      Left = 996
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Button2
+      Left = 994
       Height = 25
       Top = 8
       Width = 75
       Anchors = [akTop, akRight]
-      Caption = 'Button2'
-      TabOrder = 1
+      BorderSpacing.Around = 8
+      Caption = 'rsFortryd'
+      TabOrder = 0
     end
-    object Button3: TButton
-      Left = 672
+    object Button2: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      Left = 1077
       Height = 25
       Top = 8
       Width = 75
-      Caption = 'Button3'
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Caption = 'rsOK'
+      TabOrder = 1
+    end
+    object Button3: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Button1
+      Left = 911
+      Height = 25
+      Top = 8
+      Width = 75
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Caption = 'rsAfslut'
       TabOrder = 2
     end
   end
   object Panel2: TPanel
+    AnchorSideTop.Control = Panel5
+    AnchorSideTop.Side = asrBottom
+    AnchorSideBottom.Control = Panel3
     Left = 0
-    Height = 160
-    Top = 176
+    Height = 334
+    Top = 160
     Width = 1161
-    BevelInner = bvLowered
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BevelOuter = bvNone
     Caption = 'Panel2'
-    ClientHeight = 160
+    ClientHeight = 334
     ClientWidth = 1161
-    TabOrder = 2
+    TabOrder = 1
     object sg1: TStringGrid
-      Left = 24
-      Height = 160
-      Top = 56
-      Width = 1137
+      Left = 10
+      Height = 314
+      Top = 10
+      Width = 1141
+      Align = alClient
       BorderSpacing.Around = 10
-      ColCount = 9
       Columns = <      
         item
           Title.Caption = 'Testing'
         end      
         item
+          ReadOnly = True
           Title.Caption = 'Title'
         end      
         item
-          Title.Caption = 'Title'
-        end      
-        item
-          Title.Caption = 'Title'
-        end      
-        item
-          Title.Caption = 'Title'
-        end      
-        item
-          Title.Caption = 'Title'
-        end      
-        item
+          Alignment = taRightJustify
           Title.Caption = 'Title'
         end      
         item
@@ -91,160 +101,15 @@ object Fbilag: TFbilag
           Title.Caption = 'Title'
         end>
       FixedCols = 0
-      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goAutoAddRows, goSmoothScroll]
-      RowCount = 1
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goAutoAddRows, goTabs, goSmoothScroll]
+      RowCount = 2
+      ScrollBars = ssAutoVertical
       TabOrder = 0
       OnDrawCell = sg1DrawCell
-    end
-  end
-  object Panel3: TPanel
-    Left = 56
-    Height = 312
-    Top = 320
-    Width = 466
-    BevelInner = bvLowered
-    ClientHeight = 312
-    ClientWidth = 466
-    TabOrder = 0
-    object ENr: TEdit
-      Tag = 1
-      Left = 110
-      Height = 24
-      Top = 144
-      Width = 104
-      OnExit = ENrExit
-      OnKeyDown = ENrKeyDown
-      OnKeyPress = EKontoKeyPress
-      TabOrder = 0
-      Text = 'ENr'
-    end
-    object ETekst: TEdit
-      Left = 110
-      Height = 24
-      Top = 210
-      Width = 280
-      TabOrder = 1
-      Text = 'ETekst'
-    end
-    object Ebelob: TEdit
-      Left = 110
-      Height = 24
-      Top = 242
-      Width = 104
-      OnExit = EbelobExit
-      OnKeyPress = EbelobKeyPress
-      TabOrder = 2
-      Text = 'Ebelob'
-    end
-    object Edit1: TEdit
-      Tag = 1
-      Left = 110
-      Height = 24
-      Top = 176
-      Width = 280
-      ReadOnly = True
-      TabOrder = 3
-      Text = 'Edit1'
-    end
-    object Label4: TLabel
-      Left = 10
-      Height = 16
-      Top = 152
-      Width = 48
-      Caption = 'rsKonto'
-    end
-    object Label5: TLabel
-      Left = 10
-      Height = 16
-      Top = 184
-      Width = 80
-      Caption = 'rsKontoNavn'
-    end
-    object Label6: TLabel
-      Left = 10
-      Height = 16
-      Top = 216
-      Width = 43
-      Caption = 'rsTekst'
-    end
-    object Label7: TLabel
-      Left = 10
-      Height = 16
-      Top = 248
-      Width = 47
-      Caption = 'rsBelob'
-    end
-    object SpeedButton2: TSpeedButton
-      Left = 232
-      Height = 22
-      Top = 144
-      Width = 23
-      Glyph.Data = {
-        36040000424D3604000000000000360000002800000010000000100000000100
-        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF002C599F452C5BA0E72B5AA1A5FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF002C5BA0462C5AA0F72C5AA0FF2C5AA0EEFFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF002C5BA0462C5AA0F72C5AA0FF2C5AA0F92B5CA04EFFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF002C599F452C5AA0F62C5AA0FF2C5AA0FA2D599F50FFFFFF00FFFFFF00FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002C59
-        9F452C5AA0F62C5AA0FF2C5AA0FA2D599F50FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF000087DF202193E0AC2496E0E12C9AE1E62496E0E12194E0AB1E68B54C2C5A
-        A0F72C5AA0FF2C5AA0F92D5AA14FFFFFFF00FFFFFF00FFFFFF00FFFFFF00148D
-        DD4C2D9AE1E8C8E2F3FEFFFBF8FFFFFBF8FFFFFBF8FFC6E1F2FE2B7EC5F12C5A
-        A0FF2C5AA0F92D5AA14FFFFFFF00FFFFFF00FFFFFF00FFFFFF000083E0212D99
-        DFE8F4EFEBFFFFF0E6FFFFF0E7FFFFF3EBFFFFF7F1FFFFFBF8FFEDF0F3FF2B7D
-        C4F11F65B253FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002093E0ADC8D8
-        E2FEFFE8D9FFFFE5D4FFFFE6D5FFFFE8D9FFFFEDE1FFFFF4ECFFFFFBF8FFC7E1
-        F2FE2195E0AAFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002494DDE1FFE4
-        D2FFFFE6D5FFFFE8D8FFFFE7D8FFFFE6D5FFFFE5D3FFFFECE0FFFFF6EFFFFFFB
-        F8FF2496E0E1FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002D96DCE5FFE7
-        D7FFFFEADDFFFFEDE1FFFFEDE1FFFFEADDFFFFE7D7FFFFE5D5FFFFEFE5FFFFFB
-        F8FF2D9BE2E5FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002493DCE1FFEA
-        DCFFFFEFE5FFFFF2EAFFFFF3EAFFFFEFE4FFFFEADCFFFFE4D3FFFFECDFFFFFF7
-        F1FF2496E0E1FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002093DCAECAD7
-        DFFFFFF1E8FFFFF7F1FFFFF7F1FFFFF2E9FFFFECDFFFFFE6D5FFFFE9DBFFC8DD
-        ECFE2195E0ABFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000087DA222E99
-        DDE8F5EDE8FFFFF7F2FFFFF7F1FFFFF2E9FFFFEBDFFFFFE6D6FFF4E6DCFF2C9A
-        DFE80083E021FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00178D
-        DB4E2E99DEE8CADCE7FFFFF2EAFFFFEFE5FFFFEADCFFC9D0D5FF2D98DDE81490
-        E14CFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-        FF000087DA222093DFAD2494DEE12B97DDE62493DCE12191DDAC0083E021FFFF
-        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
-      }
-      OnClick = SpeedButton2Click
-    end
-    object EKonto: TEdit
-      Left = 275
-      Height = 24
-      Top = 144
-      Width = 80
-      TabOrder = 4
-      Text = 'EKonto'
-      Visible = False
-    end
-  end
-  object Panel4: TPanel
-    Left = 584
-    Height = 284
-    Top = 344
-    Width = 459
-    BevelInner = bvLowered
-    ClientHeight = 284
-    ClientWidth = 459
-    TabOrder = 3
-    object Memo1: TMemo
-      Left = 24
-      Height = 210
-      Top = 32
-      Width = 408
-      Lines.Strings = (
-        'Memo1'
-      )
-      TabOrder = 0
+      OnEditingDone = sg1EditingDone
+      OnKeyDown = sg1KeyDown
+      OnResize = sg1Resize
+      OnValidateEntry = sg1ValidateEntry
     end
   end
   object Panel5: TPanel
@@ -253,17 +118,17 @@ object Fbilag: TFbilag
     Top = 0
     Width = 1161
     Align = alTop
-    Caption = 'Panel5'
     ClientHeight = 160
     ClientWidth = 1161
-    TabOrder = 4
+    TabOrder = 0
     object Label1: TLabel
       AnchorSideTop.Control = EDato
       Left = 10
       Height = 16
       Top = 24
       Width = 40
-      BorderSpacing.Around = 8
+      BorderSpacing.Left = 8
+      BorderSpacing.Top = 8
       Caption = 'rsDato'
     end
     object EDato: TEdit
@@ -401,12 +266,71 @@ object Fbilag: TFbilag
       ImageIndex = 0
       OnClick = SpeedButton1Click
     end
+    object Image1: TImage
+      Left = 383
+      Height = 110
+      Top = 26
+      Width = 162
+    end
+  end
+  object Panel3: TPanel
+    AnchorSideLeft.Control = Panel2
+    AnchorSideTop.Control = Panel2
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Panel2
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Panel1
+    Left = 0
+    Height = 40
+    Top = 494
+    Width = 1161
+    Anchors = [akLeft, akRight, akBottom]
+    ClientHeight = 40
+    ClientWidth = 1161
+    TabOrder = 3
+    object Edit1: TEdit
+      AnchorSideTop.Control = Panel3
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Panel3
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Panel3
+      AnchorSideBottom.Side = asrCenter
+      Left = 984
+      Height = 24
+      Top = 8
+      Width = 168
+      Alignment = taRightJustify
+      Anchors = [akRight, akBottom]
+      BorderSpacing.Around = 8
+      TabOrder = 0
+      Text = 'Edit1'
+    end
+    object Label4: TLabel
+      AnchorSideTop.Control = Panel3
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = Edit1
+      AnchorSideBottom.Control = Edit1
+      AnchorSideBottom.Side = asrCenter
+      Left = 917
+      Height = 16
+      Top = 12
+      Width = 59
+      Anchors = [akRight, akBottom]
+      BorderSpacing.Around = 8
+      Caption = 'rsBalance'
+    end
   end
   object CalendarDialog1: TCalendarDialog
     Date = 45478
     OKCaption = '&OK'
     CancelCaption = 'Cancel'
-    Left = 364
-    Top = 436
+    Left = 680
+    Top = 80
+  end
+  object Timer1: TTimer
+    Interval = 100
+    OnTimer = Timer1Timer
+    Left = 286
+    Top = 79
   end
 end
