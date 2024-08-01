@@ -111,8 +111,6 @@ begin
   sg1.Cells[0, 1] := rsTotal;
   setColWidths;
   EDato.Text := LastYMD;
-  if not dm1.DiverseExists('AarStart') then
-    dm1.PutDiverse('AarStart', LastYMD);
   RestoreForm(Sender as TForm);
 end;
 
@@ -334,6 +332,9 @@ begin
   Aar := Copy(st, 1, 4);
   sg1.InsertRowWithValues(sg1.RowCount - 1, ['', '', '', '', '']);
   BeregnTotal;
+    if not dm1.DiverseExists('AarStart') then
+    dm1.PutDiverse('AarStart', LastYMD);
+
 end;
 
 procedure TFbilag.SpeedButton1Click(Sender: TObject);

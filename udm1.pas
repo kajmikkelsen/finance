@@ -144,9 +144,6 @@ begin
 end;
 
 procedure TDM1.DataModuleCreate(Sender: TObject);
-var
-  i: integer;
-  sats: double;
 begin
   DataDicST := TStringList.Create;
   DataDicSt.Sorted := True;
@@ -154,13 +151,7 @@ begin
   SelHeaders.Sorted := True;
   postnr := TPostnr.Create('postnr');
   konto := TFinkto.Create('konto');
-  DM1.InitDB(DatDir + 'FinDB.db');
-  Momssatser[0] := '0';
-  for i := 1 to 5 do
-  begin
-    sats := dm1.GetMomsSats(i);
-    Momssatser[i] := (FloatToStrF(sats, ffFixed, 2, 2));
-  end;
+//  DM1.InitDB(DatDir + 'FinDB.db');
 
 end;
 
@@ -182,6 +173,7 @@ procedure TDM1.FillDataDic(var DataDicSt: TStringList);
 begin
   with DataDicSt do
   begin
+    clear;
     Append('misc,colname,varchar(40)');
     Append('misc,colvalue,varchar(40)');
     Append('konto,Nummer,Integer');
@@ -205,6 +197,7 @@ begin
   end;
   with SelHeaders do
   begin
+    clear;
     append('colname=' + rsColName);
     append('coltype=' + rsColType);
     append('Nummer=' + rsKontoNummer);
@@ -347,8 +340,14 @@ end;
 
 function TDM1.InitDB(DataBaseName: string): boolean;
 var
+  i:Integer;
+  sats: double;
   TblExists, TblToCreate, CreateSql, Fields, actFields: TStringList;
 begin
+    lt1.CloseTransactions;
+    lt1.CloseDataSets;
+    lt1.Close(true);
+
   lt1.DatabaseName := DataBaseName;
   ltx.DatabaseName := DataBaseName;
   Fields := TStringList.Create;
@@ -370,6 +369,12 @@ begin
   CreateSql.Free;
   Fields.Free;
   actFields.Free;
+  Momssatser[0] := '0';
+  for i := 1 to 5 do
+  begin
+    sats := dm1.GetMomsSats(i);
+    Momssatser[i] := (FloatToStrF(sats, ffFixed, 2, 2));
+  end;
 
   Result := True;
 end;

@@ -9,7 +9,6 @@ object Fbilag: TFbilag
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '3.0.0.1'
   object Panel1: TPanel
     Left = 0
     Height = 40

@@ -23,6 +23,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure LB1DblClick(Sender: TObject);
   private
     procedure PopulateLb;
     function CreateDirectory: string;
@@ -46,11 +47,17 @@ procedure TFVelgFirma.FormCreate(Sender: TObject);
 begin
   TransCaption(Sender as TForm, rsStrings);
   RestoreForm(Sender as TForm);
+
 end;
 
 procedure TFVelgFirma.FormDestroy(Sender: TObject);
 begin
   SaveForm(Sender as TForm);
+end;
+
+procedure TFVelgFirma.LB1DblClick(Sender: TObject);
+begin
+  Modalresult := mrOK;
 end;
 
 procedure TFVelgFirma.PopulateLb;
@@ -98,7 +105,7 @@ end;
 procedure TFVelgFirma.FormActivate(Sender: TObject);
 begin
   PopulateLb;
-
+  lb1.SetFocus;
 end;
 
 end.

@@ -96,6 +96,7 @@ type
     procedure ASettingsExecute(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Edit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
@@ -137,21 +138,6 @@ begin
   LastYM := Copy(LastYMD, 1, 6);
   LastY := Copy(LastYMD, 1, 4);
   LastC := Copy(LastYMD, 1, 2);
-  //AKontoEdit.Caption := rsRet;
-  //AkontoDel.Caption := rsSlet;
-  //ASettings.Caption := rsSettings;
-  //AImportZip.Caption := rsImportZipCode;
-  //APostnr.Caption := rsPostDistrikt;
-  //menuitem1.Caption := rsFiles;
-  //APostnrEdit.Caption := rsRet;
-  //APostnrNy.Caption := rsNy;
-  //APostnrDel.Caption := rsSlet;
-  //AFirma.Caption := rsFirmaoplysninger;
-  //ABilagsreg.Caption := rsBilagsregistrering;
-  //AKonto.Caption := rsKontoplan;
-  //AKontoNy.Caption := rsNy;
-  //AImport.Caption := rsImport;
-  //AAfslut.Caption := rsAfslut;
   ASettings.ShortCut := TextToShortCut(GetStdIni('shortcuts', ASettings.Caption, ''));
   ABilagsreg.ShortCut := TextToShortCut(GetStdIni('shortcuts', ABilagsreg.Caption, ''));
   AImportZip.ShortCut := TextToShortCut(GetStdIni('shortcuts', AImportZip.Caption, ''));
@@ -369,6 +355,18 @@ begin
   if (ssCtrl in Shift) and (ssAlt in shift) then ShowMessage('Both was pressed');
   if key = VK_ACCEPT then;
 
+end;
+
+procedure TFMain.FormActivate(Sender: TObject);
+begin
+  if orgdir = datdir Then
+    if fvelgfirma.showmodal = mrCancel Then
+    AAfslut.Execute
+    else
+      begin
+      Datdir :=  datdir+fvelgfirma.LB1.Items[fvelgfirma.lb1.ItemIndex]+'/';
+    dm1.initdb(DatDir + 'FinDB.db');
+      end;
 end;
 
 end.

@@ -1,53 +1,54 @@
 object FVelgFirma: TFVelgFirma
   Left = 339
-  Height = 458
+  Height = 355
   Top = 250
-  Width = 826
+  Width = 252
   Caption = 'rsVelgFirma'
-  ClientHeight = 458
-  ClientWidth = 826
+  ClientHeight = 355
+  ClientWidth = 252
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '3.0.0.1'
   object Panel1: TPanel
     Left = 0
     Height = 40
-    Top = 418
-    Width = 826
+    Top = 315
+    Width = 252
     Align = alBottom
     ClientHeight = 40
-    ClientWidth = 826
+    ClientWidth = 252
     TabOrder = 0
     object Button1: TButton
       AnchorSideTop.Control = Panel1
       AnchorSideRight.Control = Panel1
       AnchorSideRight.Side = asrBottom
-      Left = 742
+      Left = 168
       Height = 25
       Top = 9
       Width = 75
       Anchors = [akTop, akRight]
       BorderSpacing.Around = 8
       Caption = 'rsOK'
+      ModalResult = 1
       TabOrder = 0
     end
     object Button2: TButton
       AnchorSideTop.Control = Panel1
       AnchorSideRight.Control = Button3
-      Left = 576
+      Left = 2
       Height = 25
       Top = 9
       Width = 75
       Anchors = [akTop, akRight]
       BorderSpacing.Around = 8
       Caption = 'rsAfslut'
+      ModalResult = 2
       TabOrder = 1
     end
     object Button3: TButton
       AnchorSideTop.Control = Panel1
       AnchorSideRight.Control = Button1
-      Left = 659
+      Left = 85
       Height = 25
       Hint = 'rsDanNytFirma'
       Top = 9
@@ -63,12 +64,12 @@ object FVelgFirma: TFVelgFirma
   end
   object Panel2: TPanel
     Left = 0
-    Height = 418
+    Height = 315
     Top = 0
-    Width = 826
+    Width = 252
     Align = alClient
-    ClientHeight = 418
-    ClientWidth = 826
+    ClientHeight = 315
+    ClientWidth = 252
     TabOrder = 1
     object LB1: TListBox
       AnchorSideLeft.Control = Panel2
@@ -78,12 +79,13 @@ object FVelgFirma: TFVelgFirma
       AnchorSideBottom.Control = Panel2
       AnchorSideBottom.Side = asrBottom
       Left = 9
-      Height = 400
+      Height = 297
       Top = 9
-      Width = 808
+      Width = 234
       Anchors = [akTop, akLeft, akRight, akBottom]
       BorderSpacing.Around = 8
       ItemHeight = 0
+      OnDblClick = LB1DblClick
       TabOrder = 0
       TopIndex = -1
     end
