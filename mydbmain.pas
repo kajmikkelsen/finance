@@ -32,7 +32,7 @@ interface
 uses
   Classes, SysUtils, SQLite3Conn, SQLDB, DB, Forms, Controls, Graphics, Dialogs,
   DBGrids, StdCtrls, Menus, ActnList, LCLTranslator, global, uselect,
-  upostnr, ukontoplan, ubilag, lclproc, lclType;
+  upostnr, ukontoplan, ubilag, lclproc, lclType, ComCtrls;
 
 type
 
@@ -78,6 +78,7 @@ type
     Memo2: TMemo;
     OD1: TOpenDialog;
     Separator2: TMenuItem;
+    SB1: TStatusBar;
     procedure AAboutExecute(Sender: TObject);
     procedure AAfslutExecute(Sender: TObject);
     procedure ABilagsregExecute(Sender: TObject);
@@ -111,15 +112,15 @@ var
 
 implementation
 
-uses uDM1, MyLib, uFirma, uimport, usettings, uvelgfirma,LCLIntf,uabout;
+uses uDM1, MyLib, uFirma, uimport, usettings, uvelgfirma, LCLIntf, uabout;
 
   {$R *.lfm}
 
   { TFMain }
 
 procedure TFMain.FormCreate(Sender: TObject);
-Var
-  i:Integer;
+var
+  i: integer;
 begin
   //    SQLiteLibraryName:='./libsqlite3.so';
   SetAllDirs;
@@ -132,7 +133,7 @@ begin
     add(GetAppConfigFile(False, True));
   end;
   SetDefaultLang(GetStdIni('Misc', 'Lang', 'da'));
-  TransCaption(Sender as TForm,rsStrings);
+  TransCaption(Sender as TForm, rsStrings);
   RestoreForm(Sender as TForm);
   LastYMD := GetStdIni('dates', 'LastYMD', FormatDateTime('YYYYMMDD', Now));
   LastYM := Copy(LastYMD, 1, 6);
@@ -150,7 +151,7 @@ begin
   begin
     Memo1.Append(RsStrings.ValueFromIndex[i]);
   end;
-  Button1.Caption:= rsStrings.values['rsImportZipCode'];
+  Button1.Caption := rsStrings.values['rsImportZipCode'];
 
 end;
 
@@ -345,7 +346,7 @@ end;
 procedure TFMain.Button1Click(Sender: TObject);
 begin
   fvelgfirma.showModal;
-//  if OpenDialog1.Execute then openurl(OpendIalog1.FileName)
+  //  if OpenDialog1.Execute then openurl(OpendIalog1.FileName)
 end;
 
 procedure TFMain.Edit1KeyUp(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -358,15 +359,24 @@ begin
 end;
 
 procedure TFMain.FormActivate(Sender: TObject);
+var
+  st: string;
+  w: integer;
 begin
-  if orgdir = datdir Then
-    if fvelgfirma.showmodal = mrCancel Then
-    AAfslut.Execute
+  if orgdir = datdir then
+    if fvelgfirma.showmodal = mrCancel then
+      AAfslut.Execute
     else
-      begin
-      Datdir :=  datdir+fvelgfirma.LB1.Items[fvelgfirma.lb1.ItemIndex]+'/';
-    dm1.initdb(DatDir + 'FinDB.db');
-      end;
+    begin
+      st := fvelgfirma.LB1.Items[fvelgfirma.lb1.ItemIndex];
+      Datdir := datdir + st + '/';
+      st := rsFirma + ': ' + st;
+      w := sb1.Canvas.GetTextWidth(st);
+      sb1.Panels[0].Width := w + 16;
+      sb1.Panels[0].Text := st;
+
+      dm1.initdb(DatDir + 'FinDB.db');
+    end;
 end;
 
 end.

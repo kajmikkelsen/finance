@@ -1,16 +1,15 @@
 object FMain: TFMain
   Left = 1919
-  Height = 483
+  Height = 527
   Top = 689
   Width = 1123
   Caption = 'FMain'
-  ClientHeight = 483
+  ClientHeight = 527
   ClientWidth = 1123
   Menu = MM1
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '3.0.0.1'
   object DBGrid1: TDBGrid
     Left = 8
     Height = 224
@@ -60,6 +59,21 @@ object FMain: TFMain
     OnKeyUp = Edit1KeyUp
     TabOrder = 4
     Text = 'Edit1'
+  end
+  object SB1: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 507
+    Width = 1123
+    Panels = <    
+      item
+        Alignment = taCenter
+        Width = 50
+      end    
+      item
+        Width = 50
+      end>
+    SimplePanel = False
   end
   object MM1: TMainMenu
     Left = 656

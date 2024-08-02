@@ -128,11 +128,13 @@ resourcestring
   rsLicens = 'Licens';
   rsAttribute = 'Attributter';
   rsLuk = 'Luk';
+  rsFirma = 'Firma';
 
 implementation
 
 initialization
 rsStrings := TStringlist.Create;
+rsStrings.Append('rsFirma='+rsFirma);
 rsStrings.Append('rsLuk='+rsLuk);
 rsStrings.Append('rsAttribute='+rsAttribute);
 rsStrings.Append('rsLicens='+rsLicens);
