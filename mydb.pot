@@ -79,6 +79,7 @@ msgid "Message icons created by Freepik - Flaticon"
 msgstr ""
 
 #: tfabout.label2.caption
+msgctxt "tfabout.label2.caption"
 msgid "Label2"
 msgstr ""
 
@@ -176,6 +177,7 @@ msgid "rsPeriode"
 msgstr ""
 
 #: tfbilag.panel2.caption
+msgctxt "tfbilag.panel2.caption"
 msgid "Panel2"
 msgstr ""
 
@@ -292,6 +294,7 @@ msgid "rsMomsSats"
 msgstr ""
 
 #: tffirma.gb2.caption
+msgctxt "tffirma.gb2.caption"
 msgid "rsMisc"
 msgstr ""
 
@@ -704,9 +707,44 @@ msgctxt "tfsettings.cb3.caption"
 msgid "Shift"
 msgstr ""
 
-#: tfsettings.edit1.text
-msgctxt "tfsettings.edit1.text"
-msgid "Edit1"
+#: tfsettings.econfdir.text
+msgid "eConfdir"
+msgstr ""
+
+#: tfsettings.econvertpdf.text
+msgid "eConvertPDF"
+msgstr ""
+
+#: tfsettings.edatdir.text
+msgid "eDatdir"
+msgstr ""
+
+#: tfsettings.ehomedir.text
+msgid "eHomedir"
+msgstr ""
+
+#: tfsettings.groupbox1.caption
+msgid "rsEkstern"
+msgstr ""
+
+#: tfsettings.label1.caption
+msgid "rsDataDir"
+msgstr ""
+
+#: tfsettings.label2.caption
+msgid "rsConfDir"
+msgstr ""
+
+#: tfsettings.label3.caption
+msgid "rsHomeDir"
+msgstr ""
+
+#: tfsettings.label4.caption
+msgid "rsUserDir"
+msgstr ""
+
+#: tfsettings.label5.caption
+msgid "rsConvertPDF"
 msgstr ""
 
 #: tfsettings.rsstdmapper.caption
@@ -718,7 +756,8 @@ msgid "rsShortcut"
 msgstr ""
 
 #: tfsettings.tabsheet2.caption
-msgid "rsPaths"
+msgctxt "tfsettings.tabsheet2.caption"
+msgid "rsMisc"
 msgstr ""
 
 #: tfvelg.aprint.caption

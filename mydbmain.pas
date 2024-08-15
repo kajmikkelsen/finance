@@ -101,7 +101,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
-
+    procedure setstatustext(nbr: Integer;txt: String);
   public
 
   end;
@@ -158,6 +158,17 @@ end;
 procedure TFMain.FormDestroy(Sender: TObject);
 begin
   SaveForm(Sender as TForm);
+end;
+
+procedure TFMain.setstatustext(nbr: Integer; txt: String);
+Var
+  w:Integer;
+begin
+        w := sb1.Canvas.GetTextWidth(txt);
+      sb1.Panels[nbr].Width := w + 16;
+      sb1.Panels[nbr].Text := Txt;
+      sb1.Panels[nbr].Alignment:=taCenter;
+
 end;
 
 procedure TFMain.AImportZipExecute(Sender: TObject);
@@ -345,7 +356,7 @@ end;
 
 procedure TFMain.Button1Click(Sender: TObject);
 begin
-  fvelgfirma.showModal;
+  OpenDocument('/home/kmi/Downloads/test.pdf');
   //  if OpenDialog1.Execute then openurl(OpendIalog1.FileName)
 end;
 
@@ -371,10 +382,8 @@ begin
       st := fvelgfirma.LB1.Items[fvelgfirma.lb1.ItemIndex];
       Datdir := datdir + st + '/';
       st := rsFirma + ': ' + st;
-      w := sb1.Canvas.GetTextWidth(st);
-      sb1.Panels[0].Width := w + 16;
-      sb1.Panels[0].Text := st;
-
+      SetStatusText(0,st);
+       SetStatusText(1,LastYmd);
       dm1.initdb(DatDir + 'FinDB.db');
     end;
 end;

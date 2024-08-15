@@ -19,7 +19,17 @@ type
     CB2: TCheckBox;
     CB3: TCheckBox;
     CMB1: TComboBox;
-    Edit1: TEdit;
+    eDatdir: TEdit;
+    eConfdir: TEdit;
+    eConvertPDF: TEdit;
+    eHomedir: TEdit;
+    eUserDir: TEdit;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
     rsStdmapper: TGroupBox;
     PageControl1: TPageControl;
     Panel1: TPanel;
@@ -32,6 +42,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure VLE1Selection(Sender: TObject; aCol, aRow: integer);
   private
+    DefaultVal: TStringList;
     selrow: integer;
     function MakeString: string;
   public
@@ -53,7 +64,18 @@ uses
 procedure TFSettings.FormCreate(Sender: TObject);
 var
   i: integer;
+  e:TEdit;
+  st,st1:String;
 begin
+  DefaultVal := TStringList.Create;
+  With DefaultVal Do
+  Begin
+    Add('eDatDir='+Datdir);
+    Add('eConfdir='+ConfDir);
+    Add('eHomedir='+homeDir);
+    Add('eUserdir='+UserDir);
+    Add('eConvertPDF=convert %s %s.png');
+  end;
   TransCaption(Sender as TForm,rsStrings);
   RestoreForm(Sender as TForm);
   VLE1.Clear;
@@ -70,6 +92,18 @@ begin
         vle1.Strings.Append((fmain.Components[i] as TAction).Caption +
           '=' + ShortCutToText((fmain.Components[i] as TAction).ShortCut));
   end;
+  for i := 0 to Pred(FSettings.ComponentCount) do
+  begin
+    if FSettings.Components[i] is tedit then
+      Begin
+          e:=(FSettings.Components[i] as tedit);
+          st := copy(e.Name, 2, length(e.Name) - 1);
+          st1 := copy(e.Name, 2, length(e.Name) - 1);
+       e.Text := GetStdIni('Options',copy(e.Name, 2, length(e.Name) - 1),DefaultVal.values[e.Name]);
+      end;
+
+  end;
+
   Selrow := 1;
 end;
 
@@ -81,6 +115,7 @@ end;
 procedure TFSettings.Button1Click(Sender: TObject);
 var
   i, i1: integer;
+  e: TEdit;
 begin
   for i := 1 to Pred(VLE1.RowCount) do
   begin
@@ -93,6 +128,14 @@ begin
             TextToShortcut(Vle1.Values[vle1.Keys[i]]);
           PutStdIni('shortcuts', vle1.Keys[i], Vle1.Values[vle1.Keys[i]]);
         end;
+    end;
+  end;
+  for i := 0 to Pred(FSettings.ComponentCount) do
+  begin
+    if Fsettings.Components[i] is TEdit Then
+    begin
+      e := FSettings.Components[i] as TEdit;
+      PutStdIni('Options',e.name,e.Text);
     end;
   end;
 
@@ -116,6 +159,7 @@ begin
   cmb1.Text := St1;
   cmb1.ItemIndex := cmb1.Items.IndexOf(st1);
   Vle1.Values[vle1.Keys[SelRow]] := MakeString;
+  DefaultVal.Free;
   //  cmb1.ItemIndex:=0;
 end;
 

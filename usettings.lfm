@@ -2,17 +2,17 @@ object FSettings: TFSettings
   Left = 339
   Height = 483
   Top = 250
-  Width = 896
+  Width = 591
   Caption = 'rsSettings'
   ClientHeight = 483
-  ClientWidth = 896
+  ClientWidth = 591
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   object PageControl1: TPageControl
     Left = 0
     Height = 441
     Top = 0
-    Width = 896
+    Width = 591
     ActivePage = TabSheet2
     Align = alClient
     TabIndex = 1
@@ -20,12 +20,12 @@ object FSettings: TFSettings
     object TabSheet1: TTabSheet
       Caption = 'rsShortcut'
       ClientHeight = 411
-      ClientWidth = 892
+      ClientWidth = 587
       object VLE1: TValueListEditor
         Left = 16
         Height = 384
         Top = 0
-        Width = 712
+        Width = 407
         Anchors = [akTop, akLeft, akRight, akBottom]
         DefaultColWidth = 128
         FixedCols = 0
@@ -35,7 +35,7 @@ object FSettings: TFSettings
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goAlwaysShowEditor, goThumbTracking]
         ColWidths = (
           128
-          580
+          275
         )
       end
       object CB1: TCheckBox
@@ -143,30 +143,196 @@ object FSettings: TFSettings
       end
     end
     object TabSheet2: TTabSheet
-      Caption = 'rsPaths'
+      Caption = 'rsMisc'
       ClientHeight = 411
-      ClientWidth = 892
+      ClientWidth = 587
       object rsStdmapper: TGroupBox
-        Left = 16
+        AnchorSideLeft.Control = TabSheet2
+        AnchorSideTop.Control = TabSheet2
+        AnchorSideRight.Control = TabSheet2
+        AnchorSideRight.Side = asrBottom
+        Left = 8
         Height = 185
         Top = 8
-        Width = 473
+        Width = 571
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Around = 8
         Caption = 'rsStdmapper'
         ClientHeight = 167
-        ClientWidth = 469
+        ClientWidth = 567
         TabOrder = 0
-        object Edit1: TEdit
+        object eDatdir: TEdit
           AnchorSideTop.Control = rsStdmapper
           AnchorSideRight.Control = rsStdmapper
           AnchorSideRight.Side = asrBottom
-          Left = 381
+          Left = 152
           Height = 24
           Top = 8
-          Width = 80
-          Anchors = [akTop, akRight]
-          BorderSpacing.Around = 8
+          Width = 407
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 8
+          BorderSpacing.Right = 8
+          ReadOnly = True
           TabOrder = 0
-          Text = 'Edit1'
+          Text = 'eDatdir'
+        end
+        object Label1: TLabel
+          AnchorSideLeft.Control = rsStdmapper
+          AnchorSideRight.Control = eDatdir
+          AnchorSideBottom.Control = eDatdir
+          AnchorSideBottom.Side = asrBottom
+          Left = 8
+          Height = 16
+          Top = 16
+          Width = 136
+          Anchors = [akLeft, akRight, akBottom]
+          BorderSpacing.Left = 8
+          BorderSpacing.Right = 8
+          Caption = 'rsDataDir'
+          WordWrap = True
+        end
+        object eConfdir: TEdit
+          AnchorSideLeft.Control = eDatdir
+          AnchorSideTop.Control = eDatdir
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = rsStdmapper
+          AnchorSideRight.Side = asrBottom
+          Left = 152
+          Height = 24
+          Top = 40
+          Width = 407
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 8
+          BorderSpacing.Right = 8
+          ReadOnly = True
+          TabOrder = 1
+          Text = 'eConfdir'
+        end
+        object eHomedir: TEdit
+          AnchorSideLeft.Control = eDatdir
+          AnchorSideTop.Control = eConfdir
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = rsStdmapper
+          AnchorSideRight.Side = asrBottom
+          Left = 152
+          Height = 24
+          Top = 72
+          Width = 407
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 8
+          BorderSpacing.Right = 8
+          ReadOnly = True
+          TabOrder = 2
+          Text = 'eHomedir'
+        end
+        object eUserDir: TEdit
+          AnchorSideLeft.Control = eDatdir
+          AnchorSideTop.Control = eHomedir
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = rsStdmapper
+          AnchorSideRight.Side = asrBottom
+          Left = 152
+          Height = 24
+          Top = 104
+          Width = 407
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 8
+          BorderSpacing.Right = 8
+          ReadOnly = True
+          TabOrder = 3
+        end
+        object label2: TLabel
+          AnchorSideLeft.Control = rsStdmapper
+          AnchorSideRight.Control = eDatdir
+          AnchorSideBottom.Control = eConfdir
+          AnchorSideBottom.Side = asrBottom
+          Left = 8
+          Height = 16
+          Top = 48
+          Width = 136
+          Anchors = [akLeft, akRight, akBottom]
+          BorderSpacing.Left = 8
+          BorderSpacing.Right = 8
+          Caption = 'rsConfDir'
+          WordWrap = True
+        end
+        object Label3: TLabel
+          AnchorSideLeft.Control = rsStdmapper
+          AnchorSideRight.Control = eDatdir
+          AnchorSideBottom.Control = eHomedir
+          AnchorSideBottom.Side = asrBottom
+          Left = 8
+          Height = 16
+          Top = 80
+          Width = 136
+          Anchors = [akLeft, akRight, akBottom]
+          BorderSpacing.Left = 8
+          BorderSpacing.Right = 8
+          Caption = 'rsHomeDir'
+          WordWrap = True
+        end
+        object Label4: TLabel
+          AnchorSideLeft.Control = rsStdmapper
+          AnchorSideRight.Control = eDatdir
+          AnchorSideBottom.Control = eUserDir
+          AnchorSideBottom.Side = asrBottom
+          Left = 8
+          Height = 16
+          Top = 112
+          Width = 136
+          Anchors = [akLeft, akRight, akBottom]
+          BorderSpacing.Left = 8
+          BorderSpacing.Right = 8
+          Caption = 'rsUserDir'
+          WordWrap = True
+        end
+      end
+      object GroupBox1: TGroupBox
+        AnchorSideLeft.Control = rsStdmapper
+        AnchorSideTop.Control = rsStdmapper
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = rsStdmapper
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheet2
+        AnchorSideBottom.Side = asrBottom
+        Left = 16
+        Height = 202
+        Top = 201
+        Width = 555
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 8
+        Caption = 'rsEkstern'
+        ClientHeight = 184
+        ClientWidth = 551
+        TabOrder = 1
+        object Label5: TLabel
+          AnchorSideLeft.Control = GroupBox1
+          AnchorSideBottom.Control = eConvertPDF
+          AnchorSideBottom.Side = asrBottom
+          Left = 8
+          Height = 14
+          Top = 18
+          Width = 83
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BorderSpacing.Left = 8
+          BorderSpacing.Right = 8
+          Caption = 'rsConvertPDF'
+          WordWrap = True
+        end
+        object eConvertPDF: TEdit
+          AnchorSideTop.Control = GroupBox1
+          AnchorSideRight.Control = GroupBox1
+          AnchorSideRight.Side = asrBottom
+          Left = 144
+          Height = 24
+          Top = 8
+          Width = 399
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 8
+          BorderSpacing.Right = 8
+          ReadOnly = True
+          TabOrder = 0
+          Text = 'eConvertPDF'
         end
       end
     end
@@ -175,13 +341,13 @@ object FSettings: TFSettings
     Left = 0
     Height = 42
     Top = 441
-    Width = 896
+    Width = 591
     Align = alBottom
     ClientHeight = 42
-    ClientWidth = 896
+    ClientWidth = 591
     TabOrder = 1
     object Button1: TButton
-      Left = 808
+      Left = 503
       Height = 25
       Top = 8
       Width = 75
@@ -192,7 +358,7 @@ object FSettings: TFSettings
       TabOrder = 0
     end
     object Button2: TButton
-      Left = 728
+      Left = 423
       Height = 25
       Top = 8
       Width = 75

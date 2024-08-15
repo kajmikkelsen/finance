@@ -10,6 +10,7 @@ object FMain: TFMain
   OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  LCLVersion = '3.0.0.1'
   object DBGrid1: TDBGrid
     Left = 8
     Height = 224
@@ -68,6 +69,9 @@ object FMain: TFMain
     Panels = <    
       item
         Alignment = taCenter
+        Width = 50
+      end    
+      item
         Width = 50
       end    
       item
