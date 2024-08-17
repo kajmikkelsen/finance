@@ -74,7 +74,7 @@ begin
     Add('eConfdir='+ConfDir);
     Add('eHomedir='+homeDir);
     Add('eUserdir='+UserDir);
-    Add('eConvertPDF=convert %s %s.png');
+    Add('eConvertPDF=convert -thumbnail x300 -background white -alpha remove %s[0] %d');
   end;
   TransCaption(Sender as TForm,rsStrings);
   RestoreForm(Sender as TForm);

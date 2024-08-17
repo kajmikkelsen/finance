@@ -355,8 +355,9 @@ begin
 end;
 
 procedure TFMain.Button1Click(Sender: TObject);
+Var st: String;
 begin
-  OpenDocument('/home/kmi/Downloads/test.pdf');
+  if od1.Execute then OpenDocument(od1.filename);
   //  if OpenDialog1.Execute then openurl(OpendIalog1.FileName)
 end;
 

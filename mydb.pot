@@ -148,6 +148,10 @@ msgctxt "tfbilag.edit1.text"
 msgid "Edit1"
 msgstr ""
 
+#: tfbilag.eimg.text
+msgid "EImg"
+msgstr ""
+
 #: tfbilag.eperiode.text
 msgid "EPeriode"
 msgstr ""
@@ -169,6 +173,10 @@ msgstr ""
 
 #: tfbilag.label4.caption
 msgid "rsBalance"
+msgstr ""
+
+#: tfbilag.label5.caption
+msgid "rsImg"
 msgstr ""
 
 #: tfbilag.label8.caption
@@ -583,6 +591,23 @@ msgstr ""
 
 #: tfmain.od1.title
 msgid "rsOpenFile"
+msgstr ""
+
+#: tfoscbox.button1.caption
+msgid "rsSave"
+msgstr ""
+
+#: tfoscbox.button2.caption
+msgid "rsOpen"
+msgstr ""
+
+#: tfoscbox.button3.caption
+msgctxt "tfoscbox.button3.caption"
+msgid "rsFortryd"
+msgstr ""
+
+#: tfoscbox.caption
+msgid "FOSCBox"
 msgstr ""
 
 #: tfpostnredit.button1.caption

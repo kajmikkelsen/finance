@@ -191,6 +191,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UAbout"/>
       </Unit>
+      <Unit>
+        <Filename Value="uoscbox.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FOSCBox"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UOSCBox"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

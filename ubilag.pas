@@ -40,13 +40,17 @@ type
     Ebnummer: TEdit;
     EDato: TEdit;
     Edit1: TEdit;
+    EImg: TEdit;
     EPeriode: TEdit;
     Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    Label5: TLabel;
     Label8: TLabel;
+    Memo1: TMemo;
+    OD1: TOpenDialog;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
@@ -57,6 +61,7 @@ type
     procedure EbelobExit(Sender: TObject);
     procedure EbelobKeyPress(Sender: TObject; var Key: char);
     procedure EDatoExit(Sender: TObject);
+    procedure EImgClick(Sender: TObject);
     procedure EKontoKeyPress(Sender: TObject; var Key: char);
     procedure ENrExit(Sender: TObject);
     procedure ENrKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
@@ -91,7 +96,7 @@ var
 implementation
 
 uses
-  MyLib, Global, udm1,  usel;
+  MyLib, Global, udm1,  usel,uoscBox,fileutil;
 
   {$R *.lfm}
 
@@ -260,6 +265,47 @@ begin
     end;
   end;
 
+end;
+
+procedure TFbilag.EImgClick(Sender: TObject);
+var
+  st,tmpdir,DestFile,flnm,ext:String;
+  stl:TStringList;
+  err: Integer;
+begin
+  If OD1.Execute Then
+  Begin
+    ext := ExtractFileExt(od1.FileName);
+    flnm := GetUniqFileName(GetTempdir,'org','ext');
+    copyfile(od1.filename,flnm);
+    Stl := TStringList.Create;
+    EImg.Text := OD1.FileName;
+    destfile := GetUniqFileName(GetTempdir,'thumb','png');
+    St := GetStdIni('Options','eConvertPDF','');
+    st := StringReplace(st, '%s',flnm,[]);
+    st := StringReplace(st,'%d',destfile,[]);
+    Memo1.Lines.Add(st);
+    err := DoCommand(St,stl);
+    if err = 0 Then
+    begin
+      FOSCBox.Thumb:=destfile;
+      FOSCBox.Filename := OD1.FileName;
+      If FOSCBox.ShowModal = mrOK Then
+      ShowMessage('Success');
+      memo1.Clear;
+      memo1.lines.assign(stl);
+    end
+    else
+    begin
+      showmessage('Fejl '+IntToStr(err));
+      memo1.Clear;
+      memo1.lines.assign(stl);
+    end;
+    deletefile(flnm);
+    deletefile(DestFile);
+    Stl.Free;
+    EImg.Text := St
+  end;
 end;
 
 procedure TFbilag.EbelobKeyPress(Sender: TObject; var Key: char);

@@ -1,0 +1,89 @@
+object FOSCBox: TFOSCBox
+  Left = 321
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'FOSCBox'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object Panel1: TPanel
+    Left = 0
+    Height = 40
+    Top = 200
+    Width = 320
+    Align = alBottom
+    ClientHeight = 40
+    ClientWidth = 320
+    TabOrder = 0
+    object Button1: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      Left = 240
+      Height = 25
+      Top = 9
+      Width = 71
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Caption = 'rsSave'
+      Default = True
+      ModalResult = 1
+      TabOrder = 0
+    end
+    object Button2: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideRight.Control = Button1
+      Left = 157
+      Height = 25
+      Top = 9
+      Width = 75
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Caption = 'rsOpen'
+      OnClick = Button2Click
+      TabOrder = 1
+    end
+    object Button3: TButton
+      AnchorSideTop.Control = Panel1
+      AnchorSideRight.Control = Button2
+      Left = 74
+      Height = 25
+      Top = 9
+      Width = 75
+      Anchors = [akTop, akRight]
+      BorderSpacing.Around = 8
+      Cancel = True
+      Caption = 'rsFortryd'
+      ModalResult = 2
+      TabOrder = 2
+    end
+  end
+  object Panel2: TPanel
+    Left = 8
+    Height = 184
+    Top = 8
+    Width = 304
+    Align = alClient
+    BorderSpacing.Around = 8
+    ClientHeight = 184
+    ClientWidth = 304
+    TabOrder = 1
+    object Image1: TImage
+      AnchorSideLeft.Control = Panel2
+      AnchorSideTop.Control = Panel2
+      AnchorSideRight.Control = Panel2
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Panel2
+      AnchorSideBottom.Side = asrBottom
+      Left = 9
+      Height = 166
+      Top = 9
+      Width = 286
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Around = 8
+    end
+  end
+end

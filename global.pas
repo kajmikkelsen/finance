@@ -27,7 +27,7 @@ resourcestring
   rsImportZipCode = 'Importer postnummer';
   rsOpenFile = ' åbn fil ';
   rsFiles = 'Kartoteker';
-  rsOpen = 'åbn';
+  rsOpen = 'Åbn';
   rsPostDistrikt = 'Postdistrikt';
   rsAfbryd = 'Afbryd';
   rsOK = 'OK';
@@ -135,11 +135,15 @@ resourcestring
   rsUserDir = 'Bruger';
   rsEkstern = 'Eksterne kommandoer';
   rsConvertPDF = 'Konverter PDF';
+  rsImg = 'Billede';
+  rsSave = 'Gem';
 
 implementation
 
 initialization
   rsStrings := TStringList.Create;
+  rsStrings.Append('rsSave='+rsSave);
+  rsStrings.Append('rsImg='+rsImg);
   rsStrings.Append('rsConvertPDF='+rsConvertPDF);
   rsStrings.Append('rsEkstern='+rsEkstern);
   rsStrings.Append('rsUserDir=' + rsUserDir);

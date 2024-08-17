@@ -17,6 +17,8 @@
 {"hash":7960450,"name":"tfbilag.label2.caption","sourcebytes":[114,115,65,97,114],"value":"rsAar"},
 {"hash":265036722,"name":"tfbilag.label3.caption","sourcebytes":[114,115,66,105,108,97,103,115,110,117,109,109,101,114],"value":"rsBilagsnummer"},
 {"hash":113810469,"name":"tfbilag.label8.caption","sourcebytes":[114,115,80,101,114,105,111,100,101],"value":"rsPeriode"},
+{"hash":303159,"name":"tfbilag.eimg.text","sourcebytes":[69,73,109,103],"value":"EImg"},
+{"hash":7962679,"name":"tfbilag.label5.caption","sourcebytes":[114,115,73,109,103],"value":"rsImg"},
 {"hash":4960369,"name":"tfbilag.edit1.text","sourcebytes":[69,100,105,116,49],"value":"Edit1"},
 {"hash":142745061,"name":"tfbilag.label4.caption","sourcebytes":[114,115,66,97,108,97,110,99,101],"value":"rsBalance"},
 {"hash":11067,"name":"tfbilag.calendardialog1.okcaption","sourcebytes":[38,79,75],"value":"&OK"},
